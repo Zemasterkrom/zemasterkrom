@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 100">
+  <style>
+    .title {
+      font: bold 20px 'Segoe UI', sans-serif;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      .title {
+        fill: #FFFFFF;
+      }
+    }
+
+    @media (prefers-color-scheme: light) {
+      .title {
+        fill: #000000;
+      }
+    }
+  </style>
+
+  <text class="title" x="10" y="55">Styled inside SVG</text>
+</svg>

@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 100">
+  <style>
+    .container {
+      font-family: 'Segoe UI', sans-serif;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      height: 100%;
+
+      background-color: #0078D4;
+      color: #FFFFFF;
+      border-radius: 8px;
+    }
+  </style>
+
+  <foreignObject x="0" y="0" width="100%" height="100%">
+    <div xmlns="http://www.w3.org/1999/xhtml" class="container">
+      <strong>Centered text inside SVG</strong>
+    </div>
+  </foreignObject>
+</svg>
