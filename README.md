@@ -1,6 +1,6 @@
 
 <a href="https://github.com/Zemasterkrom/zemasterkrom-assets">
-  <img src="https://raw.githubusercontent.com/Zemasterkrom/zemasterkrom-assets/refs/tags/rev1/header/vscode-tabs-bar.svg" alt="Preview README.md" width="100%">
+  <img src="https://github.com/Zemasterkrom/zemasterkrom-assets/blob/rev2-fix-bootstrap-logo/header/vscode-tabs-bar.svg?raw=true" alt="Preview README.md" width="100%">
 </a>
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/43e04bd2-4dae-45c4-b501-ca425aaa5a34/deploy-status)](https://app.netlify.com/projects/zemasterkrom-typingsvg/deploys)
@@ -14,11 +14,14 @@
     </a>
 </h1>
 
-<a href="https://github.com/whiteSHADOW1234/TypingSVG" style="display: block; text-align: center;">
-    <img 
-        src="https://zemasterkrom-typingsvg.netlify.app/api/svg?width=488&height=72&pause=5000&backgroundOpacity=0&border=false&lines=%5B%7B%22text%22%3A%22Software+Engineer%22%2C%22color%22%3A%22%2336bcf7%22%2C%22fontSize%22%3A32%2C%22typingSpeed%22%3A0.1%2C%22deleteSpeed%22%3A0.05%7D%2C%7B%22text%22%3A%22Back-End%5CnMonolithic+Full-Stack%22%2C%22color%22%3A%22%2336bcf7%22%2C%22fontSize%22%3A32%2C%22typingSpeed%22%3A0.1%2C%22deleteSpeed%22%3A0.05%7D%2C%7B%22text%22%3A%22%23OpenSource%22%2C%22color%22%3A%22%2336bcf7%22%2C%22typingSpeed%22%3A0.1%2C%22deleteSpeed%22%3A0.05%2C%22fontWeight%22%3A%22600%22%7D%2C%7B%22text%22%3A%22%23CleanCode%22%2C%22color%22%3A%22%2336bcf7%22%2C%22typingSpeed%22%3A0.1%2C%22deleteSpeed%22%3A0.05%2C%22fontWeight%22%3A%22600%22%7D%2C%7B%22text%22%3A%22%23PragmaticEngineering%22%2C%22color%22%3A%22%2336bcf7%22%2C%22typingSpeed%22%3A0.1%2C%22deleteSpeed%22%3A0.05%2C%22fontWeight%22%3A%22600%22%7D%5D"
-        alt="Profile description of Zemasterkrom" />
-</a>
+<p align="center">
+  <a href="https://github.com/whiteSHADOW1234/TypingSVG" style="display: block; text-align: center;">
+      <img 
+          src="https://zemasterkrom-typingsvg.netlify.app/api/svg?width=488&height=72&pause=5000&backgroundOpacity=0&border=false&lines=%5B%7B%22text%22%3A%22Software+Engineer%22%2C%22color%22%3A%22%2336bcf7%22%2C%22fontSize%22%3A32%2C%22typingSpeed%22%3A0.1%2C%22deleteSpeed%22%3A0.05%7D%2C%7B%22text%22%3A%22Back-End%5CnMonolithic+Full-Stack%22%2C%22color%22%3A%22%2336bcf7%22%2C%22fontSize%22%3A32%2C%22typingSpeed%22%3A0.1%2C%22deleteSpeed%22%3A0.05%7D%2C%7B%22text%22%3A%22%23OpenSource%22%2C%22color%22%3A%22%2336bcf7%22%2C%22typingSpeed%22%3A0.1%2C%22deleteSpeed%22%3A0.05%2C%22fontWeight%22%3A%22600%22%7D%2C%7B%22text%22%3A%22%23CleanCode%22%2C%22color%22%3A%22%2336bcf7%22%2C%22typingSpeed%22%3A0.1%2C%22deleteSpeed%22%3A0.05%2C%22fontWeight%22%3A%22600%22%7D%2C%7B%22text%22%3A%22%23PragmaticEngineering%22%2C%22color%22%3A%22%2336bcf7%22%2C%22typingSpeed%22%3A0.1%2C%22deleteSpeed%22%3A0.05%2C%22fontWeight%22%3A%22600%22%7D%5D"
+          alt="Profile description of Zemasterkrom" align="center"/>
+  </a>
+</p>
+
 
 
 ## 🤔 About Me
@@ -36,18 +39,18 @@
 
 <p align="center">
     <img src="https://zemasterkrom-badgen.netlify.app/badge/icon/PHP?icon=php&scale=1.4&labelColor=777BB3&color=777BB3&label=" alt="PHP" />
-    <img src="https://zemasterkrom-badgen.netlify.app/badge/icon/Symfony?icon=https://raw.githubusercontent.com/Zemasterkrom/zemasterkrom-assets/refs/heads/rev2-fix-bootstrap-logo/logos/dark-mode/symfony.svg&scale=1.4&labelColor=000000&color=000000&label=" alt="Symfony" />
-    <img src="https://zemasterkrom-badgen.netlify.app/badge/icon/Java?icon=https://raw.githubusercontent.com/Zemasterkrom/zemasterkrom-assets/refs/heads/rev2-fix-bootstrap-logo/logos/dark-mode/openjdk.svg&scale=1.4&labelColor=F29111&color=F29111&label=" alt="Java" />
+    <img src="https://zemasterkrom-badgen.netlify.app/badge/icon/Symfony?icon=https%3A%2F%2Fraw.githubusercontent.com%2FZemasterkrom%2Fzemasterkrom-assets%2Frev2-fix-bootstrap-logo%2Flogos%2Fdark-mode%2Fsymfony.svg&scale=1.4&labelColor=000000&color=000000&label=&uuid=266f9413-5f52-463d-a7aa-9e28a9815e43&cache=1200" alt="Symfony" />
+    <img src="https://zemasterkrom-badgen.netlify.app/badge/icon/Java?icon=https%3A%2F%2Fraw.githubusercontent.com%2FZemasterkrom%2Fzemasterkrom-assets%2Frev2-fix-bootstrap-logo%2Flogos%2Fdark-mode%2Fopenjdk.svg&scale=1.4&labelColor=F29111&color=F29111&label=&uuid=bbfb517b-82f5-481a-86a3-fa33a64a7cae&cache=1200" alt="Java" />
     <img src="https://zemasterkrom-badgen.netlify.app/badge/icon/Spring?icon=&scale=1.4&labelColor=6DB33F&color=6DB33F&label=" alt="Spring" />
     <img src="https://zemasterkrom-badgen.netlify.app/badge/icon/Shell?icon=terminal&scale=1.4&labelColor=000000&color=000000&label=" alt="Shell" />
-    <img src="https://zemasterkrom-badgen.netlify.app/badge/icon/PowerShell?icon=https://raw.githubusercontent.com/Zemasterkrom/zemasterkrom-assets/refs/heads/rev2-fix-bootstrap-logo/logos/dark-mode/powershell.svg&scale=1.4&labelColor=012456&color=012456&label=" alt="PowerShell" />
-    <img src="https://zemasterkrom-badgen.netlify.app/badge/icon/JavaScript?icon=https://raw.githubusercontent.com/Zemasterkrom/zemasterkrom-assets/refs/heads/rev2-fix-bootstrap-logo/logos/dark-mode/javascript.svg&scale=1.4&labelColor=E8C800&color=E8C800&label=" alt="JavaScript" />
-    <img src="https://zemasterkrom-badgen.netlify.app/badge/icon/Bootstrap?icon=https://raw.githubusercontent.com/Zemasterkrom/zemasterkrom-assets/refs/heads/rev2-fix-bootstrap-logo/logos/dark-mode/bootstrap.svg&scale=1.4&labelColor=712CF9&color=712CF9&label=" alt="Bootstrap" />
+    <img src="https://zemasterkrom-badgen.netlify.app/badge/icon/PowerShell?icon=https%3A%2F%2Fraw.githubusercontent.com%2FZemasterkrom%2Fzemasterkrom-assets%2Frev2-fix-bootstrap-logo%2Flogos%2Fdark-mode%2Fpowershell.svg&scale=1.4&labelColor=012456&color=012456&label=&uuid=c22a78cb-9f7c-41dd-9339-7b96faf5232a&cache=1200" alt="PowerShell" />
+    <img src="https://zemasterkrom-badgen.netlify.app/badge/icon/JavaScript?icon=https%3A%2F%2Fraw.githubusercontent.com%2FZemasterkrom%2Fzemasterkrom-assets%2Frev2-fix-bootstrap-logo%2Flogos%2Fdark-mode%2Fjavascript.svg&scale=1.4&labelColor=E8C800&color=E8C800&label=&uuid=6f556776-66ea-491f-bbd9-e8c52042f915&cache=1200" alt="JavaScript" />
+    <img src="https://zemasterkrom-badgen.netlify.app/badge/icon/Bootstrap?icon=https%3A%2F%2Fraw.githubusercontent.com%2FZemasterkrom%2Fzemasterkrom-assets%2Frev2-fix-bootstrap-logo%2Flogos%2Fdark-mode%2Fbootstrap.svg&scale=1.4&labelColor=712CF9&color=712CF9&label=&uuid=4c6f68d6-94b3-4453-af44-72df4adb7b96&cache=1200" alt="Bootstrap" />
 </p>
 
 <p align="center">
-    <img src="https://zemasterkrom-badgen.netlify.app/badge/icon/PHPUnit?icon=https://raw.githubusercontent.com/Zemasterkrom/zemasterkrom-assets/refs/heads/rev2-fix-bootstrap-logo/logos/dark-mode/phpunit.svg&scale=1.4&labelColor=356388&color=356388&label=" alt="PHPUnit" />
-    <img src="https://zemasterkrom-badgen.netlify.app/badge/icon/PHPStan?icon=&scale=1.4&labelColor=712CF9&color=712CF9&label=" alt="PHPStan" />
+    <img src="https://zemasterkrom-badgen.netlify.app/badge/icon/PHPUnit?icon=https%3A%2F%2Fraw.githubusercontent.com%2FZemasterkrom%2Fzemasterkrom-assets%2Frev2-fix-bootstrap-logo%2Flogos%2Fdark-mode%2Fphpunit.svg&scale=1.4&labelColor=356388&color=356388&label=&uuid=e7945fd0-562e-4569-b91c-3fcc768552d8&cache=1200" alt="PHPUnit" />
+    <img src="https://zemasterkrom-badgen.netlify.app/badge/icon/PHPStan?icon=&scale=1.4&labelColor=516CB3&color=516CB3&label=" alt="PHPStan" />
     <img src="https://zemasterkrom-badgen.netlify.app/badge/icon/JUnit?icon=&scale=1.4&labelColor=ED8B00&color=ED8B00&label=" alt="JUnit" />
     <img src="https://zemasterkrom-badgen.netlify.app/badge/icon/GitHub%20Actions?icon=github&scale=1.4&labelColor=171515&color=171515&label=" alt="GitHub Actions" />
     <img src="https://zemasterkrom-badgen.netlify.app/badge/icon/Docker?icon=docker&scale=1.4&labelColor=1D63ED&color=1D63ED&label=" alt="Docker" />
