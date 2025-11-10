@@ -562,3 +562,6 @@ The goal we are trying to achieve here is to replicate the style of the VSCode t
 <img src="<link-to-the-composite-svg-image.svg>" width="100%" alt="Preview README.md">
 ```
 
+<a href="https://github.com/Zemasterkrom/zemasterkrom-assets">
+  <img src="https://github.com/Zemasterkrom/zemasterkrom-assets/blob/rev2-fix-bootstrap-logo/header/vscode-tabs-bar.svg?raw=true" alt="Preview README.md" width="100%">
+</a>
