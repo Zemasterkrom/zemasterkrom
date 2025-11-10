@@ -26,35 +26,37 @@
 
 ## 🤔 About Me
 
-⚙️ I build **web apps, APIs, and package-based components**.  
+⚙️ I build **web apps**, **APIs**, and **package-based components**.  
 
-🚀 I enjoy converting **useful ideas** into **real projects**, no matter what kind of project it is. I am constantly learning appropriate **new tools, new languages, or frameworks**.  
+🚀 I enjoy converting **useful ideas** into **real projects**, no matter what kind of project it is. 
 
-🤝 I enjoy **helping my fellows**, **contributing** to the community and **sharing technical knowledge**.  That's the 
-[**#OpenSource**](https://github.com/topics/open-source).  
+🧠 I am constantly learning appropriate **new tools**, **languages**, or **frameworks**.  
+
+🤝 [**#OpenSource**](https://github.com/topics/open-source) — I love **contributing** to the community, **sharing technical knowledge**, **helping my fellows** and **teammates**.  
 
 🏔️ When not working, I like **hiking** and **exploring** new things.  
 
-⚔️ By the way, I'm also a **competitive Fortnite player**. I enjoy the associated **eSports scene**, so I follow it too and continuously look for improvements... Just like developers do it.  
+⚔️ By the way, I'm also a **competitive Fortnite player**. I enjoy the associated **eSports scene**, so I **follow** it and continuously look for **improvements**... Just like developers do.  
 
 <p align="center">
-    <img src="https://zemasterkrom-badgen.netlify.app/badge/icon/PHP?icon=php&scale=1.4&labelColor=777BB3&color=777BB3&label=" alt="PHP" />
-    <img src="https://zemasterkrom-badgen.netlify.app/badge/icon/Symfony?icon=https%3A%2F%2Fraw.githubusercontent.com%2FZemasterkrom%2Fzemasterkrom-assets%2Frev2-fix-bootstrap-logo%2Flogos%2Fdark-mode%2Fsymfony.svg&scale=1.4&labelColor=000000&color=000000&label=&uuid=266f9413-5f52-463d-a7aa-9e28a9815e43&cache=1200" alt="Symfony" />
-    <img src="https://zemasterkrom-badgen.netlify.app/badge/icon/Java?icon=https%3A%2F%2Fraw.githubusercontent.com%2FZemasterkrom%2Fzemasterkrom-assets%2Frev2-fix-bootstrap-logo%2Flogos%2Fdark-mode%2Fopenjdk.svg&scale=1.4&labelColor=F29111&color=F29111&label=&uuid=bbfb517b-82f5-481a-86a3-fa33a64a7cae&cache=1200" alt="Java" />
-    <img src="https://zemasterkrom-badgen.netlify.app/badge/icon/Spring?icon=&scale=1.4&labelColor=6DB33F&color=6DB33F&label=" alt="Spring" />
-    <img src="https://zemasterkrom-badgen.netlify.app/badge/icon/Shell?icon=terminal&scale=1.4&labelColor=000000&color=000000&label=" alt="Shell" />
-    <img src="https://zemasterkrom-badgen.netlify.app/badge/icon/PowerShell?icon=https%3A%2F%2Fraw.githubusercontent.com%2FZemasterkrom%2Fzemasterkrom-assets%2Frev2-fix-bootstrap-logo%2Flogos%2Fdark-mode%2Fpowershell.svg&scale=1.4&labelColor=012456&color=012456&label=&uuid=c22a78cb-9f7c-41dd-9339-7b96faf5232a&cache=1200" alt="PowerShell" />
-    <img src="https://zemasterkrom-badgen.netlify.app/badge/icon/JavaScript?icon=https%3A%2F%2Fraw.githubusercontent.com%2FZemasterkrom%2Fzemasterkrom-assets%2Frev2-fix-bootstrap-logo%2Flogos%2Fdark-mode%2Fjavascript.svg&scale=1.4&labelColor=E8C800&color=E8C800&label=&uuid=6f556776-66ea-491f-bbd9-e8c52042f915&cache=1200" alt="JavaScript" />
-    <img src="https://zemasterkrom-badgen.netlify.app/badge/icon/Bootstrap?icon=https%3A%2F%2Fraw.githubusercontent.com%2FZemasterkrom%2Fzemasterkrom-assets%2Frev2-fix-bootstrap-logo%2Flogos%2Fdark-mode%2Fbootstrap.svg&scale=1.4&labelColor=712CF9&color=712CF9&label=&uuid=4c6f68d6-94b3-4453-af44-72df4adb7b96&cache=1200" alt="Bootstrap" />
+    <img src="https://zemasterkrom-badgen.netlify.app/badge/icon/PHP?icon=php&scale=1.4&labelColor=777BB3&color=777BB3&label=&uuid=9c8f1b3a-7e2f-4c2e-bf44-5b7b7e5b6d12&cache=1200" alt="PHP" />
+    <img src="https://zemasterkrom-badgen.netlify.app/badge/icon/Symfony?icon=https%3A%2F%2Fgithub.com%2FZemasterkrom%2Fzemasterkrom-assets%2Fblob%2Frev2-fix-bootstrap-logo%2Flogos%2Fdark-mode%2Fsymfony.svg%3Fraw%3Dtrue&scale=1.4&labelColor=000000&color=000000&label=&uuid=4e5d8d8e-3c6a-4dcb-b6e8-71b63db5e45a&cache=1200" alt="Symfony" />
+    <img src="https://zemasterkrom-badgen.netlify.app/badge/icon/Java?icon=https%3A%2F%2Fgithub.com%2FZemasterkrom%2Fzemasterkrom-assets%2Fblob%2Frev2-fix-bootstrap-logo%2Flogos%2Fdark-mode%2Fopenjdk.svg%3Fraw%3Dtrue&scale=1.4&labelColor=F29111&color=F29111&label=&uuid=b8a03d5e-b6a0-4f7b-bb16-6e70f316af60&cache=1200" alt="Java" />
+    <img src="https://zemasterkrom-badgen.netlify.app/badge/icon/Spring?icon=&scale=1.4&labelColor=6DB33F&color=6DB33F&label=&uuid=8f9e6a4b-3e5b-4f0d-9e5a-12aef8f82c77&cache=1200" alt="Spring" />
+    <img src="https://zemasterkrom-badgen.netlify.app/badge/icon/Shell?icon=terminal&scale=1.4&labelColor=000000&color=000000&label=&uuid=7f1a3c9d-6c4b-4d3b-a0e4-3d6f8b5a1a2b&cache=1200" alt="Shell" />
+    <img src="https://zemasterkrom-badgen.netlify.app/badge/icon/PowerShell?icon=https%3A%2F%2Fgithub.com%2FZemasterkrom%2Fzemasterkrom-assets%2Fblob%2Frev2-fix-bootstrap-logo%2Flogos%2Fdark-mode%2Fpowershell.svg%3Fraw%3Dtrue&scale=1.4&labelColor=012456&color=012456&label=&uuid=0a9e45ef-4529-48f8-bbd3-7266a3cba8d4&cache=1200" alt="PowerShell" />
+    <img src="https://zemasterkrom-badgen.netlify.app/badge/icon/JavaScript?icon=https%3A%2F%2Fgithub.com%2FZemasterkrom%2Fzemasterkrom-assets%2Fblob%2Frev2-fix-bootstrap-logo%2Flogos%2Fdark-mode%2Fjavascript.svg%3Fraw%3Dtrue&scale=1.4&labelColor=E8C800&color=E8C800&label=&uuid=f8b07a4d-2a3d-4e6b-a692-57ccba56d0f4&cache=1200" alt="JavaScript" />
+    <img src="https://zemasterkrom-badgen.netlify.app/badge/icon/Bootstrap?icon=https%3A%2F%2Fgithub.com%2FZemasterkrom%2Fzemasterkrom-assets%2Fblob%2Frev2-fix-bootstrap-logo%2Flogos%2Fdark-mode%2Fbootstrap.svg%3Fraw%3Dtrue&scale=1.4&labelColor=712CF9&color=712CF9&label=&uuid=7db54a49-7b2c-42f2-8f41-8ef1cfb1b04e&cache=1200" alt="Bootstrap" />
 </p>
 
 <p align="center">
-    <img src="https://zemasterkrom-badgen.netlify.app/badge/icon/PHPUnit?icon=https%3A%2F%2Fraw.githubusercontent.com%2FZemasterkrom%2Fzemasterkrom-assets%2Frev2-fix-bootstrap-logo%2Flogos%2Fdark-mode%2Fphpunit.svg&scale=1.4&labelColor=356388&color=356388&label=&uuid=e7945fd0-562e-4569-b91c-3fcc768552d8&cache=1200" alt="PHPUnit" />
-    <img src="https://zemasterkrom-badgen.netlify.app/badge/icon/PHPStan?icon=&scale=1.4&labelColor=516CB3&color=516CB3&label=" alt="PHPStan" />
-    <img src="https://zemasterkrom-badgen.netlify.app/badge/icon/JUnit?icon=&scale=1.4&labelColor=ED8B00&color=ED8B00&label=" alt="JUnit" />
-    <img src="https://zemasterkrom-badgen.netlify.app/badge/icon/GitHub%20Actions?icon=github&scale=1.4&labelColor=171515&color=171515&label=" alt="GitHub Actions" />
-    <img src="https://zemasterkrom-badgen.netlify.app/badge/icon/Docker?icon=docker&scale=1.4&labelColor=1D63ED&color=1D63ED&label=" alt="Docker" />
+    <img src="https://zemasterkrom-badgen.netlify.app/badge/icon/PHPUnit?icon=https%3A%2F%2Fgithub.com%2FZemasterkrom%2Fzemasterkrom-assets%2Fblob%2Frev2-fix-bootstrap-logo%2Flogos%2Fdark-mode%2Fphpunit.svg%3Fraw%3Dtrue&scale=1.4&labelColor=356388&color=356388&label=&uuid=34fc9ed1-b4b7-49df-bc6a-6a9128f403e8&cache=1200" alt="PHPUnit" />
+    <img src="https://zemasterkrom-badgen.netlify.app/badge/icon/PHPStan?icon=&scale=1.4&labelColor=516CB3&color=516CB3&label=&uuid=2f3c5e9a-bb2d-4c2a-b1a5-d7f9f0b3c123&cache=1200" alt="PHPStan" />
+    <img src="https://zemasterkrom-badgen.netlify.app/badge/icon/JUnit?icon=&scale=1.4&labelColor=ED8B00&color=ED8B00&label=&uuid=1a9b3f5e-c4d8-4e5a-9f8d-2e7c8f5b1a6b&cache=1200" alt="JUnit" />
+    <img src="https://zemasterkrom-badgen.netlify.app/badge/icon/GitHub%20Actions?icon=github&scale=1.4&labelColor=171515&color=171515&label=&uuid=5d2f7a3c-9f2e-44d8-8b1e-3f8b9e7d6a1b&cache=1200" alt="GitHub Actions" />
+    <img src="https://zemasterkrom-badgen.netlify.app/badge/icon/Docker?icon=docker&scale=1.4&labelColor=1D63ED&color=1D63ED&label=&uuid=6a7e4b2c-8c5d-4b7e-9f2b-1c5d8e9f3b4a&cache=1200" alt="Docker" />
 </p>
+
 
 ## 🚀 Projects
 
@@ -64,9 +66,9 @@
   <tbody>
     <tr>
         <td>
-            <p>As my philosophy is to <strong>learn efficiently</strong>, I decided to work on my first <b>#OpenSource</b> project and on a <b>complex Symfony project</b>.</p>
-            <p>I was able to learn how to properly create my first <strong>#OpenSource</strong> project, and to acquire the <strong>core and advanced principles of Symfony</strong> through a concrete and complex <strong>"component" oriented project</strong>.
-            <p>This bundle aims at <strong>easing the configuration of Cloudflare Turnstile into the Symfony ecosystem</strong> through automated internationalization and validation, as well as an extensible design.</p>
+            <p>Wanting to <strong>learn efficiently</strong>, I decided to work on my first <b>#OpenSource</b> project and on a <b>concrete Symfony project</b>.</p>
+            <p>I was able to create my first <strong>#OpenSource</strong> project, acquiring the <strong>core and advanced principles of Symfony</strong> through a complex <strong>"component" oriented project</strong>.</p>
+            <p>This bundle eases Cloudflare Turnstile integration in Symfony with <strong>automated validation</strong>, <strong>internationalization</strong>, and an <strong>extensible design</strong>.</p>
         </td>
     </tr>
   </tbody>
@@ -83,8 +85,8 @@
     <tr>
         <td>
             <p>While being a simple profile README repository, it is a common knowledge that <b>GitHub Flavored Markdown (GFM)</b> has <strong>limitations regarding styling, because of security issues</strong>.</p>
-            <p>However, this project demonstrates that you can still make an <strong>advanced and responsive design</strong> in <b>GFM</b>, <strong>by using "hidden", but supported tricks</strong>.</p>
-            <p>If you want to know how I made the responsive design of this <b>GFM README.md</b>  file, check out the <a href="RESPONSIVE.md" alt="RESPONSIVE.md">RESPONSIVE.md</a> file. Decorative assets used inside this README.md file are published in the <a href="https://github.com/Zemasterkrom/zemasterkrom-assets" alt="zemasterkrom-assets">zemasterkrom-assets</a> repository.</p>
+            <p>This project shows you can still create an <strong>advanced</strong>, <strong>responsive GFM design</strong> using <strong>hidden</strong>, but <strong>supported</strong> tricks.</p>
+            <p>Check out the <a href="RESPONSIVE.md" alt="RESPONSIVE.md">RESPONSIVE.md</a> for details on how I made that responsive design. Decorative assets can be found in the <a href="https://github.com/Zemasterkrom/zemasterkrom-assets" alt="zemasterkrom-assets">zemasterkrom-assets</a> repository.</p>
         </td>
     </tr>
   </tbody>
