@@ -14,8 +14,8 @@ While the first idea is that it isn't possible to create a responsive and advanc
 ### Responsive sizing, positioning and theming
 
 > [!IMPORTANT]
-> SVG images do not adapt and scale to the size of the parent "preview" container when you set custom "width" or "height" attributes if the "viewBox" attribute is defined.  
-> It must be removed from the SVG image if you want that behaviour, otherwise, the SVG image will only scale up proportionally according to the "viewBox" coordinates.
+> The "**viewBox**" attribute resizes and scales SVG images relative to the defined **"viewBox" coordinates and the natural dimensions** of the SVG image.  
+> If you want SVG images to **fit and adjust to the size of the parent preview container** when you set custom "**width**" or "**height**" attributes, **you must remove the "viewBox" attribute from the SVG image**. 
 
 #### Responsive sizing with `<img>`
 - `<img>` supports `width` and `height` attributes.
@@ -26,26 +26,30 @@ While the first idea is that it isn't possible to create a responsive and advanc
 
 ```html
 <!-- This will stretch the provided image according to the fixed "width" and "height" attributes -->
-<img width="64" height="32" src="https://place-hold.it/32x32/0078D4&text=" alt="fixed-size" />
+<img width="64" height="32" src="metadata-assets/responsive-md/placeholders/32x32-0078D4-notext.svg" alt="fixed-size" />
 ```
 
-<img width="64" height="32" src="https://place-hold.it/32x32/0078D4&text=" alt="fixed-size" />
+<img width="64" height="32" src="metadata-assets/responsive-md/placeholders/32x32-0078D4-notext.svg" alt="fixed-size" />
 
 ```html
-<!-- This will stretch the provided image to the full parent container width -->
-<img width="100%" height="32" src="https://place-hold.it/32x32/0078D4&text=" alt="full-width" />
+<!-- This will stretch the provided image to the full parent container width with a fixed and defined height -->
+<img width="100%" height="32" src="metadata-assets/responsive-md/placeholders/32x32-0078D4-notext.svg" alt="full-parent-width" />
 ```
 
-<img width="100%" height="32" src="https://place-hold.it/32x32/0078D4&text=" alt="full-width" />
+<img width="100%" height="32" src="metadata-assets/responsive-md/placeholders/32x32-0078D4-notext.svg" alt="full-parent-width" />
 
 ```html
 <!-- This will stretch the image to the full parent container width maintaining aspect ratio -->
-<img width="100%" src="https://place-hold.it/32x32/0078D4&text=" alt="full-width-ratio-preserved" />
+<img width="100%" src="metadata-assets/responsive-md/placeholders/32x32-0078D4-notext.svg" alt="full-width-height-ratio-preserved" />
 ```
-<img width="100%" src="https://place-hold.it/32x32/0078D4&text=" alt="full-width-ratio-preserved" />
+<img width="100%" src="metadata-assets/responsive-md/placeholders/32x32-0078D4-notext.svg" alt="full-width-height-ratio-preserved" />
 </details>
 
 #### Responsive & adaptive theming with `<picture>`
+
+> [!NOTE]
+> Color scheme selection will be based on the GitHub user UI settings.
+
 - Use `<picture>` with `<source>` elements to provide multiple resolutions and theme variants.
   - Serve **different resolutions** via `media` queries (e.g., `(max-width: 600px)`).
   - Provide **dark/light variants** using `media="(prefers-color-scheme: dark)"` and `media="(prefers-color-scheme: light)"`.
@@ -54,48 +58,48 @@ While the first idea is that it isn't possible to create a responsive and advanc
 <summary>Examples (expand)</summary>
 
 ```html
-<!-- Change shown image based on device screen width -->
+<!-- Change shown image based on device screen width with media queries -->
 <picture>
-  <source media="(max-width: 512px)" srcset="https://place-hold.it/256x256/0078D4/FFFFFF&bold&fontsize=32">
-  <source media="(min-width: 512px)" srcset="https://place-hold.it/512x256/0078D4/FFFFFF&bold&fontsize=32">
-  <img src="https://place-hold.it/256x256/0078D4/FFFFFF&bold&fontsize=32" alt="picture-responsive" />
+  <source media="(max-width: 512px)" srcset="metadata-assets/responsive-md/placeholders/256x256-0078D4-FFFFFF.svg">
+  <source media="(min-width: 513px)" srcset="metadata-assets/responsive-md/placeholders/512x256-0078D4-FFFFFF.svg">
+  <img src="metadata-assets/responsive-md/placeholders/256x256-0078D4-FFFFFF.svg" alt="picture-responsive" />
 </picture>
 ```
 
 <picture>
-  <source media="(max-width: 512px)" srcset="https://place-hold.it/256x256/0078D4/FFFFFF&bold&fontsize=32">
-  <source media="(min-width: 512px)" srcset="https://place-hold.it/512x256/0078D4/FFFFFF&bold&fontsize=32">
-  <img src="https://place-hold.it/256x256/0078D4/FFFFFF&bold&fontsize=32" alt="picture-responsive" />
+  <source media="(max-width: 512px)" srcset="metadata-assets/responsive-md/placeholders/256x256-0078D4-FFFFFF.svg">
+  <source media="(min-width: 513px)" srcset="metadata-assets/responsive-md/placeholders/512x256-0078D4-FFFFFF.svg">
+  <img src="metadata-assets/responsive-md/placeholders/256x256-0078D4-FFFFFF.svg" alt="picture-responsive" />
 </picture>
 
 ```html
 <!-- Switch between dark and light themes -->
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://place-hold.it/256x256/000000/FFFFFF&bold&fontsize=32">
-  <source media="(prefers-color-scheme: light)" srcset="https://place-hold.it/256x256/FFFFFF/000000&bold&fontsize=32">
-  <img src="https://place-hold.it/256x256/000000/FFFFFF&bold&fontsize=32" alt="picture-theme" />
+  <source media="(prefers-color-scheme: dark)" srcset="metadata-assets/responsive-md/placeholders/256x256-000000-FFFFFF.svg">
+  <source media="(prefers-color-scheme: light)" srcset="metadata-assets/responsive-md/placeholders/256x256-FFFFFF-000000.svg">
+  <img src="metadata-assets/responsive-md/placeholders/256x256-000000-FFFFFF.svg" alt="picture-theme" />
 </picture>
 ```
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://place-hold.it/256x256/000000/FFFFFF&bold&fontsize=32">
-  <source media="(prefers-color-scheme: light)" srcset="https://place-hold.it/256x256/FFFFFF/000000&bold&fontsize=32">
-  <img src="https://place-hold.it/256x256/000000/FFFFFF&bold&fontsize=32" alt="picture-theme" />
+  <source media="(prefers-color-scheme: dark)" srcset="metadata-assets/responsive-md/placeholders/256x256-000000-FFFFFF.svg">
+  <source media="(prefers-color-scheme: light)" srcset="metadata-assets/responsive-md/placeholders/256x256-FFFFFF-000000.svg">
+  <img src="metadata-assets/responsive-md/placeholders/256x256-000000-FFFFFF.svg" alt="picture-theme" />
 </picture>
 
 ```html
 <!-- Switch between dark and light themes, with full-width responsive rectangle design -->
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://place-hold.it/256x256/7F7F7F/FFFFFF&bold&text=">
-  <source media="(prefers-color-scheme: light)" srcset="https://place-hold.it/256x256/F0F0F0/000000&bold&text=">
-  <img width="100%" height="32" src="https://place-hold.it/256x256/7F7F7F/FFFFFF&bold&text=" alt="picture-theme-responsive" />
+  <source media="(prefers-color-scheme: dark)" srcset="metadata-assets/responsive-md/placeholders/FULLx32-000000-FFFFFF.svg">
+  <source media="(prefers-color-scheme: light)" srcset="metadata-assets/responsive-md/placeholders/FULLx32-FFFFFF-000000.svg">
+  <img width="100%" height="32" src="metadata-assets/responsive-md/placeholders/FULLx32-000000-FFFFFF.svg" alt="picture-theme-responsive" />
 </picture>
 ```
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://place-hold.it/256x256/7F7F7F/FFFFFF&bold&text=">
-  <source media="(prefers-color-scheme: light)" srcset="https://place-hold.it/256x256/F0F0F0/000000&bold&text=">
-  <img width="100%" height="32" src="https://place-hold.it/256x256/7F7F7F/FFFFFF&bold&text=" alt="picture-theme-responsive" />
+  <source media="(prefers-color-scheme: dark)" srcset="metadata-assets/responsive-md/placeholders/FULLx32-000000-FFFFFF.svg">
+  <source media="(prefers-color-scheme: light)" srcset="metadata-assets/responsive-md/placeholders/FULLx32-FFFFFF-000000.svg">
+  <img width="100%" height="32" src="metadata-assets/responsive-md/placeholders/FULLx32-000000-FFFFFF.svg" alt="picture-theme-responsive" />
 </picture>
 </details>
 
@@ -109,53 +113,52 @@ While the first idea is that it isn't possible to create a responsive and advanc
 
 ```md
 ### align="left"
-<img align="left" src="https://place-hold.it/128x24/0078D4/FFFFFF&bold" alt="Left aligned placeholder image" />
+<img align="left" src="metadata-assets/responsive-md/placeholders/128x24-0078D4-FFFFFF.svg" alt="align-left" />
 Left alignment
 
 ### align="right"
-<img align="right" src="https://place-hold.it/128x24/0078D4/FFFFFF&bold" alt="Right aligned placeholder image" />
+<img align="right" src="metadata-assets/responsive-md/placeholders/128x24-0078D4-FFFFFF.svg" alt="align-right" />
 Right alignment
 ```
 
 ### align="left"
-<img align="left" src="https://place-hold.it/128x24/0078D4/FFFFFF&bold" alt="Left aligned placeholder image" />
+<img align="left" src="metadata-assets/responsive-md/placeholders/128x24-0078D4-FFFFFF.svg" alt="align-left" />
 Left alignment
 
 ### align="right"
-<img align="right" src="https://place-hold.it/128x24/0078D4/FFFFFF&bold" alt="Right aligned placeholder image" />
+<img align="right" src="metadata-assets/responsive-md/placeholders/128x24-0078D4-FFFFFF.svg" alt="align-right" />
 Right alignment
-</table>
 
 ```html
 <p align="left">
-  <img src="https://place-hold.it/128x128/0078D4/FFFFFF&bold" alt="Left aligned placeholder image" />
-  <img src="https://place-hold.it/128x128/0078D4/FFFFFF&bold" alt="Left aligned placeholder image" />
+  <img src="metadata-assets/responsive-md/placeholders/128x128-0078D4-FFFFFF.svg" alt="p-align-left" />
+  <img src="metadata-assets/responsive-md/placeholders/128x128-0078D4-FFFFFF.svg" alt="p-align-left" />
 </p>
 
 <p align="center">
-  <img src="https://place-hold.it/128x128/0078D4/FFFFFF&bold" alt="Centered placeholder image" />
-  <img src="https://place-hold.it/128x128/0078D4/FFFFFF&bold" alt="Centered placeholder image" />
+  <img src="metadata-assets/responsive-md/placeholders/128x128-0078D4-FFFFFF.svg" alt="p-align-center" />
+  <img src="metadata-assets/responsive-md/placeholders/128x128-0078D4-FFFFFF.svg" alt="p-align-center" />
 </p>
 
 <p align="right">
-  <img src="https://place-hold.it/128x128/0078D4/FFFFFF&bold" alt="Right aligned placeholder image" />
-  <img src="https://place-hold.it/128x128/0078D4/FFFFFF&bold" alt="Right aligned placeholder image" />
+  <img src="metadata-assets/responsive-md/placeholders/128x128-0078D4-FFFFFF.svg" alt="p-align-right" />
+  <img src="metadata-assets/responsive-md/placeholders/128x128-0078D4-FFFFFF.svg" alt="p-align-right" />
 </p>
 ```
 
 <p align="left">
-  <img src="https://place-hold.it/128x128/0078D4/FFFFFF&bold" alt="Left aligned placeholder image" />
-  <img src="https://place-hold.it/128x128/0078D4/FFFFFF&bold" alt="Left aligned placeholder image" />
+  <img src="metadata-assets/responsive-md/placeholders/128x128-0078D4-FFFFFF.svg" alt="p-align-left" />
+  <img src="metadata-assets/responsive-md/placeholders/128x128-0078D4-FFFFFF.svg" alt="p-align-left" />
 </p>
 
 <p align="center">
-  <img src="https://place-hold.it/128x128/0078D4/FFFFFF&bold" alt="Centered placeholder image" />
-  <img src="https://place-hold.it/128x128/0078D4/FFFFFF&bold" alt="Centered placeholder image" />
+  <img src="metadata-assets/responsive-md/placeholders/128x128-0078D4-FFFFFF.svg" alt="p-align-center" />
+  <img src="metadata-assets/responsive-md/placeholders/128x128-0078D4-FFFFFF.svg" alt="p-align-center" />
 </p>
 
 <p align="right">
-  <img src="https://place-hold.it/128x128/0078D4/FFFFFF&bold" alt="Right aligned placeholder image" />
-  <img src="https://place-hold.it/128x128/0078D4/FFFFFF&bold" alt="Right aligned placeholder image" />
+  <img src="metadata-assets/responsive-md/placeholders/128x128-0078D4-FFFFFF.svg" alt="p-align-right" />
+  <img src="metadata-assets/responsive-md/placeholders/128x128-0078D4-FFFFFF.svg" alt="p-align-right" />
 </p>
 
 ```html
@@ -298,6 +301,13 @@ Right alignment
 Because of their **vector** nature, SVG files allow for **very advanced layouts**. Keep markup inside the `.svg` file and reference it from Markdown inside a `img` element.
 
 #### Styling (`<style>` inside SVG)
+
+> [!WARNING]
+> Due to a [**WebKit long-lasting issue**](https://bugs.webkit.org/show_bug.cgi?id=199134), the **prefers-color-scheme** media query **doesn't work when embedded inside a SVG in Safari**.  
+> The `<style>` element work, but not the **prefers-color-scheme** media query.  
+> **A workaround exists in the GFM syntax for maximum cross-browser interoperability**.  
+> Please refer to the [**Responsive & adaptive theming with `<picture>`**](#responsive--adaptive-theming-with-picture) section.
+
 - **Styling** inside the SVG (`<style>`) applies only within the SVG. Consequence ? This is not stripped out by GFM processor.
 
 <details>
@@ -327,7 +337,7 @@ Because of their **vector** nature, SVG files allow for **very advanced layouts*
 </svg>
 ```
 
-<img src="metadata-assets/responsive-md/style.svg" alt="Style inside SVG" />
+<img src="metadata-assets/responsive-md/svg-techniques/style.svg" alt="svg-styling" />
 
 </details>
 
@@ -363,7 +373,7 @@ Because of their **vector** nature, SVG files allow for **very advanced layouts*
 </svg>
 ```
 
-<img src="metadata-assets/responsive-md/html.svg" alt="HTML inside SVG" />
+<img src="metadata-assets/responsive-md/svg-techniques/html.svg" alt="svg-html" />
 
 </details>
 
@@ -387,12 +397,12 @@ Because of their **vector** nature, SVG files allow for **very advanced layouts*
 </svg>
 ```
 
-<img src="metadata-assets/responsive-md/pattern-transform.svg" alt="Pattern tiling and transforms" />
+<img src="metadata-assets/responsive-md/svg-techniques/pattern-transform.svg" alt="pattern-tiling-and-transforms" />
 
 </details>
 
 #### Adaptive sizing without proportional stretching
-- Omitting `viewBox` and using `width` or `height` attributes can make the SVG **adapt to parent "preview" container sizing rather than stretching the whole image proportionally in width and height**. Furthermore, **this will prevent SVG elements from being resized: without `viewBox`, SVG elements will adapt to the size of the SVG, its elements, and the current window size, just as a normal HTML document would**.
+- Omitting `viewBox` and using `width` or `height` attributes can make the SVG **adapt to parent "preview" container sizing rather than stretching the whole image proportionally in width and height to the "viewBox" coordinates**. Furthermore, **without `viewBox`, the SVG and its elements will adapt to the defined "width" and "height" internal sizes, as well as to the current window size, just as a standard HTML document would**.
 
 <details>
 <summary>Example (expand)</summary>
@@ -411,7 +421,11 @@ Because of their **vector** nature, SVG files allow for **very advanced layouts*
 </svg>
 ```
 
-<img src="metadata-assets/responsive-md/responsive-pattern-transform.svg" width="100%" alt="Responsive image (no viewBox) using using pattern tiling and transforms" />
+```html
+<img src="metadata-assets/responsive-md/svg-techniques/responsive-pattern-transform.svg" width="100%" alt="responsive-pattern-tiling-and-transforms" />
+```
+
+<img src="metadata-assets/responsive-md/svg-techniques/responsive-pattern-transform.svg" width="100%" alt="responsive-pattern-tiling-and-transforms" />
 
 </details>
 
