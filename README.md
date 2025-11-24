@@ -1,6 +1,9 @@
-
 <a href="https://github.com/Zemasterkrom/zemasterkrom-assets">
-  <img src="https://github.com/Zemasterkrom/zemasterkrom-assets/blob/rev2-fix-bootstrap-logo/header/vscode-tabs-bar.svg?raw=true" alt="Preview README.md" width="100%">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://github.com/Zemasterkrom/zemasterkrom-assets/blob/rev3-fix-cross-browser-inconsistencies/header/dark-mode/vscode-tabs-bar.svg?raw=true" />
+    <source media="(prefers-color-scheme: light)" srcset="https://github.com/Zemasterkrom/zemasterkrom-assets/blob/rev3-fix-cross-browser-inconsistencies/header/light-mode/vscode-tabs-bar.svg?raw=true" />
+    <img src="https://github.com/Zemasterkrom/zemasterkrom-assets/blob/rev3-fix-cross-browser-inconsistencies/header/vscode-tabs-bar.svg?raw=true" alt="Preview README.md" width="100%" />
+  </picture>
 </a>
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/43e04bd2-4dae-45c4-b501-ca425aaa5a34/deploy-status)](https://app.netlify.com/projects/zemasterkrom-typingsvg/deploys)
@@ -15,14 +18,12 @@
 </h1>
 
 <p align="center">
-  <a href="https://github.com/whiteSHADOW1234/TypingSVG" style="display: block; text-align: center;">
+  <a href="https://github.com/whiteSHADOW1234/TypingSVG">
       <img 
           src="https://zemasterkrom-typingsvg.netlify.app/api/svg?width=488&height=72&pause=5000&backgroundOpacity=0&border=false&lines=%5B%7B%22text%22%3A%22Software+Engineer%22%2C%22color%22%3A%22%2336bcf7%22%2C%22fontSize%22%3A32%2C%22typingSpeed%22%3A0.1%2C%22deleteSpeed%22%3A0.05%7D%2C%7B%22text%22%3A%22Back-End%5CnMonolithic+Full-Stack%22%2C%22color%22%3A%22%2336bcf7%22%2C%22fontSize%22%3A32%2C%22typingSpeed%22%3A0.1%2C%22deleteSpeed%22%3A0.05%7D%2C%7B%22text%22%3A%22%23OpenSource%22%2C%22color%22%3A%22%2336bcf7%22%2C%22typingSpeed%22%3A0.1%2C%22deleteSpeed%22%3A0.05%2C%22fontWeight%22%3A%22600%22%7D%2C%7B%22text%22%3A%22%23CleanCode%22%2C%22color%22%3A%22%2336bcf7%22%2C%22typingSpeed%22%3A0.1%2C%22deleteSpeed%22%3A0.05%2C%22fontWeight%22%3A%22600%22%7D%2C%7B%22text%22%3A%22%23PragmaticEngineering%22%2C%22color%22%3A%22%2336bcf7%22%2C%22typingSpeed%22%3A0.1%2C%22deleteSpeed%22%3A0.05%2C%22fontWeight%22%3A%22600%22%7D%5D"
-          alt="Profile description of Zemasterkrom" align="center"/>
+          alt="Profile description of Zemasterkrom" />
   </a>
 </p>
-
-
 
 ## 🤔 About Me
 
@@ -75,7 +76,11 @@
 </table>
 
 <a href="https://packagist.org/packages/zemasterkrom/zmkr-cloudflare-turnstile-bundle">
-  <img src="metadata-assets/projects/zmkr-cloudflare-turnstile-bundle/installs.svg" alt="Number of zmkr-cloudflare-turnstile-bundle installs" />
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="metadata-assets/projects/dark-mode/zmkr-cloudflare-turnstile-bundle/installs.svg" />
+    <source media="(prefers-color-scheme: light)" srcset="metadata-assets/projects/light-mode/zmkr-cloudflare-turnstile-bundle/installs.svg" />
+    <img alt="Number of zmkr-cloudflare-turnstile-bundle installs (4000+)" src="metadata-assets/projects/dark-mode/zmkr-cloudflare-turnstile-bundle/installs.svg" />
+  </picture>
 </a>
 
 ### [zemasterkrom](https://github.com/Zemasterkrom/zemasterkrom)
@@ -92,4 +97,10 @@
   </tbody>
 </table>
 
-[![View all projects](metadata-assets/projects/view-all.svg)](https://github.com/Zemasterkrom?tab=repositories)  
+<a href="https://github.com/Zemasterkrom?tab=repositories">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="metadata-assets/projects/dark-mode/view-all.svg" />
+    <source media="(prefers-color-scheme: light)" srcset="metadata-assets/projects/light-mode/view-all.svg" />
+    <img alt="View all projects" src="metadata-assets/projects/dark-mode/view-all.svg" />
+  </picture>
+</a>
