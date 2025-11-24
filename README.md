@@ -9,12 +9,14 @@
 [![Netlify Status](https://api.netlify.com/api/v1/badges/43e04bd2-4dae-45c4-b501-ca425aaa5a34/deploy-status)](https://app.netlify.com/projects/zemasterkrom-typingsvg/deploys)
 [![Netlify Status](https://api.netlify.com/api/v1/badges/f24ca610-2cba-4cc4-adde-76a9b188d61b/deploy-status)](https://app.netlify.com/projects/zemasterkrom-badgen/deploys)  
 
-<h1 style="font-family: 'Segoe UI'; font-size: 32px; font-weight: 400;">Hi 👋, I'm
-    <a href="https://github.com/whiteSHADOW1234/TypingSVG">
-        <img 
-            src="https://zemasterkrom-typingsvg.netlify.app/api/svg?width=300&height=32&repeat=false&backgroundOpacity=0&center=false&border=false&deletionBehavior=stay&lines=%5B%7B%22text%22%3A%22Zemasterkrom%22%2C%22color%22%3A%22%2336bcf7%22%2C%22fontSize%22%3A32%2C%22typingSpeed%22%3A0.1%2C%22deleteSpeed%22%3A0.48%7D%5D"
-            align="center" alt="Zemasterkrom" />
-    </a>
+<h1>
+  <a href="https://github.com/whiteSHADOW1234/TypingSVG">
+    <picture>
+      <source media="(max-width: 576px), (min-width: 768px) and (max-width: 840px)" srcset="https://zemasterkrom-typingsvg.netlify.app/api/svg?width=256&height=82&repeat=false&backgroundOpacity=0&center=false&border=false&deletionBehavior=stay&lines=%5B%7B%22text%22%3A%22Hi+%F0%9F%91%8B%2C+I%27m%5CnZemasterkrom%22%2C%22color%22%3A%22%2336bcf7%22%2C%22fontSize%22%3A32%2C%22typingSpeed%22%3A0.1%2C%22fontWeight%22%3A%22600%22%7D%5D" />
+      <source media="(min-width: 577px) and (max-width: 767px), (min-width: 841px)" srcset="https://zemasterkrom-typingsvg.netlify.app/api/svg?width=462&height=44&repeat=false&backgroundOpacity=0&center=false&border=false&deletionBehavior=stay&lines=%5B%7B%22text%22%3A%22Hi+%F0%9F%91%8B%2C+I%27m+Zemasterkrom%22%2C%22color%22%3A%22%2336bcf7%22%2C%22fontSize%22%3A32%2C%22typingSpeed%22%3A0.1%2C%22fontWeight%22%3A%22600%22%7D%5D" />
+      <img alt="Zemasterkrom" src="https://zemasterkrom-typingsvg.netlify.app/api/svg?width=462&height=44&repeat=false&backgroundOpacity=0&center=false&border=false&deletionBehavior=stay&lines=%5B%7B%22text%22%3A%22Hi+%F0%9F%91%8B%2C+I%27m+Zemasterkrom%22%2C%22color%22%3A%22%2336bcf7%22%2C%22fontSize%22%3A32%2C%22typingSpeed%22%3A0.1%2C%22fontWeight%22%3A%22600%22%7D%5D" />
+    </picture>
+  </a>
 </h1>
 
 <p align="center">
