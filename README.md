@@ -1,8 +1,8 @@
 <a href="https://github.com/Zemasterkrom/zemasterkrom-assets">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://github.com/Zemasterkrom/zemasterkrom-assets/blob/rev3-fix-cross-browser-inconsistencies/header/dark-mode/vscode-tabs-bar.svg?raw=true" />
-    <source media="(prefers-color-scheme: light)" srcset="https://github.com/Zemasterkrom/zemasterkrom-assets/blob/rev3-fix-cross-browser-inconsistencies/header/light-mode/vscode-tabs-bar.svg?raw=true" />
-    <img src="https://github.com/Zemasterkrom/zemasterkrom-assets/blob/rev3-fix-cross-browser-inconsistencies/header/vscode-tabs-bar.svg?raw=true" alt="Preview README.md" width="100%" />
+    <source media="(prefers-color-scheme: dark)" srcset="https://github.com/Zemasterkrom/zemasterkrom-assets/blob/rev4-fix-vscode-tabs-bar-gap/header/dark-mode/vscode-tabs-bar.svg?raw=true" />
+    <source media="(prefers-color-scheme: light)" srcset="https://github.com/Zemasterkrom/zemasterkrom-assets/blob/rev4-fix-vscode-tabs-bar-gap/header/light-mode/vscode-tabs-bar.svg?raw=true" />
+    <img src="https://github.com/Zemasterkrom/zemasterkrom-assets/blob/rev4-fix-vscode-tabs-bar-gap/header/vscode-tabs-bar.svg?raw=true" alt="Preview README.md" width="100%" />
   </picture>
 </a>
 
