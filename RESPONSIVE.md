@@ -314,21 +314,23 @@ Because of their **vector** nature, SVG files allow for **very advanced layouts*
 <summary>Example (expand)</summary>
 
 ```xml
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 100">
   <style>
     .title {
-      font: bold 20px 'Segoe UI', sans-serif;
+      font: bold 20px '-apple-system', BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji';
     }
 
     @media (prefers-color-scheme: dark) {
       .title {
-        fill: #FFFFFF;
+        fill: #AFAFAFFF;
       }
     }
 
     @media (prefers-color-scheme: light) {
       .title {
-        fill: #000000;
+        fill: #3A3A3AFF;
       }
     }
   </style>
@@ -348,10 +350,12 @@ Because of their **vector** nature, SVG files allow for **very advanced layouts*
 <summary>Example (expand)</summary>
 
 ```xml
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 100">
   <style>
     .container {
-      font-family: 'Segoe UI', sans-serif;
+      font-family: '-apple-system', BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji';
 
       display: flex;
       justify-content: center;
@@ -384,6 +388,8 @@ Because of their **vector** nature, SVG files allow for **very advanced layouts*
 <summary>Example (expand)</summary>
 
 ```xml
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
 <!-- Example with circle pattern tiling on the rectangle and a right-aligned element on top of it -->
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 82">
   <defs>
@@ -408,6 +414,8 @@ Because of their **vector** nature, SVG files allow for **very advanced layouts*
 <summary>Example (expand)</summary>
 
 ```xml
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
 <!-- Example combined with pattern tiling and full-width adaptive and responsive design -->
 <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="92">
   <defs>
@@ -472,110 +480,116 @@ If you combine all of these tricks, you can create quite an advanced GFM layout.
 
 The goal we are trying to achieve here is to replicate the style of the VSCode tabs bar, but there are major design considerations to keep in mind:
 * The tabs bar that lists active files contains a placeholder container that extends to the end of the view
-* The action buttons must be placed at the end of the view, on top of the tabs bar
-* These two components are repositioned and resized based on the size of the window
-* Colors must adapt to light/dark themes.
+* The action buttons must be placed at the end of the view, above the tabs bar
+* These two components are repositioned and resized according to the window size
+* Colors must adapt to dark/light themes.
 
 ### Implementation
 
 1. **Create six SVG images "components"**  
    Repeat these steps for the dark / light themes:
-   - `vscode-preview-tab.svg` — the active "preview" file tab (placed at `x=0`).
+   - `vscode-preview-tab.svg` — the active "preview" file tab (placed at the beginning of the image).
    - `vscode-tabs-bar-filler.svg` — the placeholder container tile pattern that will be repeated across the remaining width.
-   - `vscode-editor-actions.svg` — action buttons (anchored to the right, placed on top of the placeholder container).
+   - `vscode-editor-actions.svg` — action buttons (anchored to the right, placed above the placeholder container).
 
-2. **Assemble the six "components" inside a single composite SVG image**  
-   For each theme:
-   - Create a group `<g class="<name-of-the-theme>">` that separates each theme, and repeat the next steps inside the appropriate created groups.
+2. **Assemble the six themed SVG "components" inside two composites SVG images**  
+   Create a composite image for each theme (dark / light) and associate each themed SVG component (dark / light) with the created image:
    - Place the `vscode-preview-tab.svg` image at `x=0`.
    - Define a `<pattern>` that uses `vscode-tabs-bar-filler.svg` to create a repeating pattern that fills the remaining width of the view with `width="100%"`. 
-   - Draw a `<rect>` filled with `url(#pattern)` starting at `x=<[vscode-preview-tab.svg]-width>` and extending with `width="100%"`.
-   - Add the `vscode-editor-actions.svg` image and use `x="100%"` with `transform="translate(-<[vscode-preview-tab.svg]-width>, 0)"` to anchor it visually to the right end of the filler.
+   - Draw a `<rect>` filled with `url(#<id-of-the-pattern>)` starting at `x=<[vscode-preview-tab.svg]-width>` and extending with `width="100%"`.
+   - Add the `vscode-editor-actions.svg` image and use `x="100%"` with `transform="translate(-<[vscode-preview-tab.svg]-width>, 0)"` to anchor it to the end of the filler pattern.
 
-3. **Make the composite SVG theme-aware**
-   - Include a `<style>` block inside the SVG
-   - Use `@media (prefers-color-scheme: dark)` and `@media (prefers-color-scheme: light)` to swap colors between created groups.
+3. **Sizing & responsiveness**  
+   - Do **not** include `viewBox` to make the SVG scale to the parent container `width` dimensions (remove `viewBox`).
+   - Use `width="100%"` when embedding the SVG in README inside an `img` element.
 
-4. **Sizing & responsiveness**  
-   - Do **not** include `viewBox` if you want the SVG to scale by the parent container dimensions (remove `viewBox`).
-   - Use `width="100%"` when embedding the SVG in README.
+4. **Embedding in README**  
+   Use the `<picture>` element to switch composite images between dark and light color schemes:
 
-5. **Embedding in README**  
-   
    ```html
-   <img src="<link-to-the-composite-svg-image.svg>" width="100%" alt="Preview README.md">
+   <picture>
+     <source media="(prefers-color-scheme: dark)" srcset="<link-to-composite-dark-themed-image.svg>" />
+     <source media="(prefers-color-scheme: light)" srcset="<link-to-composite-light-themed-image.svg>" />
+     <img src="<link-to-fallback-image[dark | light | mixed].svg>" alt="Preview README.md" width="100%" />
+   </picture>
    ```
 
 ## SVG
 
+### Composite dark-themed image
+
 ```xml
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
 <svg xmlns="http://www.w3.org/2000/svg"
      height="36" 
      aria-hidden="true">
-  <style>
-    .light { display: none; }
-    .dark  { display: inline; }
-
-    @media (prefers-color-scheme: light) {
-      .light { display: inline; }
-      .dark  { display: none; }
-    }
-  </style>
-
-  <!-- tile filler pattern that spans the entire view width -->
-  <!-- allows repeating the 1px tile until the end of the view width -->
   <defs>
-    <!-- dark variant pattern -->
-    <pattern id="tileFiller-dark" width="100%" height="36">
-      <image width="100%" height="36"
-             href="data:image/svg+xml;base64,..." />
-    </pattern>
-
-    <!-- light variant pattern -->
-    <pattern id="tileFiller-light" width="100%" height="36">
-      <image width="100%" height="36"
-             href="data:image/svg+xml;base64,..." />
+    <!-- tile filler pattern that spans the entire view width -->
+    <!-- allows repeating the 1px tile until the end of the view width -->
+    <pattern id="tileFiller" width="100%" height="36">
+      <image width="100%" height="36" preserveAspectRatio="none"
+             href="data:image/svg+xml;base64,<dark-themed-base64-encoded-svg-image>" />
     </pattern>
   </defs>
 
-  <!-- DARK variant -->
-  <g class="dark" id="vscode-tabs-dark">
-    <!-- preview tab image: fixed box at x=0 -->
-    <image id="preview-tab-dark"
-           href="data:image/svg+xml;base64,..." />
+  <!-- preview tab image: fixed box at x=0 -->
+  <image id="preview-tab"
+         href="data:image/svg+xml;base64,<dark-themed-base64-encoded-svg-image>" />
 
-    <!-- tabs bar filler, starting at x = 164 (end of the preview tab image) and covering 100% of remaining screen width -->
-    <!-- responsive design made possible by using "tileFiller" -->
-    <rect id="tabs-bar-filler-dark" x="164" y="0" width="100%" height="36" fill="url(#tileFiller-dark)" />
+  <!-- tabs bar filler, starting at x = 164 (end of the preview tab image) and covering 100% of remaining screen width -->
+  <!-- responsive design made possible by using "tileFiller" -->
+  <rect id="tabs-bar-filler" x="164" y="0" width="100%" height="36" fill="url(#tileFiller)" />
 
-    <!-- editor actions image: positioned at the end of the view width using offset translation with x=calc(100% - 90px) -->
-    <image id="editor-actions-dark" x="100%" transform="translate(-90,0)"
-           href="data:image/svg+xml;base64,..." />
-  </g>
+  <!-- editor actions image: positioned at the end of the view width using offset translation with x=calc(100% - 90px) -->
+  <image id="editor-actions" x="100%" transform="translate(-90,0)"
+         href="data:image/svg+xml;base64,<dark-themed-base64-encoded-svg-image>" />
+</svg>
+```
 
-  <!-- LIGHT variant -->
-  <g class="light" id="vscode-tabs-light">
-    <!-- preview tab image: fixed box at x=0 -->
-    <image id="preview-tab-light"
-           href="data:image/svg+xml;base64,..." />
+### Composite light-themed image
 
-    <!-- tabs bar filler, starting at x = 164 (end of the preview tab image) and covering 100% of remaining screen width -->
-    <!-- responsive design made possible by using "tileFiller" -->
-    <rect id="tabs-bar-filler-light" x="164" y="0" width="100%" height="36" fill="url(#tileFiller-light)" />
+```xml
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
 
-    <!-- editor actions image: positioned at the end of the view width using offset translation with x=calc(100% - 90px) -->
-    <image id="editor-actions-light" x="100%" transform="translate(-90,0)"
-           href="data:image/svg+xml;base64,..." />
-  </g>
+<svg xmlns="http://www.w3.org/2000/svg"
+     height="36" 
+     aria-hidden="true">
+  <defs>
+    <!-- tile filler pattern that spans the entire view width -->
+    <!-- allows repeating the 1px tile until the end of the view width -->
+    <pattern id="tileFiller" width="100%" height="36">
+      <image width="100%" height="36" preserveAspectRatio="none"
+             href="data:image/svg+xml;base64,<light-themed-base64-encoded-svg-image>" />
+    </pattern>
+  </defs>
+
+  <!-- preview tab image: fixed box at x=0 -->
+  <image id="preview-tab"
+         href="data:image/svg+xml;base64,<light-themed-base64-encoded-svg-image>" />
+
+  <!-- tabs bar filler, starting at x = 164 (end of the preview tab image) and covering 100% of remaining screen width -->
+  <!-- responsive design made possible by using "tileFiller" -->
+  <rect id="tabs-bar-filler" x="164" y="0" width="100%" height="36" fill="url(#tileFiller)" />
+
+  <!-- editor actions image: positioned at the end of the view width using offset translation with x=calc(100% - 90px) -->
+  <image id="editor-actions" x="100%" transform="translate(-90,0)"
+         href="data:image/svg+xml;base64,<light-themed-base64-encoded-svg-image>" />
 </svg>
 ```
 
 ## Markdown (GFM)
 
 ```html
-<img src="<link-to-the-composite-svg-image.svg>" width="100%" alt="Preview README.md">
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="<link-to-composite-dark-themed-image.svg>" />
+  <source media="(prefers-color-scheme: light)" srcset="<link-to-composite-light-themed-image.svg>" />
+  <img src="<link-to-fallback-image[dark | light | mixed].svg>" alt="Preview README.md" width="100%" />
+</picture>
 ```
 
-<a href="https://github.com/Zemasterkrom/zemasterkrom-assets">
-  <img src="https://github.com/Zemasterkrom/zemasterkrom-assets/blob/rev2-fix-bootstrap-logo/header/vscode-tabs-bar.svg?raw=true" alt="Preview README.md" width="100%">
-</a>
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://github.com/Zemasterkrom/zemasterkrom-assets/blob/rev3-fix-cross-browser-inconsistencies/header/dark-mode/vscode-tabs-bar.svg?raw=true" />
+  <source media="(prefers-color-scheme: light)" srcset="https://github.com/Zemasterkrom/zemasterkrom-assets/blob/rev3-fix-cross-browser-inconsistencies/header/light-mode/vscode-tabs-bar.svg?raw=true" />
+  <img src="https://github.com/Zemasterkrom/zemasterkrom-assets/blob/rev3-fix-cross-browser-inconsistencies/header/vscode-tabs-bar.svg?raw=true" alt="Preview README.md" width="100%" />
+</picture>
