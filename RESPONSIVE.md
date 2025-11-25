@@ -48,7 +48,9 @@ While the first idea is that it isn't possible to create a responsive and advanc
 #### Responsive & adaptive theming with `<picture>`
 
 > [!NOTE]
-> Color scheme selection will be based on the GitHub user UI settings.
+> Color theme selection will depend on two factors:
+> - If the user is logged in, the color theme defined in the GitHub user settings will be used.
+> - If the user is not logged in, the browser / operating system color theme will be used.
 
 - Use `<picture>` with `<source>` elements to provide multiple resolutions and theme variants.
   - Serve **different resolutions** via `media` queries (e.g., `(max-width: 600px)`).
@@ -504,7 +506,7 @@ The goal we are trying to achieve here is to replicate the style of the VSCode t
    - Use `width="100%"` when embedding the SVG in README inside an `img` element.
 
 4. **Embedding in README**  
-   Use the `<picture>` element to switch composite images between dark and light color schemes:
+   Use the `<picture>` element to switch composite images between dark and light color themes:
 
    ```html
    <picture>
