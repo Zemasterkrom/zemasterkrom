@@ -26,23 +26,23 @@ While the first idea is that it isn't possible to create a responsive and advanc
 
 ```html
 <!-- This will stretch the provided image according to the fixed "width" and "height" attributes -->
-<img width="64" height="32" src="metadata-assets/responsive-md/placeholders/32x32-0078D4-notext.svg" alt="fixed-size" />
+<img width="64" height="32" src="metadata-assets/responsive-md/placeholders/32x32-0078D4-notext.svg" alt="fixed-size | fixed-width | fixed-height" />
 ```
 
-<img width="64" height="32" src="metadata-assets/responsive-md/placeholders/32x32-0078D4-notext.svg" alt="fixed-size" />
+<img width="64" height="32" src="metadata-assets/responsive-md/placeholders/32x32-0078D4-notext.svg" alt="fixed-size | fixed-width | fixed-height" />
 
 ```html
 <!-- This will stretch the provided image to the full parent container width with a fixed and defined height -->
-<img width="100%" height="32" src="metadata-assets/responsive-md/placeholders/32x32-0078D4-notext.svg" alt="full-parent-width" />
+<img width="100%" height="32" src="metadata-assets/responsive-md/placeholders/32x32-0078D4-notext.svg" alt="full-width | fixed-height" />
 ```
 
-<img width="100%" height="32" src="metadata-assets/responsive-md/placeholders/32x32-0078D4-notext.svg" alt="full-parent-width" />
+<img width="100%" height="32" src="metadata-assets/responsive-md/placeholders/32x32-0078D4-notext.svg" alt="full-width | fixed-height" />
 
 ```html
 <!-- This will stretch the image to the full parent container width maintaining aspect ratio -->
-<img width="100%" src="metadata-assets/responsive-md/placeholders/32x32-0078D4-notext.svg" alt="full-width-height-ratio-preserved" />
+<img width="100%" src="metadata-assets/responsive-md/placeholders/32x32-0078D4-notext.svg" alt="full-width | full-height" />
 ```
-<img width="100%" src="metadata-assets/responsive-md/placeholders/32x32-0078D4-notext.svg" alt="full-width-height-ratio-preserved" />
+<img width="100%" src="metadata-assets/responsive-md/placeholders/32x32-0078D4-notext.svg" alt="full-width | full-height" />
 </details>
 
 #### Responsive & adaptive theming with `<picture>`
@@ -62,16 +62,16 @@ While the first idea is that it isn't possible to create a responsive and advanc
 ```html
 <!-- Change shown image based on device screen width with media queries -->
 <picture>
-  <source media="(max-width: 512px)" srcset="metadata-assets/responsive-md/placeholders/256x256-0078D4-FFFFFF.svg">
-  <source media="(min-width: 513px)" srcset="metadata-assets/responsive-md/placeholders/512x256-0078D4-FFFFFF.svg">
-  <img src="metadata-assets/responsive-md/placeholders/256x256-0078D4-FFFFFF.svg" alt="picture-responsive" />
+  <source media="(max-width: 1023px)" srcset="metadata-assets/responsive-md/placeholders/256x256-0078D4-FFFFFF.svg">
+  <source media="(min-width: 1024px)" srcset="metadata-assets/responsive-md/placeholders/512x256-0078D4-FFFFFF.svg">
+  <img src="metadata-assets/responsive-md/placeholders/256x256-0078D4-FFFFFF.svg" alt="picture | responsive[max-width: 1023px, min-width: 1024px]" />
 </picture>
 ```
 
 <picture>
-  <source media="(max-width: 512px)" srcset="metadata-assets/responsive-md/placeholders/256x256-0078D4-FFFFFF.svg">
-  <source media="(min-width: 513px)" srcset="metadata-assets/responsive-md/placeholders/512x256-0078D4-FFFFFF.svg">
-  <img src="metadata-assets/responsive-md/placeholders/256x256-0078D4-FFFFFF.svg" alt="picture-responsive" />
+  <source media="(max-width: 1023px)" srcset="metadata-assets/responsive-md/placeholders/256x256-0078D4-FFFFFF.svg">
+  <source media="(min-width: 1024px)" srcset="metadata-assets/responsive-md/placeholders/512x256-0078D4-FFFFFF.svg">
+  <img src="metadata-assets/responsive-md/placeholders/256x256-0078D4-FFFFFF.svg" alt="picture | responsive[max-width: 1023px, min-width: 1024px]" />
 </picture>
 
 ```html
@@ -79,14 +79,14 @@ While the first idea is that it isn't possible to create a responsive and advanc
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="metadata-assets/responsive-md/placeholders/256x256-000000-FFFFFF.svg">
   <source media="(prefers-color-scheme: light)" srcset="metadata-assets/responsive-md/placeholders/256x256-FFFFFF-000000.svg">
-  <img src="metadata-assets/responsive-md/placeholders/256x256-000000-FFFFFF.svg" alt="picture-theme" />
+  <img src="metadata-assets/responsive-md/placeholders/256x256-000000-FFFFFF.svg" alt="picture | theme | fixed-height" />
 </picture>
 ```
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="metadata-assets/responsive-md/placeholders/256x256-000000-FFFFFF.svg">
   <source media="(prefers-color-scheme: light)" srcset="metadata-assets/responsive-md/placeholders/256x256-FFFFFF-000000.svg">
-  <img src="metadata-assets/responsive-md/placeholders/256x256-000000-FFFFFF.svg" alt="picture-theme" />
+  <img src="metadata-assets/responsive-md/placeholders/256x256-000000-FFFFFF.svg" alt="picture | theme | fixed-height" />
 </picture>
 
 ```html
@@ -94,14 +94,14 @@ While the first idea is that it isn't possible to create a responsive and advanc
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="metadata-assets/responsive-md/placeholders/FULLx32-000000-FFFFFF.svg">
   <source media="(prefers-color-scheme: light)" srcset="metadata-assets/responsive-md/placeholders/FULLx32-FFFFFF-000000.svg">
-  <img width="100%" height="32" src="metadata-assets/responsive-md/placeholders/FULLx32-000000-FFFFFF.svg" alt="picture-theme-responsive" />
+  <img width="100%" height="32" src="metadata-assets/responsive-md/placeholders/FULLx32-000000-FFFFFF.svg" alt="picture | theme | full-width | fixed-height" />
 </picture>
 ```
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="metadata-assets/responsive-md/placeholders/FULLx32-000000-FFFFFF.svg">
   <source media="(prefers-color-scheme: light)" srcset="metadata-assets/responsive-md/placeholders/FULLx32-FFFFFF-000000.svg">
-  <img width="100%" height="32" src="metadata-assets/responsive-md/placeholders/FULLx32-000000-FFFFFF.svg" alt="picture-theme-responsive" />
+  <img width="100%" height="32" src="metadata-assets/responsive-md/placeholders/FULLx32-000000-FFFFFF.svg" alt="picture | theme | full-width | fixed-height" />
 </picture>
 </details>
 
@@ -115,52 +115,52 @@ While the first idea is that it isn't possible to create a responsive and advanc
 
 ```md
 ### align="left"
-<img align="left" src="metadata-assets/responsive-md/placeholders/128x24-0078D4-FFFFFF.svg" alt="align-left" />
+<img align="left" src="metadata-assets/responsive-md/placeholders/128x24-0078D4-FFFFFF.svg" alt="align-left | fixed-width | fixed-height" />
 Left alignment
 
 ### align="right"
-<img align="right" src="metadata-assets/responsive-md/placeholders/128x24-0078D4-FFFFFF.svg" alt="align-right" />
+<img align="right" src="metadata-assets/responsive-md/placeholders/128x24-0078D4-FFFFFF.svg" alt="align-right | fixed-width | fixed-height" />
 Right alignment
 ```
 
 ### align="left"
-<img align="left" src="metadata-assets/responsive-md/placeholders/128x24-0078D4-FFFFFF.svg" alt="align-left" />
+<img align="left" src="metadata-assets/responsive-md/placeholders/128x24-0078D4-FFFFFF.svg" alt="align-left | fixed-width | fixed-height" />
 Left alignment
 
 ### align="right"
-<img align="right" src="metadata-assets/responsive-md/placeholders/128x24-0078D4-FFFFFF.svg" alt="align-right" />
+<img align="right" src="metadata-assets/responsive-md/placeholders/128x24-0078D4-FFFFFF.svg" alt="align-right | fixed-width | fixed-height" />
 Right alignment
 
 ```html
 <p align="left">
-  <img src="metadata-assets/responsive-md/placeholders/128x128-0078D4-FFFFFF.svg" alt="p-align-left" />
-  <img src="metadata-assets/responsive-md/placeholders/128x128-0078D4-FFFFFF.svg" alt="p-align-left" />
+  <img src="metadata-assets/responsive-md/placeholders/128x128-0078D4-FFFFFF.svg" alt="align-left | fixed-width | fixed-height" />
+  <img src="metadata-assets/responsive-md/placeholders/128x128-0078D4-FFFFFF.svg" alt="align-left | fixed-width | fixed-height" />
 </p>
 
 <p align="center">
-  <img src="metadata-assets/responsive-md/placeholders/128x128-0078D4-FFFFFF.svg" alt="p-align-center" />
-  <img src="metadata-assets/responsive-md/placeholders/128x128-0078D4-FFFFFF.svg" alt="p-align-center" />
+  <img src="metadata-assets/responsive-md/placeholders/128x128-0078D4-FFFFFF.svg" alt="align-center | fixed-width | fixed-height" />
+  <img src="metadata-assets/responsive-md/placeholders/128x128-0078D4-FFFFFF.svg" alt="align-center | fixed-width | fixed-height" />
 </p>
 
 <p align="right">
-  <img src="metadata-assets/responsive-md/placeholders/128x128-0078D4-FFFFFF.svg" alt="p-align-right" />
-  <img src="metadata-assets/responsive-md/placeholders/128x128-0078D4-FFFFFF.svg" alt="p-align-right" />
+  <img src="metadata-assets/responsive-md/placeholders/128x128-0078D4-FFFFFF.svg" alt="align-right | fixed-width | fixed-height" />
+  <img src="metadata-assets/responsive-md/placeholders/128x128-0078D4-FFFFFF.svg" alt="align-right | fixed-width | fixed-height" />
 </p>
 ```
 
 <p align="left">
-  <img src="metadata-assets/responsive-md/placeholders/128x128-0078D4-FFFFFF.svg" alt="p-align-left" />
-  <img src="metadata-assets/responsive-md/placeholders/128x128-0078D4-FFFFFF.svg" alt="p-align-left" />
+  <img src="metadata-assets/responsive-md/placeholders/128x128-0078D4-FFFFFF.svg" alt="align-left | fixed-width | fixed-height" />
+  <img src="metadata-assets/responsive-md/placeholders/128x128-0078D4-FFFFFF.svg" alt="align-left | fixed-width | fixed-height" />
 </p>
 
 <p align="center">
-  <img src="metadata-assets/responsive-md/placeholders/128x128-0078D4-FFFFFF.svg" alt="p-align-center" />
-  <img src="metadata-assets/responsive-md/placeholders/128x128-0078D4-FFFFFF.svg" alt="p-align-center" />
+  <img src="metadata-assets/responsive-md/placeholders/128x128-0078D4-FFFFFF.svg" alt="align-center | fixed-width | fixed-height" />
+  <img src="metadata-assets/responsive-md/placeholders/128x128-0078D4-FFFFFF.svg" alt="align-center | fixed-width | fixed-height" />
 </p>
 
 <p align="right">
-  <img src="metadata-assets/responsive-md/placeholders/128x128-0078D4-FFFFFF.svg" alt="p-align-right" />
-  <img src="metadata-assets/responsive-md/placeholders/128x128-0078D4-FFFFFF.svg" alt="p-align-right" />
+  <img src="metadata-assets/responsive-md/placeholders/128x128-0078D4-FFFFFF.svg" alt="align-right | fixed-width | fixed-height" />
+  <img src="metadata-assets/responsive-md/placeholders/128x128-0078D4-FFFFFF.svg" alt="align-right | fixed-width | fixed-height" />
 </p>
 
 ```html
@@ -341,7 +341,7 @@ Because of their **vector** nature, SVG files allow for **very advanced layouts*
 </svg>
 ```
 
-<img src="metadata-assets/responsive-md/svg-techniques/style.svg" alt="svg-styling" />
+<img src="metadata-assets/responsive-md/svg-techniques/style.svg" alt="svg-styling | font | full-width | full-height" />
 
 </details>
 
@@ -379,7 +379,7 @@ Because of their **vector** nature, SVG files allow for **very advanced layouts*
 </svg>
 ```
 
-<img src="metadata-assets/responsive-md/svg-techniques/html.svg" alt="svg-html" />
+<img src="metadata-assets/responsive-md/svg-techniques/html.svg" alt="svg-styling | html | font | full-width | full-height" />
 
 </details>
 
@@ -405,7 +405,7 @@ Because of their **vector** nature, SVG files allow for **very advanced layouts*
 </svg>
 ```
 
-<img src="metadata-assets/responsive-md/svg-techniques/pattern-transform.svg" alt="pattern-tiling-and-transforms" />
+<img src="metadata-assets/responsive-md/svg-techniques/pattern-transform.svg" alt="pattern | transform | full-width | full-height" />
 
 </details>
 
@@ -432,10 +432,10 @@ Because of their **vector** nature, SVG files allow for **very advanced layouts*
 ```
 
 ```html
-<img src="metadata-assets/responsive-md/svg-techniques/responsive-pattern-transform.svg" width="100%" alt="responsive-pattern-tiling-and-transforms" />
+<img src="metadata-assets/responsive-md/svg-techniques/responsive-pattern-transform.svg" width="100%" alt="pattern | transform | full-width | fixed-height" />
 ```
 
-<img src="metadata-assets/responsive-md/svg-techniques/responsive-pattern-transform.svg" width="100%" alt="responsive-pattern-tiling-and-transforms" />
+<img src="metadata-assets/responsive-md/svg-techniques/responsive-pattern-transform.svg" width="100%" alt="pattern | transform | full-width | fixed-height" />
 
 </details>
 
@@ -497,7 +497,7 @@ The goal we are trying to achieve here is to replicate the style of the VSCode t
 2. **Assemble the six themed SVG "components" inside two composites SVG images**  
    Create a composite image for each theme (dark / light) and associate each themed SVG component (dark / light) with the created image:
    - Place the `vscode-preview-tab.svg` image at `x=0`.
-   - Define a `<pattern>` that uses `vscode-tabs-bar-filler.svg` to create a repeating pattern that fills the remaining width of the view with `width="100%"`. 
+   - Define a `<pattern>` that uses `vscode-tabs-bar-filler.svg` to create a repeating tiled pattern with `width="1"` (1px). 
    - Draw a `<rect>` filled with `url(#<id-of-the-pattern>)` starting at `x=<[vscode-preview-tab.svg]-width>` and extending with `width="100%"`.
    - Add the `vscode-editor-actions.svg` image and use `x="100%"` with `transform="translate(-<[vscode-preview-tab.svg]-width>, 0)"` to anchor it to the end of the filler pattern.
 
@@ -527,25 +527,28 @@ The goal we are trying to achieve here is to replicate the style of the VSCode t
      height="36" 
      aria-hidden="true">
   <defs>
-    <!-- tile filler pattern that spans the entire view width -->
-    <!-- allows repeating the 1px tile until the end of the view width -->
-    <pattern id="tileFiller" width="100%" height="36">
-      <image width="100%" height="36" preserveAspectRatio="none"
-             href="data:image/svg+xml;base64,<dark-themed-base64-encoded-svg-image>" />
+    <!-- 1px tile filler pattern -->
+    <pattern class="tile-filler" id="tile-filler-dark" width="1" height="100%" patternUnits="userSpaceOnUse">
+      <!-- vscode-tabs-filler.svg -->
+      <image preserveAspectRatio="none"
+             href="data:image/svg+xml;base64,..." />
     </pattern>
   </defs>
 
   <!-- preview tab image: fixed box at x=0 -->
-  <image id="preview-tab"
-         href="data:image/svg+xml;base64,<dark-themed-base64-encoded-svg-image>" />
+  <!-- vscode-preview-tab.svg -->
+  <image class="preview-dark" id="preview-tab-dark"
+         href="data:image/svg+xml;base64,..." />
 
-  <!-- tabs bar filler, starting at x = 164 (end of the preview tab image) and covering 100% of remaining screen width -->
-  <!-- responsive design made possible by using "tileFiller" -->
-  <rect id="tabs-bar-filler" x="164" y="0" width="100%" height="36" fill="url(#tileFiller)" />
+  <!-- tabs bar filler, starts from x = 164 (end of preview tab image) with a width of 100% (entire SVG width) -->
+  <!-- as the width of the pattern is equal to 100% of the SVG image, the remaining width of the SVG image is effectively filled by the pattern -->
+  <!-- if the image that references this SVG image has a width of 100%, the remaining screen width is effectively filled by the pattern -->
+  <rect class="tabs-bar-filler" id="tabs-bar-filler-dark" x="164" y="0" width="100%" height="36" fill="url(#tile-filler-dark)" />
 
-  <!-- editor actions image: positioned at the end of the view width using offset translation with x=calc(100% - 90px) -->
-  <image id="editor-actions" x="100%" transform="translate(-90,0)"
-         href="data:image/svg+xml;base64,<dark-themed-base64-encoded-svg-image>" />
+  <!-- editor actions image: positioned at the end of the view width (above the tabs bar filler) using offset translation with x=calc(100% - 90px) -->
+  <!-- vscode-editor-actions.svg -->
+  <image class="editor-actions" id="editor-actions-dark" x="100%" transform="translate(-90,0)"
+         href="data:image/svg+xml;base64,..." />
 </svg>
 ```
 
@@ -558,25 +561,28 @@ The goal we are trying to achieve here is to replicate the style of the VSCode t
      height="36" 
      aria-hidden="true">
   <defs>
-    <!-- tile filler pattern that spans the entire view width -->
-    <!-- allows repeating the 1px tile until the end of the view width -->
-    <pattern id="tileFiller" width="100%" height="36">
-      <image width="100%" height="36" preserveAspectRatio="none"
-             href="data:image/svg+xml;base64,<light-themed-base64-encoded-svg-image>" />
+    <!-- 1px tile filler pattern -->
+    <pattern class="tile-filler" id="tile-filler-light" width="1" height="100%" patternUnits="userSpaceOnUse">
+      <!-- vscode-tabs-filler.svg -->
+      <image preserveAspectRatio="none"
+             href="data:image/svg+xml;base64,..." />
     </pattern>
   </defs>
 
   <!-- preview tab image: fixed box at x=0 -->
-  <image id="preview-tab"
-         href="data:image/svg+xml;base64,<light-themed-base64-encoded-svg-image>" />
+  <!-- vscode-preview-tab.svg -->
+  <image class="preview-tab" id="preview-tab-light"
+         href="data:image/svg+xml;base64,..." />
 
-  <!-- tabs bar filler, starting at x = 164 (end of the preview tab image) and covering 100% of remaining screen width -->
-  <!-- responsive design made possible by using "tileFiller" -->
-  <rect id="tabs-bar-filler" x="164" y="0" width="100%" height="36" fill="url(#tileFiller)" />
+  <!-- tabs bar filler, starts from x = 164 (end of preview tab image) with a width of 100% (entire SVG width) -->
+  <!-- as the width of the pattern is equal to 100% of the SVG image, the remaining width of the SVG image is effectively filled by the pattern -->
+  <!-- if the image that references this SVG image has a width of 100%, the remaining screen width is effectively filled by the pattern -->
+  <rect class="tabs-bar-filler" id="tabs-bar-filler-light" x="164" y="0" width="100%" height="36" fill="url(#tile-filler-light)" />
 
-  <!-- editor actions image: positioned at the end of the view width using offset translation with x=calc(100% - 90px) -->
-  <image id="editor-actions" x="100%" transform="translate(-90,0)"
-         href="data:image/svg+xml;base64,<light-themed-base64-encoded-svg-image>" />
+  <!-- editor actions image: positioned at the end of the view width (above the tabs bar filler) using offset translation with x=calc(100% - 90px) -->
+  <!-- vscode-editor-actions.svg -->
+  <image class="editor-actions" id="editor-actions-light" x="100%" transform="translate(-90,0)"
+         href="data:image/svg+xml;base64,..." />
 </svg>
 ```
 
@@ -591,7 +597,7 @@ The goal we are trying to achieve here is to replicate the style of the VSCode t
 ```
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://github.com/Zemasterkrom/zemasterkrom-assets/blob/rev3-fix-cross-browser-inconsistencies/header/dark-mode/vscode-tabs-bar.svg?raw=true" />
-  <source media="(prefers-color-scheme: light)" srcset="https://github.com/Zemasterkrom/zemasterkrom-assets/blob/rev3-fix-cross-browser-inconsistencies/header/light-mode/vscode-tabs-bar.svg?raw=true" />
-  <img src="https://github.com/Zemasterkrom/zemasterkrom-assets/blob/rev3-fix-cross-browser-inconsistencies/header/vscode-tabs-bar.svg?raw=true" alt="Preview README.md" width="100%" />
+  <source media="(prefers-color-scheme: dark)" srcset="https://github.com/Zemasterkrom/zemasterkrom-assets/blob/rev4-fix-vscode-tabs-bar-gap/header/dark-mode/vscode-tabs-bar.svg?raw=true" />
+  <source media="(prefers-color-scheme: light)" srcset="https://github.com/Zemasterkrom/zemasterkrom-assets/blob/rev4-fix-vscode-tabs-bar-gap/header/light-mode/vscode-tabs-bar.svg?raw=true" />
+  <img src="https://github.com/Zemasterkrom/zemasterkrom-assets/blob/rev4-fix-vscode-tabs-bar-gap/header/vscode-tabs-bar.svg?raw=true" alt="Preview README.md" width="100%" />
 </picture>
