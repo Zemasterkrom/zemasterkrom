@@ -22,7 +22,7 @@ jobs:
             - name: Upload converted HTML files
               uses: actions/upload-artifact@v4
               with:
-                name: markdown_html_conversion
+                name: markdown-html-conversion
                 path: md-html/
 
     test:
@@ -50,7 +50,7 @@ jobs:
           - name: Download converted HTML files
             uses: actions/download-artifact@v5
             with:
-              name: markdown_html_conversion
+              name: markdown-html-conversion
 
           - name: Install dependencies with specific Playwright version
             run: npm run install-playwright:${{ matrix.version.playwright }}

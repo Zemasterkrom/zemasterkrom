@@ -38,10 +38,15 @@ export const test = base.extend<{ cacheRoute: CacheRoute }>({
             ]
         });
 
-        await cacheRoute.GET('http://**', { ttlMinutes: 1 });
-        await cacheRoute.GET('https://**', { ttlMinutes: 1 });
+        await cacheRoute.GET('http://**/*', { ttlMinutes: 2 });
+        await cacheRoute.GET('https://**/*', { ttlMinutes: 2 });
 
-        await use(cacheRoute);
+        try {
+            await use(cacheRoute);
+        } finally {
+            await page.unroute('http://**/*');
+            await page.unroute('https://**/*');
+        }
     },
 
     { auto: true }]
