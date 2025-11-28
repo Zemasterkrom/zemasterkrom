@@ -499,7 +499,7 @@ The goal we are trying to achieve here is to replicate the style of the VSCode t
    - Place the `vscode-preview-tab.svg` image at `x=0`.
    - Define a `<pattern>` that uses `vscode-tabs-bar-filler.svg` to create a repeating tiled pattern with `width="1"` (1px). 
    - Draw a `<rect>` filled with `url(#<id-of-the-pattern>)` starting at `x=<[vscode-preview-tab.svg]-width>` and extending with `width="100%"`.
-   - Add the `vscode-editor-actions.svg` image and use `x="100%"` with `transform="translate(-<[vscode-preview-tab.svg]-width>, 0)"` to anchor it to the end of the filler pattern.
+   - Add the `vscode-editor-actions.svg` image and use `x="100%"` with `transform="translate(-<[vscode-editor-actions.svg]-width>, 0)"` to anchor it to the end of the filler pattern.
 
 3. **Sizing & responsiveness**  
    - Do **not** include `viewBox` to make the SVG scale to the parent container `width` dimensions (remove `viewBox`).
@@ -517,6 +517,9 @@ The goal we are trying to achieve here is to replicate the style of the VSCode t
    ```
 
 ## SVG
+
+> [!IMPORTANT]
+> **GitHub prohibits** (via its **Content Security Policy \[CSP\]**) the **loading of external resources and images** from an SVG for **security reasons**, so we use **base64-encoded images**, which are **inline and local** representations of the designed images.
 
 ### Composite dark-themed image
 
