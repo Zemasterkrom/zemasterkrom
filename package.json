@@ -1,0 +1,19 @@
+{
+  "name": "zemasterkrom",
+  "license": "MIT",
+  "description": "zemasterkrom.profiles.github",
+  "devDependencies": {
+    "@playwright/test": "1.36.2 || 1.57.0",
+    "@types/node": "18.17.0 || 24.10.1",
+    "axios": "^1.13.2",
+    "fast-average-color-node": "^3.1.0",
+    "jimp": "~1.0",
+    "playwright-network-cache": "^0.2.2",
+    "typescript": "^5.9.3"
+  },
+  "scripts": {
+    "install-playwright:1.36.2": "npm install @playwright/test@1.36.2 @types/node@18.17.0 --no-save",
+    "install-playwright:1.57.0": "npm install @playwright/test@1.57.0 @types/node@24.10.1 --no-save",
+    "test": "npx playwright test"
+  }
+}

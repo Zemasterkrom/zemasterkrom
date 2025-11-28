@@ -86,7 +86,7 @@ While the first idea is that it isn't possible to create a responsive and advanc
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="metadata-assets/responsive-md/placeholders/256x256-000000-FFFFFF.svg">
   <source media="(prefers-color-scheme: light)" srcset="metadata-assets/responsive-md/placeholders/256x256-FFFFFF-000000.svg">
-  <img src="metadata-assets/responsive-md/placeholders/256x256-000000-FFFFFF.svg" alt="picture | theme | fixed-height" />
+  <img src="metadata-assets/responsive-md/placeholders/256x256-000000-FFFFFF.svg" alt="picture | theme | fixed-height | dark-mode[dark-bg] | light-mode[light-bg]" />
 </picture>
 
 ```html

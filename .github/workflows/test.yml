@@ -1,0 +1,59 @@
+name: Test cross-browser GFM rendering
+
+on: [push, pull_request]
+
+jobs:
+    convert:
+        name: Convert GFM Markdown documents to HTML (README.MD, RESPONSIVE.md)
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v5
+
+            - name: Convert GFM Markdown file to HTML (README.md) 
+              run: bash scripts/convert_gfm_md_to_html.bash --input README.md --output md-html/README.html
+              env:
+                GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+            - name: Convert GFM Markdown file to HTML (RESPONSIVE.md) 
+              run: bash scripts/convert_gfm_md_to_html.bash --input RESPONSIVE.md --output md-html/RESPONSIVE.html
+              env:
+                GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      
+            - name: Upload converted HTML files
+              uses: actions/upload-artifact@v4
+              with:
+                name: markdown_html_conversion
+                path: md-html/
+
+    test:
+        name: Testing / Playwright ${{ matrix.version.playwright }} (Chromium ${{ matrix.version.chromium }}, Firefox ${{ matrix.version.firefox }}, WebKit ${{ matrix.version.webkit }})
+        needs: convert
+        runs-on: ubuntu-latest
+        container:
+            image: mcr.microsoft.com/playwright:v${{ matrix.version.docker }}
+        strategy:
+            matrix:
+                version: 
+                    - playwright: 1.36.2
+                      docker: 1.36.2-jammy
+                      chromium: 115.0.5790.75
+                      firefox: 115.0
+                      webkit: 17.0
+                    - playwright: 1.57.0
+                      docker: 1.57.0-noble
+                      chromium: 143.0.7499.4
+                      firefox: 142.0.1
+                      webkit: 26.0
+        steps:
+          - uses: actions/checkout@v5
+          
+          - name: Download converted HTML files
+            uses: actions/download-artifact@v5
+            with:
+              name: markdown_html_conversion
+
+          - name: Install dependencies with specific Playwright version
+            run: npm run install-playwright:${{ matrix.version.playwright }}
+
+          - name: Run tests
+            run: npm run test

@@ -1,0 +1,15 @@
+
+# Playwright
+node_modules/
+/test-results/
+/playwright-report/
+/blob-report/
+/playwright/.cache/
+/playwright/.auth/
+tests/screenshots
+
+# Testing
+.artifacts/
+.network-cache/
+*.html
+package-lock.json
