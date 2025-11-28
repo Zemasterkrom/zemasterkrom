@@ -3,6 +3,7 @@ import { PlaywrightTestConfig, devices } from '@playwright/test';
 
 const config: PlaywrightTestConfig = {
   forbidOnly: !!process.env.CI,
+  workers: process.env.WORKERS ? parseFloat(process.env.WORKERS) : 2,
   retries: process.env.CI ? 2 : 0,
   use: {
     trace: 'on-first-retry'

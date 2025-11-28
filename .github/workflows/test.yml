@@ -56,4 +56,4 @@ jobs:
             run: npm run install-playwright:${{ matrix.version.playwright }}
 
           - name: Run tests
-            run: npm run test
+            run: HOME=/root npm run test
