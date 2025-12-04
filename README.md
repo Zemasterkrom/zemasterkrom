@@ -12,9 +12,9 @@
 <h1>
   <a href="https://github.com/whiteSHADOW1234/TypingSVG">
     <picture>
-      <source media="(max-width: 576px), (min-width: 768px) and (max-width: 856px)" srcset="https://zemasterkrom-typingsvg.netlify.app/api/svg?width=256&height=82&repeat=false&backgroundOpacity=0&center=false&border=false&deletionBehavior=stay&lines=%5B%7B%22text%22%3A%22Hi+%F0%9F%91%8B%2C+I%27m%5CnZemasterkrom%22%2C%22color%22%3A%22%2336bcf7%22%2C%22fontSize%22%3A32%2C%22typingSpeed%22%3A0.1%2C%22fontWeight%22%3A%22600%22%7D%5D" />
-      <source media="(min-width: 577px) and (max-width: 767px), (min-width: 857px)" srcset="https://zemasterkrom-typingsvg.netlify.app/api/svg?width=462&height=44&repeat=false&backgroundOpacity=0&center=false&border=false&deletionBehavior=stay&lines=%5B%7B%22text%22%3A%22Hi+%F0%9F%91%8B%2C+I%27m+Zemasterkrom%22%2C%22color%22%3A%22%2336bcf7%22%2C%22fontSize%22%3A32%2C%22typingSpeed%22%3A0.1%2C%22fontWeight%22%3A%22600%22%7D%5D" />
-      <img alt="Zemasterkrom" src="https://zemasterkrom-typingsvg.netlify.app/api/svg?width=462&height=44&repeat=false&backgroundOpacity=0&center=false&border=false&deletionBehavior=stay&lines=%5B%7B%22text%22%3A%22Hi+%F0%9F%91%8B%2C+I%27m+Zemasterkrom%22%2C%22color%22%3A%22%2336bcf7%22%2C%22fontSize%22%3A32%2C%22typingSpeed%22%3A0.1%2C%22fontWeight%22%3A%22600%22%7D%5D" />
+      <source media="(max-width: 576px), (min-width: 768px) and (max-width: 856px)" srcset="https://zemasterkrom-typingsvg.netlify.app/api/svg?width=256&height=104&repeat=false&backgroundOpacity=0&center=false&border=false&deletionBehavior=stay&lines=%5B%7B%22text%22%3A%22Hi+%F0%9F%91%8B%2C+I%27m%5CnZemasterkrom%22%2C%22color%22%3A%22%2336bcf7%22%2C%22fontSize%22%3A32%2C%22typingSpeed%22%3A0.1%2C%22fontWeight%22%3A%22600%22%7D%5D" />
+      <source media="(min-width: 577px) and (max-width: 767px), (min-width: 857px)" srcset="https://zemasterkrom-typingsvg.netlify.app/api/svg?width=462&height=68&repeat=false&backgroundOpacity=0&center=false&border=false&deletionBehavior=stay&lines=%5B%7B%22text%22%3A%22Hi+%F0%9F%91%8B%2C+I%27m+Zemasterkrom%22%2C%22color%22%3A%22%2336bcf7%22%2C%22fontSize%22%3A32%2C%22typingSpeed%22%3A0.1%2C%22fontWeight%22%3A%22600%22%7D%5D" />
+      <img alt="Zemasterkrom" src="https://zemasterkrom-typingsvg.netlify.app/api/svg?width=462&height=68&repeat=false&backgroundOpacity=0&center=false&border=false&deletionBehavior=stay&lines=%5B%7B%22text%22%3A%22Hi+%F0%9F%91%8B%2C+I%27m+Zemasterkrom%22%2C%22color%22%3A%22%2336bcf7%22%2C%22fontSize%22%3A32%2C%22typingSpeed%22%3A0.1%2C%22fontWeight%22%3A%22600%22%7D%5D" />
     </picture>
   </a>
 </h1>
@@ -22,7 +22,7 @@
 <p align="center">
   <a href="https://github.com/whiteSHADOW1234/TypingSVG">
       <img 
-          src="https://zemasterkrom-typingsvg.netlify.app/api/svg?width=488&height=72&pause=5000&backgroundOpacity=0&border=false&lines=%5B%7B%22text%22%3A%22Software+Engineer%22%2C%22color%22%3A%22%2336bcf7%22%2C%22fontSize%22%3A32%2C%22typingSpeed%22%3A0.1%2C%22deleteSpeed%22%3A0.05%7D%2C%7B%22text%22%3A%22Back-End%5CnMonolithic+Full-Stack%22%2C%22color%22%3A%22%2336bcf7%22%2C%22fontSize%22%3A32%2C%22typingSpeed%22%3A0.1%2C%22deleteSpeed%22%3A0.05%7D%2C%7B%22text%22%3A%22%23OpenSource%22%2C%22color%22%3A%22%2336bcf7%22%2C%22typingSpeed%22%3A0.1%2C%22deleteSpeed%22%3A0.05%2C%22fontWeight%22%3A%22600%22%7D%2C%7B%22text%22%3A%22%23CleanCode%22%2C%22color%22%3A%22%2336bcf7%22%2C%22typingSpeed%22%3A0.1%2C%22deleteSpeed%22%3A0.05%2C%22fontWeight%22%3A%22600%22%7D%2C%7B%22text%22%3A%22%23PragmaticEngineering%22%2C%22color%22%3A%22%2336bcf7%22%2C%22typingSpeed%22%3A0.1%2C%22deleteSpeed%22%3A0.05%2C%22fontWeight%22%3A%22600%22%7D%5D"
+          src="https://github.com/Zemasterkrom/zemasterkrom-assets/blob/rev5-temp-fix-typingsvg-webkit-alignment/animations/dark-mode/profile-description.svg?raw=true"
           alt="Profile description of Zemasterkrom" />
   </a>
 </p>

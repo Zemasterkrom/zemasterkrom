@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 
 <svg xmlns="http://www.w3.org/2000/svg"
-     width="96"
+     width="112"
      height="46"
+     viewBox="0 0 112 46"
      role="document"
      aria-labelledby="statistics-section">
   <style>
@@ -18,10 +19,10 @@
       fill: rgb(240, 246, 252);
     }
     
-    .downloads { display: flex; align-items: center; gap: 8px; }
-    .downloads svg { width: 28px; height: 28px; flex: 0 0 auto; }
+    .downloads { display: flex; align-items: center; }
+    .downloads svg { width: 28px; height: 28px; flex: 0 0 auto; margin-right: 8px; }
     .stat strong { display: block; font-size: 18px; }
-    .stat span { font-size: 12px; opacity: 0.9; }
+    .stat span { font-size: 12px; color: rgba(240,246,252,0.9); }
   </style>
 
   <title id="statistics-section">zmkr-cloudflare-turnstile-bundle statistics</title>
