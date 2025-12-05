@@ -45,7 +45,7 @@ const TESTS: ImageResponsiveTest[] = [
                     height: 1024
                 },
                 {
-                    width: 600,
+                    width: 700,
                     height: 1024
                 },
                 {

@@ -27,7 +27,7 @@ export default async function fetchSvgContent(svgSrc: string): Promise<string> {
 
     if (resolved.protocol === 'http:' || resolved.protocol === 'https:') {
         const res = await axios.get(resolved.toString(), {
-            timeout: 10000
+            timeout: 30000
         });
         return res.data;
     }
