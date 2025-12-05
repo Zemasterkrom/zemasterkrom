@@ -62,13 +62,13 @@ jobs:
             if: failure()
             uses: actions/upload-artifact@v4
             with:
-              name: test-failure-results
+              name: test-failure-results-${{ strategy.job-index }}
               path: test-results/
 
           - name: Upload screenshots
             if: always()
             uses: actions/upload-artifact@v4
             with:
-              name: test-screenshots
+              name: test-screenshots-${{ strategy.job-index }}
               path: tests/screenshots/
               retention-days: 2

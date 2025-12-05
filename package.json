@@ -18,6 +18,6 @@
   "scripts": {
     "install-playwright:1.36.2": "npm install @playwright/test@1.36.2 @types/node@18.17.0 --no-save",
     "install-playwright:1.57.0": "npm install @playwright/test@1.57.0 @types/node@24.10.1 --no-save",
-    "test": "cross-env CACHE_WARMUP=true npx playwright test tests/cache/warmup.spec.ts --workers 1 && npx playwright test"
+    "test": "cross-env CACHE_WARMUP=true npx playwright test tests/cache/warmup.spec.ts --workers 1 --project chromium && npx playwright test"
   }
 }
