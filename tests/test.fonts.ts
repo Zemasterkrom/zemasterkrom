@@ -57,7 +57,7 @@ export async function fontTests(urlProvider: (testInfo: TestInfo) => string, des
                         });
 
                         await fontTest.test(testInfo, fontFamilies, availableFonts);
-                        await svgTestPage.close();
+                        await svgTestPage.close().catch(() => { });
                     });
                 }
             });

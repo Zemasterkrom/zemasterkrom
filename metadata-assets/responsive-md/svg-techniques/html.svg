@@ -17,7 +17,7 @@
     }
   </style>
 
-  <foreignObject x="0" y="0" width="100%" height="100%">
+  <foreignObject x="0" y="0" width="400" height="100">
     <div xmlns="http://www.w3.org/1999/xhtml" class="container">
       <strong>Centered text inside SVG</strong>
     </div>

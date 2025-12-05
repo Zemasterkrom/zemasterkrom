@@ -9,6 +9,7 @@
     "axios": "^1.13.2",
     "cross-env": "^7.0.3",
     "fast-average-color-node": "^3.1.0",
+    "image-size": "^2.0.2",
     "jimp": "~1.0",
     "jsdom": "^26.1.0",
     "parse5": "^8.0.0",

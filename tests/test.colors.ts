@@ -12,8 +12,8 @@ interface ColorSchemeTestBase<T extends boolean> {
     screenshot: T;
     initHook?: (page: Page) => Promise<void>;
     test: {
-        dark: ThemeTestFn<T>;
-        light: ThemeTestFn<T>;
+        dark?: ThemeTestFn<T>;
+        light?: ThemeTestFn<T>;
     }
 }
 
@@ -49,32 +49,33 @@ export async function colorSchemeTests(urlProvider: (testInfo: TestInfo) => stri
             });
 
             colorSchemeTests.forEach((colorSchemeTest) => {
-                test(colorSchemeTest.name, async ({ page, browser }) => {
-                    const browserName = browser.browserType().name();
-                    const browserVersion = browser.version();
-                    const globalLocator = page.locator(colorSchemeTest.selector);
+                if (colorSchemeTest.test[theme]) {
+                    test(colorSchemeTest.name, async ({ page, browser }) => {
+                        const browserName = browser.browserType().name();
+                        const browserVersion = browser.version();
+                        const globalLocator = page.locator(colorSchemeTest.selector);
 
-                    const count = await globalLocator.count();
-                    expect(count).toBeGreaterThan(0);
+                        const count = await globalLocator.count();
+                        expect(count).toBeGreaterThan(0);
 
-                    for (let index = 0; index < count; index++) {
-                        const elementLocator = globalLocator.nth(index);
-                        const mediaInfo = await htmlMediaInfo(elementLocator, index);
+                        for (let index = 0; index < count; index++) {
+                            const elementLocator = globalLocator.nth(index);
+                            const mediaInfo = await htmlMediaInfo(elementLocator, index);
 
-                        await test.step(await testStepDescription(mediaInfo), async () => {
-                            await elementLocator.waitFor({ state: 'visible', timeout: 10000 });
+                            await test.step(await testStepDescription(mediaInfo), async () => {
+                                await elementLocator.waitFor({ state: 'visible', timeout: 10000 });
 
-                            if (colorSchemeTest.screenshot) {
-                                const screenshotPath = `tests/screenshots/${screenshotFolderSeparator}/${browserName}-${browserVersion}-${colorSchemeTest.name.replace(/[^a-zA-Z0-9]/g, '-')}-${theme}-${mediaInfo?.alt?.replace(/[^a-zA-Z0-9]/g, '-')}.png`;
-                                await elementLocator.screenshot({ path: screenshotPath });
-                                await colorSchemeTest.test[theme](page, globalLocator, screenshotPath);
-                            } else {
-                                await colorSchemeTest.test[theme](page, globalLocator, null);
-                            }
-                        });
-                    }
-                });
-
+                                if (colorSchemeTest.screenshot) {
+                                    const screenshotPath = `tests/screenshots/${screenshotFolderSeparator}/colors/${browserName}-${browserVersion}-${colorSchemeTest.name.replace(/[^a-zA-Z0-9]/g, '-')}-${theme}-${mediaInfo?.alt?.replace(/[^a-zA-Z0-9]/g, '-')}.png`;
+                                    await elementLocator.screenshot({ path: screenshotPath, scale: 'css' });
+                                    await colorSchemeTest.test[theme]!(page, globalLocator, screenshotPath);
+                                } else {
+                                    await colorSchemeTest.test[theme]!(page, globalLocator, null);
+                                }
+                            });
+                        }
+                    });
+                }
             });
         });
     };

@@ -26,17 +26,17 @@ While the first idea is that it isn't possible to create a responsive and advanc
 
 ```html
 <!-- This will stretch the provided image according to the fixed "width" and "height" attributes -->
-<img width="64" height="32" src="metadata-assets/responsive-md/placeholders/32x32-0078D4-notext.svg" alt="fixed-size | fixed-width | fixed-height" />
+<img width="64" height="32" src="metadata-assets/responsive-md/placeholders/32x32-0078D4-notext.svg" alt="fixed-size | fixed-width | fixed-height | responsive-sizing" />
 ```
 
-<img width="64" height="32" src="metadata-assets/responsive-md/placeholders/32x32-0078D4-notext.svg" alt="fixed-size | fixed-width | fixed-height" />
+<img width="64" height="32" src="metadata-assets/responsive-md/placeholders/32x32-0078D4-notext.svg" alt="fixed-size | fixed-width | fixed-height | responsive-sizing" />
 
 ```html
 <!-- This will stretch the provided image to the full parent container width with a fixed and defined height -->
-<img width="100%" height="32" src="metadata-assets/responsive-md/placeholders/32x32-0078D4-notext.svg" alt="full-width | fixed-height" />
+<img width="100%" height="32" src="metadata-assets/responsive-md/placeholders/32x32-0078D4-notext.svg" alt="full-width | fixed-height | responsive-sizing" />
 ```
 
-<img width="100%" height="32" src="metadata-assets/responsive-md/placeholders/32x32-0078D4-notext.svg" alt="full-width | fixed-height" />
+<img width="100%" height="32" src="metadata-assets/responsive-md/placeholders/32x32-0078D4-notext.svg" alt="full-width | fixed-height | responsive-sizing" />
 
 ```html
 <!-- This will stretch the image to the full parent container width maintaining aspect ratio -->
@@ -318,7 +318,7 @@ Because of their **vector** nature, SVG files allow for **very advanced layouts*
 ```xml
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 100">
+<svg xmlns="http://www.w3.org/2000/svg" width="256" height="100" viewBox="0 0 256 100">
   <style>
     .title {
       font: bold 20px '-apple-system', BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji';
@@ -341,7 +341,11 @@ Because of their **vector** nature, SVG files allow for **very advanced layouts*
 </svg>
 ```
 
-<img src="metadata-assets/responsive-md/svg-techniques/style.svg" alt="svg-styling | font | full-width | full-height" />
+```html
+<img src="metadata-assets/responsive-md/svg-techniques/style.svg" alt="svg-styling | font | fixed-width | fixed-height" />
+```
+
+<img src="metadata-assets/responsive-md/svg-techniques/style.svg" alt="svg-styling | font | fixed-width | fixed-height" />
 
 </details>
 
@@ -371,7 +375,7 @@ Because of their **vector** nature, SVG files allow for **very advanced layouts*
     }
   </style>
 
-  <foreignObject x="0" y="0" width="100%" height="100%">
+  <foreignObject x="0" y="0" width="400" height="100">
     <div xmlns="http://www.w3.org/1999/xhtml" class="container">
       <strong>Centered text inside SVG</strong>
     </div>
@@ -379,7 +383,11 @@ Because of their **vector** nature, SVG files allow for **very advanced layouts*
 </svg>
 ```
 
-<img src="metadata-assets/responsive-md/svg-techniques/html.svg" alt="svg-styling | html | font | full-width | full-height" />
+```html
+<img width="100%" src="metadata-assets/responsive-md/svg-techniques/html.svg" alt="svg-styling | html | font | full-width | full-height" />
+```
+
+<img width="100%" src="metadata-assets/responsive-md/svg-techniques/html.svg" alt="svg-styling | html | font | full-width | full-height" />
 
 </details>
 
@@ -403,6 +411,10 @@ Because of their **vector** nature, SVG files allow for **very advanced layouts*
   <rect width="100%" height="80" fill="url(#dots)" transform="rotate(1)"  />
   <rect width="8" height="74" fill="#0078D4" x="100%" transform="rotate(1) translate(-8,0)"  />
 </svg>
+```
+
+```html
+<img src="metadata-assets/responsive-md/svg-techniques/pattern-transform.svg" alt="pattern | transform | full-width | full-height" />
 ```
 
 <img src="metadata-assets/responsive-md/svg-techniques/pattern-transform.svg" alt="pattern | transform | full-width | full-height" />

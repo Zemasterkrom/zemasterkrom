@@ -22,7 +22,7 @@ const config: PlaywrightTestConfig = {
       use: { ...devices['Desktop Safari'] },
     },
   ],
-  timeout: 60000,
+  timeout: 75000,
   metadata: {
     HTML_README_PATH: 'file:///' + __dirname + '/README.html',
     HTML_RESPONSIVE_DOCUMENT_PATH: 'file:///' + __dirname + '/RESPONSIVE.html',

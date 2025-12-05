@@ -59,16 +59,18 @@ renderingTest(testInfo => testInfo.project.metadata.HTML_README_PATH, 'README.md
 
                 const screenshotBuffer = await svgLocator.screenshot({ path: `tests/screenshots/readme/rendering/${browserName}/${browserName}-${browserVersion}-w${currentSize.width}-${requestUrl}.png`, scale: 'css' });
 
-                return route.fulfill({
+                await route.fulfill({
                     status: 200,
                     headers: { 'Content-Type': 'image/png' },
                     body: screenshotBuffer,
                 });
             } catch (error) {
                 console.error('Error processing SVG: ', error);
-                return route.continue();
+                await route.continue();
             } finally {
-                tempPage.close().catch();
+                if (tempPage && !tempPage.isClosed()) {
+                    tempPage.close().catch(() => { });
+                }
             }
         });
     }

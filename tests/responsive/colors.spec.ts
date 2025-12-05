@@ -1,6 +1,8 @@
 import { getAverageColor } from "fast-average-color-node";
 import { ColorSchemeTest, colorSchemeTests } from "../test.colors";
 import { expect, Locator, Page } from "@playwright/test";
+import { intToRGBA, Jimp } from "jimp";
+import { imageSizeFromFile } from 'image-size/fromFile'
 
 const TESTS: ColorSchemeTest[] = [
     {
@@ -21,6 +23,59 @@ const TESTS: ColorSchemeTest[] = [
                 }));
 
                 expect(dominantColor.isLight).toBeTruthy();
+            }
+        }
+    },
+    {
+        name: "Responsive sizing - Stretches the blue image horizontally (fixed size)",
+        selector: '[alt~="fixed-size"][alt~="fixed-width"][alt~="fixed-height"][alt~="responsive-sizing"]',
+        screenshot: true,
+        test: {
+            light: async (_page: Page, _locator: Locator, screenshotPath: string) => {
+                const image = await Jimp.read(screenshotPath);
+                const hex = image.getPixelColor(64, 0);
+                const { r, g, b, a } = intToRGBA(hex);
+
+                expect(r).not.toStrictEqual(255);
+                expect(g).not.toStrictEqual(255);
+                expect(b).not.toStrictEqual(255);
+                expect(a).toStrictEqual(255);
+            }
+        }
+    },
+    {
+        name: "Responsive sizing - Stretches the blue image horizontally (full width, fixed height)",
+        selector: '[alt~="full-width"][alt~="fixed-height"][alt~="responsive-sizing"]',
+        screenshot: true,
+        test: {
+            light: async (_page: Page, _locator: Locator, screenshotPath: string) => {
+                const image = await Jimp.read(screenshotPath);
+                const hex = image.getPixelColor(128, 0);
+                const { r, g, b, a } = intToRGBA(hex);
+
+                expect(r).not.toStrictEqual(255);
+                expect(g).not.toStrictEqual(255);
+                expect(b).not.toStrictEqual(255);
+                expect(a).toStrictEqual(255);
+            }
+        }
+    },
+    {
+        name: "SVG and HTML - Builds and shows the rounded rectangle shape correctly",
+        selector: '[alt~="svg-styling"][alt~="html"]',
+        screenshot: true,
+        test: {
+            light: async (_page: Page, _locator: Locator, screenshotPath: string) => {
+                const dimensions = await imageSizeFromFile(screenshotPath);
+
+                const image = await Jimp.read(screenshotPath);
+                const hex = image.getPixelColor(0, dimensions.height);
+                const { r, g, b, a } = intToRGBA(hex);
+
+                expect(r).toStrictEqual(255);
+                expect(g).toStrictEqual(255);
+                expect(b).toStrictEqual(255);
+                expect(a).toStrictEqual(255);
             }
         }
     },
