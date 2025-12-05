@@ -32,7 +32,7 @@ export function isLight(rgb: number[]) {
 }
 
 
-export async function colorSchemeTests(urlProvider: (testInfo: TestInfo) => string | Promise<string>, describeName: string, colorSchemeTests: ColorSchemeTest[], initHook?: (page: Page) => Promise<void>): Promise<void> {
+export async function colorSchemeTests(urlProvider: (testInfo: TestInfo) => string | Promise<string>, describeName: string, screenshotFolderSeparator: string, colorSchemeTests: ColorSchemeTest[], initHook?: (page: Page) => Promise<void>): Promise<void> {
     for (const theme of ['dark', 'light'] as const) {
         test.describe(`${describeName} - ${theme} theme`, () => {
             test.use({ colorScheme: theme });
@@ -50,6 +50,8 @@ export async function colorSchemeTests(urlProvider: (testInfo: TestInfo) => stri
 
             colorSchemeTests.forEach((colorSchemeTest) => {
                 test(colorSchemeTest.name, async ({ page, browser }) => {
+                    const browserName = browser.browserType().name();
+                    const browserVersion = browser.version();
                     const globalLocator = page.locator(colorSchemeTest.selector);
 
                     const count = await globalLocator.count();
@@ -63,7 +65,7 @@ export async function colorSchemeTests(urlProvider: (testInfo: TestInfo) => stri
                             await elementLocator.waitFor({ state: 'visible', timeout: 10000 });
 
                             if (colorSchemeTest.screenshot) {
-                                const screenshotPath = `tests/screenshots/${browser.browserType().name()}-${colorSchemeTest.name.replace(/[^a-zA-Z0-9]/g, '-')}-${theme}-${mediaInfo?.alt?.replace(/[^a-zA-Z0-9]/g, '-')}-${mediaInfo?.shortenedSrc?.replace(/[^a-zA-Z0-9]/g, '-')}.png`;
+                                const screenshotPath = `tests/screenshots/${screenshotFolderSeparator}/${browserName}-${browserVersion}-${colorSchemeTest.name.replace(/[^a-zA-Z0-9]/g, '-')}-${theme}-${mediaInfo?.alt?.replace(/[^a-zA-Z0-9]/g, '-')}.png`;
                                 await elementLocator.screenshot({ path: screenshotPath });
                                 await colorSchemeTest.test[theme](page, globalLocator, screenshotPath);
                             } else {

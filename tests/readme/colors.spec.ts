@@ -98,4 +98,4 @@ const TESTS: ColorSchemeTest[] = [
     }
 ];
 
-colorSchemeTests(testInfo => testInfo.project.metadata.HTML_README_PATH, "Color scheme testing", TESTS);
+colorSchemeTests(testInfo => testInfo.project.metadata.HTML_README_PATH, 'Color scheme testing', 'readme', TESTS);
