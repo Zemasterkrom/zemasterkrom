@@ -44,8 +44,10 @@ export const test = base.extend<{ cacheRoute: CacheRoute }>({
         try {
             await use(cacheRoute);
         } finally {
-            await page.unroute('http://**/*');
-            await page.unroute('https://**/*');
+            if (!page.isClosed()) {
+                await page.unroute('http://**/*').catch();
+                await page.unroute('https://**/*').catch();
+            }
         }
     },
 

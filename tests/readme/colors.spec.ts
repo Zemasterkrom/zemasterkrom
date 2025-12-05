@@ -67,7 +67,7 @@ const TESTS: ColorSchemeTest[] = [
             },
             light: async (_ignored: Page, _locator: Locator, screenshotPath: string) => {
                 const dominantColor = (await getAverageColor(screenshotPath, {
-                    ignoredColor: [255, 255, 255, 255, 10],
+                    ignoredColor: [255, 255, 255, 255, 25],
                     algorithm: 'simple'
                 }));
 

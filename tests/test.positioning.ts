@@ -5,30 +5,12 @@ import { test, testStepDescription } from "./test";
 export type SvgPositioningTest = {
     name: string;
     svgSelector: string;
+    innerSvgSelector: string;
     test: (positions: Record<string, { x: number; y: number }>) => Promise<void> | void;
 }
 
 export async function positioningTests(urlProvider: (testInfo: TestInfo) => string, describeName: string, positioningTests: SvgPositioningTest[]): Promise<void> {
     test.describe(describeName, () => {
-        test.beforeEach(async ({ page }, testInfo) => {
-            await page.goto(urlProvider(testInfo));
-            await page.evaluate(() => {
-                document.body.style.margin = '0';
-            });
-            await page.setViewportSize({ width: 1024, height: page.viewportSize()?.height || 1024 });
-
-            const svgImgLocator = page.getByAltText('Preview README.md');
-            const svgContent = await fetchSvgContent(await svgImgLocator.getAttribute('src') || '');
-
-            await page.evaluate((svgContent) => {
-                const domParser = new DOMParser();
-                const svgDocument = domParser.parseFromString(svgContent, 'image/svg+xml');
-                svgDocument.documentElement.setAttribute('width', '100%');
-
-                document.body.innerHTML = svgDocument.documentElement.outerHTML;
-            }, svgContent);
-        });
-
         async function getPositions(page: Page, svgSelector: string): Promise<Record<string, { x: number; y: number }>> {
             const svgLocator = page.locator('svg');
 
@@ -48,8 +30,25 @@ export async function positioningTests(urlProvider: (testInfo: TestInfo) => stri
         }
 
         positioningTests.forEach((positioningTest) => {
-            test(positioningTest.name, async ({ page }) => {
-                const positions = await getPositions(page, positioningTest.svgSelector);
+            test(positioningTest.name, async ({ page }, testInfo) => {
+                await page.goto(urlProvider(testInfo));
+                await page.evaluate(() => {
+                    document.body.style.margin = '0';
+                });
+                await page.setViewportSize({ width: 1024, height: page.viewportSize()?.height || 1024 });
+
+                const svgImgLocator = page.locator(positioningTest.svgSelector);
+                const svgContent = await fetchSvgContent(await svgImgLocator.getAttribute('src') || '');
+
+                await page.evaluate((svgContent) => {
+                    const domParser = new DOMParser();
+                    const svgDocument = domParser.parseFromString(svgContent, 'image/svg+xml');
+                    svgDocument.documentElement.setAttribute('width', '100%');
+
+                    document.body.innerHTML = svgDocument.documentElement.outerHTML;
+                }, svgContent);
+
+                const positions = await getPositions(page, positioningTest.innerSvgSelector);
                 const count = Object.keys(positions).length;
                 expect(count).toBeGreaterThan(0);
 

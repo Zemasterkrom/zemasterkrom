@@ -38,7 +38,7 @@ renderingTest(testInfo => testInfo.project.metadata.HTML_README_PATH, 'README.md
                 return route.continue();
             }
 
-            const dataUrl = 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(adaptedSvg || "");
+            const dataUrl = 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(adaptedSvg);
             const tempPage = await page.context().newPage();
 
             try {
@@ -57,13 +57,18 @@ renderingTest(testInfo => testInfo.project.metadata.HTML_README_PATH, 'README.md
                 let requestUrl = request.url().replace(/[^a-zA-Z0-9]/g, '-');
                 requestUrl = requestUrl.length <= 60 ? requestUrl : requestUrl.slice(0, 30) + "..." + requestUrl.slice(-30);
 
+                const screenshotBuffer = await svgLocator.screenshot({ path: `tests/screenshots/readme/rendering/${browserName}/${browserName}-${browserVersion}-w${currentSize.width}-${requestUrl}.png`, scale: 'css' });
+
                 return route.fulfill({
                     status: 200,
                     headers: { 'Content-Type': 'image/png' },
-                    body: await svgLocator.screenshot({ path: `tests/screenshots/readme/rendering/${browserName}/${browserName}-${browserVersion}-w${currentSize.width}-${requestUrl}.png`, scale: 'css' }),
+                    body: screenshotBuffer,
                 });
+            } catch (error) {
+                console.error('Error processing SVG: ', error);
+                return route.continue();
             } finally {
-                tempPage.close();
+                tempPage.close().catch();
             }
         });
     }

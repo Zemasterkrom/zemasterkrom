@@ -4,7 +4,8 @@ import { positioningTests, SvgPositioningTest } from "../test.positioning";
 const TESTS: SvgPositioningTest[] = [
     {
         name: `Check positioning of "Preview README.md" preview tab image`,
-        svgSelector: 'image#preview-tab-dark, image#preview-tab-light',
+        svgSelector: '[alt="Preview README.md"]',
+        innerSvgSelector: 'image#preview-tab-dark, image#preview-tab-light',
         test: (positions) => {
             expect(Object.keys(positions).length).toBeGreaterThan(0);
 
@@ -16,7 +17,8 @@ const TESTS: SvgPositioningTest[] = [
     },
     {
         name: `Check positioning of "Preview README.md" container / tabs filler image`,
-        svgSelector: 'rect#tabs-bar-filler-dark,rect#tabs-bar-filler-light',
+        svgSelector: '[alt="Preview README.md"]',
+        innerSvgSelector: 'rect#tabs-bar-filler-dark,rect#tabs-bar-filler-light',
         test: (positions) => {
             expect(Object.keys(positions).length).toBeGreaterThan(0);
 
@@ -28,7 +30,8 @@ const TESTS: SvgPositioningTest[] = [
     },
     {
         name: `Check positioning of "Preview README.md" editor actions image`,
-        svgSelector: 'image#editor-actions-dark,image#editor-actions-light',
+        svgSelector: '[alt="Preview README.md"]',
+        innerSvgSelector: 'image#editor-actions-dark,image#editor-actions-light',
         test: (positions) => {
             expect(Object.keys(positions).length).toBeGreaterThan(0);
 
