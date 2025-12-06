@@ -46,6 +46,9 @@ jobs:
                       webkit: 26.0
         steps:
           - uses: actions/checkout@v5
+
+          - name: Free disk space
+            run: rm -rf /__t/Python /__t/CodeQL /__t/go || true
           
           - name: Download converted HTML files
             uses: actions/download-artifact@v5
