@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 
 <svg xmlns="http://www.w3.org/2000/svg"
+     version="1.1"
      width="112"
      height="46"
-     viewBox="0 0 112 46"
-     role="document"
-     aria-labelledby="statistics-section">
+     viewBox="0 0 112 46">
   <style>
     * { 
       margin: 0;
@@ -24,8 +23,6 @@
     .stat strong { display: block; font-size: 18px; }
     .stat span { font-size: 12px; color: rgba(240,246,252,0.9); }
   </style>
-
-  <title id="statistics-section">zmkr-cloudflare-turnstile-bundle statistics</title>
 
   <foreignObject width="100%" height="100%">
     <div xmlns="http://www.w3.org/1999/xhtml" class="stats-container">

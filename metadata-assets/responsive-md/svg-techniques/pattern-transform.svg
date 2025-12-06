@@ -1,7 +1,5 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-
 <!-- Example with circle pattern tiling on the rectangle and a right-aligned element on top of it -->
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 82">
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 400 82">
   <defs>
     <pattern fill="#0078D4" id="dots" width="10" height="10" patternUnits="userSpaceOnUse">
       <circle cx="2" cy="2" r="1.5" />
