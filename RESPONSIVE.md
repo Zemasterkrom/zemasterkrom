@@ -316,9 +316,7 @@ Because of their **vector** nature, SVG files allow for **very advanced layouts*
 <summary>Example (expand)</summary>
 
 ```xml
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-
-<svg xmlns="http://www.w3.org/2000/svg" width="256" height="100" viewBox="0 0 256 100">
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="256" height="100" viewBox="0 0 256 100">
   <style>
     .title {
       font: bold 20px '-apple-system', BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji';
@@ -356,9 +354,7 @@ Because of their **vector** nature, SVG files allow for **very advanced layouts*
 <summary>Example (expand)</summary>
 
 ```xml
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 100">
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 400 100">
   <style>
     .container {
       font-family: '-apple-system', BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji';
@@ -398,10 +394,8 @@ Because of their **vector** nature, SVG files allow for **very advanced layouts*
 <summary>Example (expand)</summary>
 
 ```xml
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-
 <!-- Example with circle pattern tiling on the rectangle and a right-aligned element on top of it -->
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 82">
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 400 82">
   <defs>
     <pattern fill="#0078D4" id="dots" width="10" height="10" patternUnits="userSpaceOnUse">
       <circle cx="2" cy="2" r="1.5" />
@@ -428,10 +422,8 @@ Because of their **vector** nature, SVG files allow for **very advanced layouts*
 <summary>Example (expand)</summary>
 
 ```xml
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-
 <!-- Example combined with pattern tiling and full-width adaptive and responsive design -->
-<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="92">
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="92">
   <defs>
     <pattern fill="#0078D4" id="dots" width="10" height="10" patternUnits="userSpaceOnUse">
       <circle cx="2" cy="2" r="1.5" />
