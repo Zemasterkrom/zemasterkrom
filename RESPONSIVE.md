@@ -528,24 +528,28 @@ The goal we are trying to achieve here is to replicate the style of the VSCode t
 ### Composite dark-themed image
 
 ```xml
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-
 <svg xmlns="http://www.w3.org/2000/svg"
-     height="36" 
-     aria-hidden="true">
+     xmlns:xlink="http://www.w3.org/1999/xlink"
+     version="1.1"
+     height="36">
   <defs>
     <!-- 1px tile filler pattern -->
     <pattern class="tile-filler" id="tile-filler-dark" width="1" height="100%" patternUnits="userSpaceOnUse">
       <!-- vscode-tabs-filler.svg -->
-      <image preserveAspectRatio="none"
-             href="data:image/svg+xml;base64,..." />
+      <image width="1"
+             height="36"
+             preserveAspectRatio="none"
+             xlink:href="data:image/svg+xml;base64,..." />
     </pattern>
   </defs>
 
   <!-- preview tab image: fixed box at x=0 -->
   <!-- vscode-preview-tab.svg -->
-  <image class="preview-dark" id="preview-tab-dark"
-         href="data:image/svg+xml;base64,..." />
+  <image class="preview-dark" 
+         id="preview-tab-dark"
+         width="164"
+         height="36"
+         xlink:href="data:image/svg+xml;base64,..." />
 
   <!-- tabs bar filler, starts from x = 164 (end of preview tab image) with a width of 100% (entire SVG width) -->
   <!-- as the width of the pattern is equal to 100% of the SVG image, the remaining width of the SVG image is effectively filled by the pattern -->
@@ -554,32 +558,41 @@ The goal we are trying to achieve here is to replicate the style of the VSCode t
 
   <!-- editor actions image: positioned at the end of the view width (above the tabs bar filler) using offset translation with x=calc(100% - 90px) -->
   <!-- vscode-editor-actions.svg -->
-  <image class="editor-actions" id="editor-actions-dark" x="100%" transform="translate(-90,0)"
-         href="data:image/svg+xml;base64,..." />
+  <image class="editor-actions" 
+         id="editor-actions-dark"
+         width="90"
+         height="36"
+         x="100%"
+         transform="translate(-90,0)"
+         xlink:href="data:image/svg+xml;base64,..." />
 </svg>
 ```
 
 ### Composite light-themed image
 
 ```xml
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-
 <svg xmlns="http://www.w3.org/2000/svg"
-     height="36" 
-     aria-hidden="true">
+     xmlns:xlink="http://www.w3.org/1999/xlink"
+     version="1.1"
+     height="36">
   <defs>
     <!-- 1px tile filler pattern -->
     <pattern class="tile-filler" id="tile-filler-light" width="1" height="100%" patternUnits="userSpaceOnUse">
       <!-- vscode-tabs-filler.svg -->
-      <image preserveAspectRatio="none"
-             href="data:image/svg+xml;base64,..." />
+      <image width="1"
+             height="36"
+             preserveAspectRatio="none"
+             xlink:href="data:image/svg+xml;base64,..." />
     </pattern>
   </defs>
 
   <!-- preview tab image: fixed box at x=0 -->
   <!-- vscode-preview-tab.svg -->
-  <image class="preview-tab" id="preview-tab-light"
-         href="data:image/svg+xml;base64,..." />
+  <image class="preview-tab" 
+         id="preview-tab-light"
+         width="164"
+         height="36"
+         xlink:href="data:image/svg+xml;base64,..." />
 
   <!-- tabs bar filler, starts from x = 164 (end of preview tab image) with a width of 100% (entire SVG width) -->
   <!-- as the width of the pattern is equal to 100% of the SVG image, the remaining width of the SVG image is effectively filled by the pattern -->
@@ -588,8 +601,13 @@ The goal we are trying to achieve here is to replicate the style of the VSCode t
 
   <!-- editor actions image: positioned at the end of the view width (above the tabs bar filler) using offset translation with x=calc(100% - 90px) -->
   <!-- vscode-editor-actions.svg -->
-  <image class="editor-actions" id="editor-actions-light" x="100%" transform="translate(-90,0)"
-         href="data:image/svg+xml;base64,..." />
+  <image class="editor-actions" 
+         id="editor-actions-light"
+         width="90"
+         height="36"
+         x="100%"
+         transform="translate(-90,0)"
+         xlink:href="data:image/svg+xml;base64,..." />
 </svg>
 ```
 
@@ -604,7 +622,7 @@ The goal we are trying to achieve here is to replicate the style of the VSCode t
 ```
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://github.com/Zemasterkrom/zemasterkrom-assets/blob/rev4-fix-vscode-tabs-bar-gap/header/dark-mode/vscode-tabs-bar.svg?raw=true" />
-  <source media="(prefers-color-scheme: light)" srcset="https://github.com/Zemasterkrom/zemasterkrom-assets/blob/rev4-fix-vscode-tabs-bar-gap/header/light-mode/vscode-tabs-bar.svg?raw=true" />
-  <img src="https://github.com/Zemasterkrom/zemasterkrom-assets/blob/rev4-fix-vscode-tabs-bar-gap/header/vscode-tabs-bar.svg?raw=true" alt="Preview README.md" width="100%" />
+  <source media="(prefers-color-scheme: dark)" srcset="https://github.com/Zemasterkrom/zemasterkrom-assets/blob/rev6-w3c-with-ps-white-logo-webkit-fix/header/dark-mode/vscode-tabs-bar.svg?raw=true" />
+  <source media="(prefers-color-scheme: light)" srcset="https://github.com/Zemasterkrom/zemasterkrom-assets/blob/rev6-w3c-with-ps-white-logo-webkit-fix/header/light-mode/vscode-tabs-bar.svg?raw=true" />
+  <img src="https://github.com/Zemasterkrom/zemasterkrom-assets/blob/rev6-w3c-with-ps-white-logo-webkit-fix/header/vscode-tabs-bar.svg?raw=true" alt="Preview README.md" width="100%" />
 </picture>
