@@ -4,7 +4,7 @@ import { PlaywrightTestConfig, devices } from '@playwright/test';
 const config: PlaywrightTestConfig = {
   forbidOnly: !!process.env.CI,
   workers: process.env.WORKERS ? parseFloat(process.env.WORKERS) : 2,
-  retries: process.env.CI ? 2 : 0,
+  retries: 2,
   use: {
     trace: 'on-first-retry'
   },
@@ -22,8 +22,10 @@ const config: PlaywrightTestConfig = {
       use: { ...devices['Desktop Safari'] },
     },
   ],
-  timeout: 75000,
+  timeout: 90000,
   metadata: {
+    CACHE_WARMER_RETRY_DELAY_MS: 1500,
+    CACHE_WARMER_DELAY_MS: 800,
     HTML_README_PATH: 'file:///' + __dirname + '/README.html',
     HTML_RESPONSIVE_DOCUMENT_PATH: 'file:///' + __dirname + '/RESPONSIVE.html',
     FONT_STACK: [

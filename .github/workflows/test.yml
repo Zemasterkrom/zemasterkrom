@@ -26,7 +26,7 @@ jobs:
                 path: md-html/
 
     test:
-        name: Testing / Playwright ${{ matrix.version.playwright }} (Chromium ${{ matrix.version.chromium }}, Firefox ${{ matrix.version.firefox }}, WebKit ${{ matrix.version.webkit }})
+        name: E2E Testing / Playwright ${{ matrix.version.playwright }} (Chromium ${{ matrix.version.chromium }}, Firefox ${{ matrix.version.firefox }}, WebKit ${{ matrix.version.webkit }})
         needs: convert
         runs-on: ubuntu-latest
         container:

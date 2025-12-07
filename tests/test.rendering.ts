@@ -8,6 +8,7 @@ export type RenderingProperties = {
     height: number;
     beforeInitHook?: (page: Page, browser: Browser, testInfo: TestInfo, properties: RenderingProperties, currentProcessedSize: Size) => Promise<void>;
     afterInitHook?: (page: Page, browser: Browser, testInfo: TestInfo, properties: RenderingProperties, currentProcessedSize: Size) => Promise<void>;
+    afterTestHook?: (page: Page, browser: Browser, testInfo: TestInfo, properties: RenderingProperties, currentProcessedSize: Size) => Promise<void>;
 }
 
 export type Size = {
@@ -43,6 +44,10 @@ export async function renderingTest(urlProvider: (testInfo: TestInfo) => string,
             await page.screenshot({ path: screenshotPath, animations: 'disabled', scale: 'css' });
 
             currentProcessedSize.width -= properties.widthStep;
+        }
+
+        if (properties.afterTestHook) {
+            properties.afterTestHook(page, browser, testInfo, properties, currentProcessedSize);
         }
     });
 }

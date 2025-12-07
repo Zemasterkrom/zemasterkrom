@@ -69,9 +69,14 @@ renderingTest(testInfo => testInfo.project.metadata.HTML_README_PATH, 'README.md
                 await route.continue();
             } finally {
                 if (tempPage && !tempPage.isClosed()) {
-                    tempPage.close().catch(() => { });
+                    await tempPage.close().catch(() => { });
                 }
             }
         });
+    },
+    afterTestHook: async (page: Page) => {
+        if (!page.isClosed()) {
+            await page.unroute('**/*').catch(() => { });
+        }
     }
 });
