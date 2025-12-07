@@ -26,8 +26,10 @@ const config: PlaywrightTestConfig = {
   metadata: {
     CACHE_WARMER_RETRY_DELAY_MS: 1500,
     CACHE_WARMER_DELAY_MS: 800,
-    HTML_README_PATH: 'file:///' + __dirname + '/README.html',
-    HTML_RESPONSIVE_DOCUMENT_PATH: 'file:///' + __dirname + '/RESPONSIVE.html',
+    DOCUMENTS_PATHS: {
+      HTML_README_PATH: 'file:///' + __dirname + '/README.html',
+      HTML_RESPONSIVE_PATH: 'file:///' + __dirname + '/RESPONSIVE.html',
+    },
     FONT_STACK: [
       "-apple-system",
       "BlinkMacSystemFont",

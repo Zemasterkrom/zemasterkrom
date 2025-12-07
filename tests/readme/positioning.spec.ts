@@ -43,4 +43,4 @@ const TESTS: SvgPositioningTest[] = [
     }
 ];
 
-positioningTests(testInfo => testInfo.project.metadata.HTML_README_PATH, "Check positioning of SVG elements", TESTS);
+positioningTests(testInfo => testInfo.project.metadata.DOCUMENTS_PATHS.HTML_README_PATH, "Check positioning of SVG elements", TESTS);

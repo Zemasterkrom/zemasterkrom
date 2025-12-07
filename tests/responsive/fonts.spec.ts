@@ -12,7 +12,7 @@ const TESTS: SvgFontTest[] = [
     }
 ];
 
-fontTests(testInfo => testInfo.project.metadata.HTML_RESPONSIVE_DOCUMENT_PATH, "Font loading testing", TESTS, async (page) => {
+fontTests(testInfo => testInfo.project.metadata.DOCUMENTS_PATHS.HTML_RESPONSIVE_PATH, "Font loading testing", TESTS, async (page) => {
     const summaries = page.locator('summary');
     const count = await summaries.count();
 

@@ -18,7 +18,7 @@ const TESTS: ImageResponsiveTest[] = [
             ]
         },
         waiter: async (_ignored: string, _ignoredTwo: Page, imgLocator: Locator) => await expect(imgLocator).toBeVisible(),
-        test: async (_ignored: string, _ignoredTwo: string, _ignoredThree: Size, currentSize: Size, viewPortSize: Size, imgLocator: Locator) => {
+        test: async (_ignored: string, _ignoredTwo: string, _ignoredThree: Size, _currentSize: Size, viewPortSize: Size, imgLocator: Locator) => {
             await expect(imgLocator).toBeVisible();
 
             const box = await imgLocator.boundingBox();
@@ -64,7 +64,7 @@ const TESTS: ImageResponsiveTest[] = [
     }
 ]
 
-responsiveTests(testInfo => testInfo.project.metadata.HTML_RESPONSIVE_DOCUMENT_PATH, "Check responsive sizing OF SVG elements", TESTS, async (page) => {
+responsiveTests(testInfo => testInfo.project.metadata.DOCUMENTS_PATHS.HTML_RESPONSIVE_PATH, "Check responsive sizing OF SVG elements", TESTS, async (page) => {
     const summaries = page.locator('summary');
     const count = await summaries.count();
 

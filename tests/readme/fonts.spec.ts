@@ -39,4 +39,4 @@ const TESTS: SvgFontTest[] = [
     }
 ];
 
-fontTests(testInfo => testInfo.project.metadata.HTML_README_PATH, "Font loading testing", TESTS);
+fontTests(testInfo => testInfo.project.metadata.DOCUMENTS_PATHS.HTML_README_PATH, "Font loading testing", TESTS);

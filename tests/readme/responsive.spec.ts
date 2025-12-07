@@ -71,4 +71,4 @@ const TESTS: ImageResponsiveTest[] = [
     }
 ]
 
-responsiveTests(testInfo => testInfo.project.metadata.HTML_README_PATH, "Check responsive sizing of SVG elements", TESTS);
+responsiveTests(testInfo => testInfo.project.metadata.DOCUMENTS_PATHS.HTML_README_PATH, "Check responsive sizing of SVG elements", TESTS);

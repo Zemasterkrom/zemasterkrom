@@ -2,7 +2,7 @@ import { Browser, Page, TestInfo } from "@playwright/test";
 import fetchSvgContent from "../../utils/fetch-svg-content";
 import { RenderingProperties, renderingTest, Size } from "../test.rendering";
 
-renderingTest(testInfo => testInfo.project.metadata.HTML_README_PATH, 'README.md - Rendering test', 'readme', {
+renderingTest(testInfo => testInfo.project.metadata.DOCUMENTS_PATHS.HTML_README_PATH, 'README.md - Rendering test', 'readme', {
     startWidth: 1200,
     minWidth: 256,
     widthStep: 128,

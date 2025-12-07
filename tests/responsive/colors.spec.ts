@@ -81,7 +81,7 @@ const TESTS: ColorSchemeTest[] = [
     },
 ];
 
-colorSchemeTests(testInfo => testInfo.project.metadata.HTML_RESPONSIVE_DOCUMENT_PATH, 'Color scheme testing', 'responsive', TESTS, async (page) => {
+colorSchemeTests(testInfo => testInfo.project.metadata.DOCUMENTS_PATHS.HTML_RESPONSIVE_PATH, 'Color scheme testing', 'responsive', TESTS, async (page) => {
     const summaries = page.locator('summary');
     const count = await summaries.count();
 

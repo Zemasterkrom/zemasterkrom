@@ -41,10 +41,7 @@ test('Warm up the HTTP cache [avoids concurrent workers caching bug]', async ({ 
 
     if (existsSync(cacheRoute.options.baseDir)) rmSync(cacheRoute.options.baseDir, { recursive: true });
 
-    const filePaths: string[] = [
-        testInfo.project.metadata.HTML_README_PATH,
-        testInfo.project.metadata.HTML_RESPONSIVE_DOCUMENT_PATH
-    ];
+    const filePaths: string[] = Object.values(testInfo.project.metadata.DOCUMENTS_PATHS);
 
     for (const filePath of filePaths) {
         await test.step(`Loading and parsing ${filePath}`, async () => {

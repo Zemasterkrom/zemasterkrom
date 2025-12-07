@@ -1,7 +1,7 @@
 import { Page } from "@playwright/test";
 import { renderingTest } from "../test.rendering";
 
-renderingTest(testInfo => testInfo.project.metadata.HTML_RESPONSIVE_DOCUMENT_PATH, 'RESPONSIVE.md - Rendering test', 'responsive', {
+renderingTest(testInfo => testInfo.project.metadata.DOCUMENTS_PATHS.HTML_RESPONSIVE_PATH, 'RESPONSIVE.md - Rendering test', 'responsive', {
     startWidth: 1200,
     minWidth: 256,
     widthStep: 128,
