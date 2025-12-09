@@ -622,7 +622,7 @@ The goal we are trying to achieve here is to replicate the style of the VSCode t
 ```
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://github.com/Zemasterkrom/zemasterkrom-assets/blob/rev6-w3c-with-ps-white-logo-webkit-fix/header/dark-mode/vscode-tabs-bar.svg?raw=true" />
-  <source media="(prefers-color-scheme: light)" srcset="https://github.com/Zemasterkrom/zemasterkrom-assets/blob/rev6-w3c-with-ps-white-logo-webkit-fix/header/light-mode/vscode-tabs-bar.svg?raw=true" />
-  <img src="https://github.com/Zemasterkrom/zemasterkrom-assets/blob/rev6-w3c-with-ps-white-logo-webkit-fix/header/vscode-tabs-bar.svg?raw=true" alt="Preview README.md" width="100%" />
+  <source media="(prefers-color-scheme: dark)" srcset="https://cdn.jsdelivr.net/gh/Zemasterkrom/zemasterkrom-assets@rev7-fix-firefox-distorted-header-scaling/header/dark-mode/composed/optimized/vscode-workspace-bar.svg" />
+  <source media="(prefers-color-scheme: light)" srcset="https://cdn.jsdelivr.net/gh/Zemasterkrom/zemasterkrom-assets@rev7-fix-firefox-distorted-header-scaling/header/light-mode/composed/optimized/vscode-workspace-bar.svg" />
+  <img src="https://cdn.jsdelivr.net/gh/Zemasterkrom/zemasterkrom-assets@rev7-fix-firefox-distorted-header-scaling/header/dark-mode/composed/optimized/vscode-workspace-bar.svg" alt="Preview README.md" width="100%" height="36" />
 </picture>

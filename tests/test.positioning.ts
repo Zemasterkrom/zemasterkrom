@@ -6,23 +6,20 @@ export type SvgPositioningTest = {
     name: string;
     svgSelector: string;
     innerSvgSelector: string;
-    test: (positions: Record<string, { x: number; y: number }>) => Promise<void> | void;
+    test: (positions: Record<string, DOMRect>) => Promise<void> | void;
 }
 
 export async function positioningTests(urlProvider: (testInfo: TestInfo) => string, describeName: string, positioningTests: SvgPositioningTest[]): Promise<void> {
     test.describe(describeName, () => {
-        async function getPositions(page: Page, svgSelector: string): Promise<Record<string, { x: number; y: number }>> {
-            const svgLocator = page.locator('svg');
+        async function getPositions(page: Page, svgSelector: string): Promise<Record<string, DOMRect>> {
+            const svgLocator = page.locator('svg').nth(0);
 
             return await svgLocator.evaluate((svg, svgSelector) => {
-                let positions: Record<string, { x: number; y: number }> = {};
-                const elements = svg.querySelectorAll<SVGImageElement | SVGRectElement>(svgSelector);
+                let positions: Record<string, DOMRect> = {};
+                const elements = svg.querySelectorAll(svgSelector);
 
                 elements.forEach((element) => {
-                    positions[element.id] = {
-                        x: element.x.baseVal.value,
-                        y: element.y.baseVal.value
-                    };
+                    positions[element.id] = element.getBoundingClientRect();
                 });
 
                 return positions;

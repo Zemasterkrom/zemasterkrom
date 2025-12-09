@@ -3,7 +3,7 @@ import { PlaywrightTestConfig, devices } from '@playwright/test';
 
 const config: PlaywrightTestConfig = {
   forbidOnly: !!process.env.CI,
-  workers: process.env.WORKERS ? parseFloat(process.env.WORKERS) : 2,
+  workers: process.env.WORKERS ? parseInt(process.env.WORKERS) : 2,
   retries: 2,
   use: {
     trace: 'on-first-retry'
@@ -25,7 +25,7 @@ const config: PlaywrightTestConfig = {
   timeout: 90000,
   metadata: {
     CACHE_WARMER_RETRY_DELAY_MS: 1500,
-    CACHE_WARMER_DELAY_MS: 800,
+    CACHE_WARMER_DELAY_MS: 1000,
     DOCUMENTS_PATHS: {
       HTML_README_PATH: 'file:///' + __dirname + '/README.html',
       HTML_RESPONSIVE_PATH: 'file:///' + __dirname + '/RESPONSIVE.html',

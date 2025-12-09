@@ -1,10 +1,11 @@
 <a href="https://github.com/Zemasterkrom/zemasterkrom-assets">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://github.com/Zemasterkrom/zemasterkrom-assets/blob/rev6-w3c-with-ps-white-logo-webkit-fix/header/dark-mode/vscode-tabs-bar.svg?raw=true" />
-    <source media="(prefers-color-scheme: light)" srcset="https://github.com/Zemasterkrom/zemasterkrom-assets/blob/rev6-w3c-with-ps-white-logo-webkit-fix/header/light-mode/vscode-tabs-bar.svg?raw=true" />
-    <img src="https://github.com/Zemasterkrom/zemasterkrom-assets/blob/rev6-w3c-with-ps-white-logo-webkit-fix/header/vscode-tabs-bar.svg?raw=true" alt="Preview README.md" width="100%" />
+    <source media="(prefers-color-scheme: dark)" srcset="https://cdn.jsdelivr.net/gh/Zemasterkrom/zemasterkrom-assets@rev7-fix-firefox-distorted-header-scaling/header/dark-mode/composed/optimized/vscode-workspace-bar.svg" />
+    <source media="(prefers-color-scheme: light)" srcset="https://cdn.jsdelivr.net/gh/Zemasterkrom/zemasterkrom-assets@rev7-fix-firefox-distorted-header-scaling/header/light-mode/composed/optimized/vscode-workspace-bar.svg" />
+    <img src="https://cdn.jsdelivr.net/gh/Zemasterkrom/zemasterkrom-assets@rev7-fix-firefox-distorted-header-scaling/header/dark-mode/composed/optimized/vscode-workspace-bar.svg" alt="Preview README.md" width="100%" height="36" />
   </picture>
 </a>
+
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/43e04bd2-4dae-45c4-b501-ca425aaa5a34/deploy-status)](https://app.netlify.com/projects/zemasterkrom-typingsvg/deploys)
 [![Netlify Status](https://api.netlify.com/api/v1/badges/f24ca610-2cba-4cc4-adde-76a9b188d61b/deploy-status)](https://app.netlify.com/projects/zemasterkrom-badgen/deploys)  
@@ -21,11 +22,13 @@
 
 <p align="center">
   <a href="https://github.com/whiteSHADOW1234/TypingSVG">
-      <img 
-          src="https://github.com/Zemasterkrom/zemasterkrom-assets/blob/rev6-w3c-with-ps-white-logo-webkit-fix/animations/dark-mode/profile-description.svg?raw=true"
-          alt="Profile description of Zemasterkrom" />
+    <img
+      src="https://cdn.jsdelivr.net/gh/Zemasterkrom/zemasterkrom-assets@rev7-fix-firefox-distorted-header-scaling/animations/dark-mode/profile-description.svg"
+      alt="Profile description of Zemasterkrom"
+    />
   </a>
 </p>
+
 
 ## 🤔 About Me
 
@@ -42,23 +45,24 @@
 ⚔️ By the way, I'm also a **competitive Fortnite player**. I enjoy the associated **eSports scene**, so I **follow** it and continuously look for **improvements**... Just like developers do.  
 
 <p align="center">
-    <img src="https://zemasterkrom-badgen.netlify.app/badge/icon/PHP?icon=php&scale=1.4&labelColor=777BB3&color=777BB3&label=&uuid=8a1f2c3b-4d5e-6f7a-8b9c-0d1e2f3a4b5c&cache=1200" alt="PHP" />
-    <img src="https://zemasterkrom-badgen.netlify.app/badge/icon/Symfony?icon=https%3A%2F%2Fgithub.com%2FZemasterkrom%2Fzemasterkrom-assets%2Fblob%2Frev6-w3c-with-ps-white-logo-webkit-fix%2Flogos%2Fdark-mode%2Fsymfony.svg%3Fraw%3Dtrue&scale=1.4&labelColor=000000&color=000000&label=&uuid=3d2f1b4c-5e6a-7f8b-9c0d-1a2b3c4d5e6f&cache=1200" alt="Symfony" />
-    <img src="https://zemasterkrom-badgen.netlify.app/badge/icon/Java?icon=https%3A%2F%2Fgithub.com%2FZemasterkrom%2Fzemasterkrom-assets%2Fblob%2Frev6-w3c-with-ps-white-logo-webkit-fix%2Flogos%2Fdark-mode%2Fopenjdk.svg%3Fraw%3Dtrue&scale=1.4&labelColor=F29111&color=F29111&label=&uuid=7c8d9e1f-2a3b-4c5d-6e7f-8a9b0c1d2e3f&cache=1200" alt="Java" />
-    <img src="https://zemasterkrom-badgen.netlify.app/badge/icon/Spring?icon=&scale=1.4&labelColor=6DB33F&color=6DB33F&label=&uuid=1a2b3c4d-5e6f-7a8b-9c0d-1e2f3a4b5c6d&cache=1200" alt="Spring" />
-    <img src="https://zemasterkrom-badgen.netlify.app/badge/icon/Shell?icon=terminal&scale=1.4&labelColor=000000&color=000000&label=&uuid=2b3c4d5e-6f7a-8b9c-0d1e-2f3a4b5c6d7e&cache=1200" alt="Shell" />
-    <img src="https://zemasterkrom-badgen.netlify.app/badge/icon/PowerShell?icon=https%3A%2F%2Fgithub.com%2FZemasterkrom%2Fzemasterkrom-assets%2Fblob%2Frev6-w3c-with-ps-white-logo-webkit-fix%2Flogos%2Fdark-mode%2Fpowershell.svg%3Fraw%3Dtrue&scale=1.4&labelColor=012456&color=012456&label=&uuid=3c4d5e6f-7a8b-9c0d-1e2f-3a4b5c6d7e8f&cache=1200" alt="PowerShell" />
-    <img src="https://zemasterkrom-badgen.netlify.app/badge/icon/JavaScript?icon=https%3A%2F%2Fgithub.com%2FZemasterkrom%2Fzemasterkrom-assets%2Fblob%2Frev6-w3c-with-ps-white-logo-webkit-fix%2Flogos%2Fdark-mode%2Fjavascript.svg%3Fraw%3Dtrue&scale=1.4&labelColor=E8C800&color=E8C800&label=&uuid=4d5e6f7a-8b9c-0d1e-2f3a-4b5c6d7e8f9a&cache=1200" alt="JavaScript" />
-    <img src="https://zemasterkrom-badgen.netlify.app/badge/icon/Bootstrap?icon=https%3A%2F%2Fgithub.com%2FZemasterkrom%2Fzemasterkrom-assets%2Fblob%2Frev6-w3c-with-ps-white-logo-webkit-fix%2Flogos%2Fdark-mode%2Fbootstrap.svg%3Fraw%3Dtrue&scale=1.4&labelColor=712CF9&color=712CF9&label=&uuid=5e6f7a8b-9c0d-1e2f-3a4b-5c6d7e8f9a0b&cache=1200" alt="Bootstrap" />
+    <img src="https://zemasterkrom-badgen.netlify.app/badge/icon/PHP?icon=php&scale=1.4&labelColor=777BB3&color=777BB3&label=&uuid=9f1b2c3d-4e5f-6a7b-8c9d-0e1f2a3b4c5d&cache=1200" alt="PHP" />
+    <img src="https://zemasterkrom-badgen.netlify.app/badge/icon/Symfony?icon=https%3A%2F%2Fcdn.jsdelivr.net%2Fgh%2FZemasterkrom%2Fzemasterkrom-assets%40rev7-fix-firefox-distorted-header-scaling%2Flogos%2Fdark-mode%2Fsymfony.svg&scale=1.4&labelColor=000000&color=000000&label=&uuid=a1b2c3d4-e5f6-7a8b-9c0d-1e2f3a4b5c6d&cache=1200" alt="Symfony" />
+    <img src="https://zemasterkrom-badgen.netlify.app/badge/icon/Java?icon=https%3A%2F%2Fcdn.jsdelivr.net%2Fgh%2FZemasterkrom%2Fzemasterkrom-assets%40rev7-fix-firefox-distorted-header-scaling%2Flogos%2Fdark-mode%2Fopenjdk.svg&scale=1.4&labelColor=F29111&color=F29111&label=&uuid=b2c3d4e5-f6a7-8b9c-0d1e-2f3a4b5c6d7e&cache=1200" alt="Java" />
+    <img src="https://zemasterkrom-badgen.netlify.app/badge/icon/Spring?icon=&scale=1.4&labelColor=6DB33F&color=6DB33F&label=&uuid=c3d4e5f6-a7b8-9c0d-1e2f-3a4b5c6d7e8f&cache=1200" alt="Spring" />
+    <img src="https://zemasterkrom-badgen.netlify.app/badge/icon/Shell?icon=terminal&scale=1.4&labelColor=000000&color=000000&label=&uuid=d4e5f6a7-b8c9-0d1e-2f3a-4b5c6d7e8f9a&cache=1200" alt="Shell" />
+    <img src="https://zemasterkrom-badgen.netlify.app/badge/icon/PowerShell?icon=https%3A%2F%2Fcdn.jsdelivr.net%2Fgh%2FZemasterkrom%2Fzemasterkrom-assets%40rev7-fix-firefox-distorted-header-scaling%2Flogos%2Fdark-mode%2Fpowershell.svg&scale=1.4&labelColor=012456&color=012456&label=&uuid=e5f6a7b8-c9d0-1e2f-3a4b-5c6d7e8f9a0b&cache=1200" alt="PowerShell" />
+    <img src="https://zemasterkrom-badgen.netlify.app/badge/icon/JavaScript?icon=https%3A%2F%2Fcdn.jsdelivr.net%2Fgh%2FZemasterkrom%2Fzemasterkrom-assets%40rev7-fix-firefox-distorted-header-scaling%2Flogos%2Fdark-mode%2Fjavascript.svg&scale=1.4&labelColor=E8C800&color=E8C800&label=&uuid=f6a7b8c9-d0e1-2f3a-4b5c-6d7e8f9a0b1c&cache=1200" alt="JavaScript" />
+    <img src="https://zemasterkrom-badgen.netlify.app/badge/icon/Bootstrap?icon=https%3A%2F%2Fcdn.jsdelivr.net%2Fgh%2FZemasterkrom%2Fzemasterkrom-assets%40rev7-fix-firefox-distorted-header-scaling%2Flogos%2Fdark-mode%2Fbootstrap.svg&scale=1.4&labelColor=712CF9&color=712CF9&label=&uuid=07a8b9c0-d1e2-3f4a-5b6c-7d8e9f0a1b2c&cache=1200" alt="Bootstrap" />
 </p>
 
 <p align="center">
-    <img src="https://zemasterkrom-badgen.netlify.app/badge/icon/PHPUnit?icon=https%3A%2F%2Fgithub.com%2FZemasterkrom%2Fzemasterkrom-assets%2Fblob%2Frev6-w3c-with-ps-white-logo-webkit-fix%2Flogos%2Fdark-mode%2Fphpunit.svg%3Fraw%3Dtrue&scale=1.4&labelColor=356388&color=356388&label=&uuid=6f7a8b9c-0d1e-2f3a-4b5c-6d7e8f9a0b1c&cache=1200" alt="PHPUnit" />
-    <img src="https://zemasterkrom-badgen.netlify.app/badge/icon/PHPStan?icon=&scale=1.4&labelColor=516CB3&color=516CB3&label=&uuid=7a8b9c0d-1e2f-3a4b-5c6d-7e8f9a0b1c2d&cache=1200" alt="PHPStan" />
-    <img src="https://zemasterkrom-badgen.netlify.app/badge/icon/JUnit?icon=&scale=1.4&labelColor=ED8B00&color=ED8B00&label=&uuid=8b9c0d1e-2f3a-4b5c-6d7e-8f9a0b1c2d3e&cache=1200" alt="JUnit" />
-    <img src="https://zemasterkrom-badgen.netlify.app/badge/icon/GitHub%20Actions?icon=github&scale=1.4&labelColor=171515&color=171515&label=&uuid=9c0d1e2f-3a4b-5c6d-7e8f-9a0b1c2d3e4f&cache=1200" alt="GitHub Actions" />
-    <img src="https://zemasterkrom-badgen.netlify.app/badge/icon/Docker?icon=docker&scale=1.4&labelColor=1D63ED&color=1D63ED&label=&uuid=0d1e2f3a-4b5c-6d7e-8f9a-0b1c2d3e4f5a&cache=1200" alt="Docker" />
+    <img src="https://zemasterkrom-badgen.netlify.app/badge/icon/PHPUnit?icon=https%3A%2F%2Fcdn.jsdelivr.net%2Fgh%2FZemasterkrom%2Fzemasterkrom-assets%40rev7-fix-firefox-distorted-header-scaling%2Flogos%2Fdark-mode%2Fphpunit.svg&scale=1.4&labelColor=356388&color=356388&label=&uuid=18b9c0d1-e2f3-4a5b-6c7d-8e9f0a1b2c3d&cache=1200" alt="PHPUnit" />
+    <img src="https://zemasterkrom-badgen.netlify.app/badge/icon/PHPStan?icon=&scale=1.4&labelColor=516CB3&color=516CB3&label=&uuid=29c0d1e2-f3a4-5b6c-7d8e-9f0a1b2c3d4e&cache=1200" alt="PHPStan" />
+    <img src="https://zemasterkrom-badgen.netlify.app/badge/icon/JUnit?icon=&scale=1.4&labelColor=ED8B00&color=ED8B00&label=&uuid=3ad1e2f3-a4b5-6c7d-8e9f-0a1b2c3d4e5f&cache=1200" alt="JUnit" />
+    <img src="https://zemasterkrom-badgen.netlify.app/badge/icon/GitHub%20Actions?icon=github&scale=1.4&labelColor=171515&color=171515&label=&uuid=4be2f3a4-b5c6-7d8e-9f0a-1b2c3d4e5f6a&cache=1200" alt="GitHub Actions" />
+    <img src="https://zemasterkrom-badgen.netlify.app/badge/icon/Docker?icon=docker&scale=1.4&labelColor=1D63ED&color=1D63ED&label=&uuid=5cf3a4b5-c6d7-8e9f-0a1b-2c3d4e5f6a7b&cache=1200" alt="Docker" />
 </p>
+
 
 ## 🚀 Projects
 

@@ -5,39 +5,45 @@ const TESTS: SvgPositioningTest[] = [
     {
         name: `Check positioning of "Preview README.md" preview tab image`,
         svgSelector: '[alt="Preview README.md"]',
-        innerSvgSelector: 'image#preview-tab-dark, image#preview-tab-light',
+        innerSvgSelector: '.preview-tab image',
         test: (positions) => {
             expect(Object.keys(positions).length).toBeGreaterThan(0);
 
             for (const key of Object.keys(positions)) {
                 expect(positions[key].x).toStrictEqual(0);
+                expect(positions[key].left).toStrictEqual(0);
                 expect(positions[key].y).toStrictEqual(0);
+                expect(positions[key].top).toStrictEqual(0);
             }
         }
     },
     {
-        name: `Check positioning of "Preview README.md" container / tabs filler image`,
+        name: `Check positioning of "Preview README.md" container / fluid filler image`,
         svgSelector: '[alt="Preview README.md"]',
-        innerSvgSelector: 'rect#tabs-bar-filler-dark,rect#tabs-bar-filler-light',
+        innerSvgSelector: '.fluid-filler image',
         test: (positions) => {
             expect(Object.keys(positions).length).toBeGreaterThan(0);
 
             for (const key of Object.keys(positions)) {
-                expect(positions[key].x).toBeGreaterThan(0);
+                expect(positions[key].x).toStrictEqual(0);
+                expect(positions[key].left).toStrictEqual(0);
                 expect(positions[key].y).toStrictEqual(0);
+                expect(positions[key].top).toStrictEqual(0);
             }
         }
     },
     {
         name: `Check positioning of "Preview README.md" editor actions image`,
         svgSelector: '[alt="Preview README.md"]',
-        innerSvgSelector: 'image#editor-actions-dark,image#editor-actions-light',
+        innerSvgSelector: '.editor-actions image',
         test: (positions) => {
             expect(Object.keys(positions).length).toBeGreaterThan(0);
 
             for (const key of Object.keys(positions)) {
-                expect(positions[key].x).toStrictEqual(1024);
+                expect(positions[key].x).toBeGreaterThan(0);
+                expect(positions[key].right).toStrictEqual(1024);
                 expect(positions[key].y).toStrictEqual(0);
+                expect(positions[key].top).toStrictEqual(0);
             }
         }
     }

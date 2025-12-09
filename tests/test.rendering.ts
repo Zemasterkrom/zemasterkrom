@@ -27,13 +27,13 @@ export async function renderingTest(urlProvider: (testInfo: TestInfo) => string,
         };
 
         if (properties.beforeInitHook) {
-            properties.beforeInitHook(page, browser, testInfo, properties, currentProcessedSize);
+            await properties.beforeInitHook(page, browser, testInfo, properties, currentProcessedSize);
         }
 
         await page.goto(urlProvider(testInfo));
 
         if (properties.afterInitHook) {
-            properties.afterInitHook(page, browser, testInfo, properties, currentProcessedSize);
+            await properties.afterInitHook(page, browser, testInfo, properties, currentProcessedSize);
         }
 
         while (currentProcessedSize.width >= properties.minWidth) {
@@ -47,7 +47,7 @@ export async function renderingTest(urlProvider: (testInfo: TestInfo) => string,
         }
 
         if (properties.afterTestHook) {
-            properties.afterTestHook(page, browser, testInfo, properties, currentProcessedSize);
+            await properties.afterTestHook(page, browser, testInfo, properties, currentProcessedSize);
         }
     });
 }

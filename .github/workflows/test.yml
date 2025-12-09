@@ -26,14 +26,15 @@ jobs:
                 path: md-html/
 
     test:
-        name: E2E Testing / Playwright ${{ matrix.version.playwright }} (Chromium ${{ matrix.version.chromium }}, Firefox ${{ matrix.version.firefox }}, WebKit ${{ matrix.version.webkit }})
+        name: E2E Testing / Playwright ${{ matrix.playwright }} (Chromium ${{ matrix.chromium }}, Firefox ${{ matrix.firefox }}, WebKit ${{ matrix.webkit }})
         needs: convert
         runs-on: ubuntu-latest
         container:
-            image: mcr.microsoft.com/playwright:v${{ matrix.version.docker }}
+            image: mcr.microsoft.com/playwright:v${{ matrix.docker }}
         strategy:
             matrix:
-                version: 
+                playwright: [1.36.2, 1.57.0]
+                include: 
                     - playwright: 1.36.2
                       docker: 1.36.2-jammy
                       chromium: 115.0.5790.75
@@ -56,10 +57,10 @@ jobs:
               name: markdown-html-conversion
 
           - name: Install dependencies with specific Playwright version
-            run: npm run install-playwright:${{ matrix.version.playwright }}
+            run: npm run install-playwright:${{ matrix.playwright }}
 
           - name: Run tests
-            run: HOME=/root npm run test
+            run: HOME=/root npm run test -- --repeat-each ${{ vars.REPEAT_EACH && vars.REPEAT_EACH || 1 }}
 
           - name: Upload failure trace
             if: failure()

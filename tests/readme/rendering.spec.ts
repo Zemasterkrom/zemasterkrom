@@ -65,7 +65,7 @@ renderingTest(testInfo => testInfo.project.metadata.DOCUMENTS_PATHS.HTML_README_
                     body: screenshotBuffer,
                 });
             } catch (error) {
-                console.error('Error processing SVG: ', error);
+                console.error('Error processing SVG', request.url(), error);
                 await route.continue();
             } finally {
                 if (tempPage && !tempPage.isClosed()) {
