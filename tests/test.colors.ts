@@ -39,6 +39,7 @@ export async function colorSchemeTests(urlProvider: (testInfo: TestInfo) => stri
 
             test.beforeEach(async ({ page }, testInfo) => {
                 await page.goto(await urlProvider(testInfo));
+                await page.addStyleTag({ content: 'html,body{height:100%;overflow:hidden;margin:0;padding:0;}' });
                 await page.waitForLoadState('load');
                 await page.evaluate(() => {
                     document.body.style.margin = '0';

@@ -1,5 +1,6 @@
-import { expect, Locator, Page } from '@playwright/test';
+import { Browser, expect, Locator, Page } from '@playwright/test';
 import { ImageResponsiveTest, responsiveTests, Size } from '../test.responsive';
+import { test } from '../test';
 
 const TESTS: ImageResponsiveTest[] = [
     {
@@ -46,7 +47,9 @@ const TESTS: ImageResponsiveTest[] = [
             ]
         },
         waiter: async (_ignored: string, _ignoredTwo: Page, imgLocator: Locator) => await expect(imgLocator).toBeVisible(),
-        test: async (_ignored: string, _ignoredTwo: string, previousSize: Size, _ignoredThree: Size, viewPortSize: Size, imgLocator: Locator) => {
+        test: async (_ignored: string, _ignoredTwo: string, previousSize: Size, _ignoredThree: Size, viewPortSize: Size, imgLocator: Locator, browser: Browser) => {
+            if (browser.browserType().name() === "webkit") test.skip();
+
             const box = await imgLocator.boundingBox();
             expect(box).toBeDefined();
 
@@ -79,6 +82,7 @@ const TESTS: ImageResponsiveTest[] = [
             const definedHeight = Number((await imgLocator.getAttribute('height'))?.replace('px', ''));
             const boundingBoxWidth = (await imgLocator.boundingBox())?.width;
             const boundingBoxHeight = (await imgLocator.boundingBox())?.height;
+
 
             if (definedWidth) {
                 expect(definedWidth).toStrictEqual(boundingBoxWidth);

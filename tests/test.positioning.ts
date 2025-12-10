@@ -29,6 +29,7 @@ export async function positioningTests(urlProvider: (testInfo: TestInfo) => stri
         positioningTests.forEach((positioningTest) => {
             test(positioningTest.name, async ({ page }, testInfo) => {
                 await page.goto(urlProvider(testInfo));
+                await page.addStyleTag({ content: 'html,body{height:100%;overflow:hidden;margin:0;padding:0;}' });
                 await page.evaluate(() => {
                     document.body.style.margin = '0';
                 });

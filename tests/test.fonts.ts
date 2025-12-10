@@ -27,6 +27,7 @@ export async function fontTests(urlProvider: (testInfo: TestInfo) => string, des
                 const fontDetector = new PlaywrightFontStackDetector(page.context());
                 const availableFonts = await fontDetector.detect(fontTest.fontStack(testInfo));
                 await page.goto(urlProvider(testInfo));
+                await page.addStyleTag({ content: 'html,body{height:100%;overflow:hidden;margin:0;padding:0;}' });
                 if (initHook) await initHook(page);
 
                 const svgLocator = page.locator(fontTest.svgSelector);

@@ -38,6 +38,7 @@ export async function renderingTest(urlProvider: (testInfo: TestInfo) => string,
 
         while (currentProcessedSize.width >= properties.minWidth) {
             await page.evaluate(async () => await new Promise(resolve => setTimeout(resolve, 1000)));
+            await page.addStyleTag({ content: 'html,body{height:100%;overflow:hidden;margin:0;padding:0;}' });
             await page.setViewportSize({ width: currentProcessedSize.width, height: properties.height });
 
             const screenshotPath = `tests/screenshots/${screenshotFolderSeparator}/rendering/${browserName}/${browserName}-${browserVersion}-w${currentProcessedSize.width}.png`;

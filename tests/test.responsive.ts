@@ -1,4 +1,4 @@
-import { expect, Locator, Page, TestInfo } from "@playwright/test";
+import { Browser, expect, Locator, Page, TestInfo } from "@playwright/test";
 import { htmlMediaInfo, test, testStepDescription } from "./test";
 
 export type Size = {
@@ -12,13 +12,14 @@ export type ImageResponsiveTest = {
     viewportSizes: (imgLocator: Locator) => Size[];
     waiter: (previousSrc: string, page: Page, imgLocator: Locator) => Promise<void>;
     initHook?: (page: Page) => Promise<void>;
-    test: (previousSrc: string, currentSrc: string, previousSize: Size, currentSize: Size, viewPortSize: Size, imgLocator: Locator) => Promise<void>;
+    test: (previousSrc: string, currentSrc: string, previousSize: Size, currentSize: Size, viewPortSize: Size, imgLocator: Locator, browser: Browser) => Promise<void>;
 }
 
 export async function responsiveTests(urlProvider: (testInfo: TestInfo) => string, describeName: string, responsiveTests: ImageResponsiveTest[], initHook?: (page: Page) => Promise<void>): Promise<void> {
     test.describe(describeName, () => {
         test.beforeEach(async ({ page }, testInfo) => {
             await page.goto(urlProvider(testInfo));
+            await page.addStyleTag({ content: 'html,body{height:100%;overflow:hidden;margin:0;padding:0;}' });
             await page.setViewportSize({ width: 2048, height: page.viewportSize()?.height || 1024 });
             await page.evaluate(() => {
                 document.body.style.margin = '0';
@@ -27,7 +28,7 @@ export async function responsiveTests(urlProvider: (testInfo: TestInfo) => strin
         });
 
         responsiveTests.forEach((responsiveTest) => {
-            test(responsiveTest.name, async ({ page }) => {
+            test(responsiveTest.name, async ({ page, browser }) => {
                 const getNewSrc = async (loc: Locator) => await loc.evaluate((img: HTMLImageElement) => img.currentSrc || img.src);
 
                 const imgsLocator = page.locator(responsiveTest.imgSelector);
@@ -64,7 +65,7 @@ export async function responsiveTests(urlProvider: (testInfo: TestInfo) => strin
                             });
 
                             const currentSrc = await getNewSrc(imgLocator);
-                            await responsiveTest.test(previousSrc, currentSrc, previousSize, currentSize, viewportSize, imgLocator);
+                            await responsiveTest.test(previousSrc, currentSrc, previousSize, currentSize, viewportSize, imgLocator, browser);
                             previousSrc = currentSrc;
                         }
                     });
