@@ -27,40 +27,6 @@ const TESTS: ColorSchemeTest[] = [
         }
     },
     {
-        name: "Responsive sizing - Stretches the blue image horizontally (fixed size)",
-        selector: '[alt~="fixed-size"][alt~="fixed-width"][alt~="fixed-height"][alt~="responsive-sizing"]',
-        screenshot: true,
-        test: {
-            light: async (_page: Page, _locator: Locator, screenshotPath: string) => {
-                const image = await Jimp.read(screenshotPath);
-                const hex = image.getPixelColor(64, 0);
-                const { r, g, b, a } = intToRGBA(hex);
-
-                expect(r).not.toStrictEqual(255);
-                expect(g).not.toStrictEqual(255);
-                expect(b).not.toStrictEqual(255);
-                expect(a).toStrictEqual(255);
-            }
-        }
-    },
-    {
-        name: "Responsive sizing - Stretches the blue image horizontally (full width, fixed height)",
-        selector: '[alt~="full-width"][alt~="fixed-height"][alt~="responsive-sizing"]',
-        screenshot: true,
-        test: {
-            light: async (_page: Page, _locator: Locator, screenshotPath: string) => {
-                const image = await Jimp.read(screenshotPath);
-                const hex = image.getPixelColor(128, 0);
-                const { r, g, b, a } = intToRGBA(hex);
-
-                expect(r).not.toStrictEqual(255);
-                expect(g).not.toStrictEqual(255);
-                expect(b).not.toStrictEqual(255);
-                expect(a).toStrictEqual(255);
-            }
-        }
-    },
-    {
         name: "SVG and HTML - Builds and shows the rounded rectangle shape correctly",
         selector: '[alt~="svg-styling"][alt~="html"]',
         screenshot: true,

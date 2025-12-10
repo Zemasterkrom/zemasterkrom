@@ -61,6 +61,33 @@ const TESTS: ImageResponsiveTest[] = [
                 expect(boxHeight).toStrictEqual(previousSize.height);
             }
         }
+    },
+    {
+        name: 'Fixed size images dimensions are rendered as is',
+        imgSelector: `[alt~="fixed-size"]`,
+        viewportSizes: (_ignored: Locator) => {
+            return [
+                {
+                    width: 1024,
+                    height: 4096
+                }
+            ]
+        },
+        waiter: async (_ignored: string, _ignoredTwo: Page, imgLocator: Locator) => await expect(imgLocator).toBeVisible(),
+        test: async (_ignored: string, _ignoredTwo: string, _previousSize: Size, _ignoredThree: Size, _viewPortSize: Size, imgLocator: Locator) => {
+            const definedWidth = Number((await imgLocator.getAttribute('width'))?.replace('px', ''));
+            const definedHeight = Number((await imgLocator.getAttribute('height'))?.replace('px', ''));
+            const boundingBoxWidth = (await imgLocator.boundingBox())?.width;
+            const boundingBoxHeight = (await imgLocator.boundingBox())?.height;
+
+            if (definedWidth) {
+                expect(definedWidth).toStrictEqual(boundingBoxWidth);
+            }
+
+            if (definedHeight) {
+                expect(definedHeight).toStrictEqual(boundingBoxHeight);
+            }
+        }
     }
 ]
 
