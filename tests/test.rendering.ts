@@ -1,29 +1,52 @@
-import { Browser, Page, TestInfo } from "@playwright/test";
-import { test } from "./test";
+import { Browser, Page, TestInfo } from '@playwright/test';
+import { test } from './test';
 
 export type RenderingProperties = {
     startWidth: number;
     minWidth: number;
     widthStep: number;
     height: number;
-    beforeInitHook?: (page: Page, browser: Browser, testInfo: TestInfo, properties: RenderingProperties, currentProcessedSize: Size) => Promise<void>;
-    afterInitHook?: (page: Page, browser: Browser, testInfo: TestInfo, properties: RenderingProperties, currentProcessedSize: Size) => Promise<void>;
-    afterTestHook?: (page: Page, browser: Browser, testInfo: TestInfo, properties: RenderingProperties, currentProcessedSize: Size) => Promise<void>;
-}
+    beforeInitHook?: (
+        page: Page,
+        browser: Browser,
+        testInfo: TestInfo,
+        properties: RenderingProperties,
+        currentProcessedSize: Size
+    ) => Promise<void>;
+    afterInitHook?: (
+        page: Page,
+        browser: Browser,
+        testInfo: TestInfo,
+        properties: RenderingProperties,
+        currentProcessedSize: Size
+    ) => Promise<void>;
+    afterTestHook?: (
+        page: Page,
+        browser: Browser,
+        testInfo: TestInfo,
+        properties: RenderingProperties,
+        currentProcessedSize: Size
+    ) => Promise<void>;
+};
 
 export type Size = {
     width: number;
     height: number;
-}
+};
 
-export async function renderingTest(urlProvider: (testInfo: TestInfo) => string, testName: string, screenshotFolderSeparator: string, properties: RenderingProperties): Promise<void> {
+export async function renderingTest(
+    urlProvider: (testInfo: TestInfo) => string,
+    testName: string,
+    screenshotFolderSeparator: string,
+    properties: RenderingProperties
+): Promise<void> {
     test(testName, async ({ page, browser }, testInfo) => {
         const browserName = browser.browserType().name();
         const browserVersion = browser.version();
 
         let currentProcessedSize = {
             width: properties.startWidth,
-            height: properties.height
+            height: properties.height,
         };
 
         if (properties.beforeInitHook) {
@@ -37,7 +60,7 @@ export async function renderingTest(urlProvider: (testInfo: TestInfo) => string,
         }
 
         while (currentProcessedSize.width >= properties.minWidth) {
-            await page.evaluate(async () => await new Promise(resolve => setTimeout(resolve, 1000)));
+            await page.evaluate(async () => await new Promise((resolve) => setTimeout(resolve, 1000)));
             await page.addStyleTag({ content: 'html,body{height:100%;overflow:hidden;margin:0;padding:0;}' });
             await page.setViewportSize({ width: currentProcessedSize.width, height: properties.height });
 

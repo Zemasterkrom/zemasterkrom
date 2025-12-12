@@ -9,21 +9,21 @@ jobs:
         steps:
             - uses: actions/checkout@v5
 
-            - name: Convert GFM Markdown file to HTML (README.md) 
+            - name: Convert GFM Markdown file to HTML (README.md)
               run: bash scripts/convert_gfm_md_to_html.bash --input README.md --output md-html/README.html
               env:
-                GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-            - name: Convert GFM Markdown file to HTML (RESPONSIVE.md) 
+            - name: Convert GFM Markdown file to HTML (RESPONSIVE.md)
               run: bash scripts/convert_gfm_md_to_html.bash --input RESPONSIVE.md --output md-html/RESPONSIVE.html
               env:
-                GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      
+                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
             - name: Upload converted HTML files
               uses: actions/upload-artifact@v4
               with:
-                name: markdown-html-conversion
-                path: md-html/
+                  name: markdown-html-conversion
+                  path: md-html/
 
     test:
         name: E2E Testing / Playwright ${{ matrix.playwright }} (Chromium ${{ matrix.chromium }}, Firefox ${{ matrix.firefox }}, WebKit ${{ matrix.webkit }})
@@ -34,7 +34,7 @@ jobs:
         strategy:
             matrix:
                 playwright: [1.36.2, 1.57.0]
-                include: 
+                include:
                     - playwright: 1.36.2
                       docker: 1.36.2-jammy
                       chromium: 115.0.5790.75
@@ -46,33 +46,33 @@ jobs:
                       firefox: 142.0.1
                       webkit: 26.0
         steps:
-          - uses: actions/checkout@v5
+            - uses: actions/checkout@v5
 
-          - name: Free disk space
-            run: rm -rf /__t/Python /__t/CodeQL /__t/go || true
-          
-          - name: Download converted HTML files
-            uses: actions/download-artifact@v5
-            with:
-              name: markdown-html-conversion
+            - name: Free disk space
+              run: rm -rf /__t/Python /__t/CodeQL /__t/go || true
 
-          - name: Install dependencies with specific Playwright version
-            run: npm run install-playwright:${{ matrix.playwright }}
+            - name: Download converted HTML files
+              uses: actions/download-artifact@v5
+              with:
+                  name: markdown-html-conversion
 
-          - name: Run tests
-            run: HOME=/root npm run test -- --repeat-each ${{ vars.REPEAT_EACH && vars.REPEAT_EACH || 1 }}
+            - name: Install dependencies with specific Playwright version
+              run: npm run install-playwright:${{ matrix.playwright }}
 
-          - name: Upload failure trace
-            if: failure()
-            uses: actions/upload-artifact@v4
-            with:
-              name: test-failure-results-${{ strategy.job-index }}
-              path: test-results/
+            - name: Run tests
+              run: HOME=/root npm run test -- --repeat-each ${{ vars.REPEAT_EACH && vars.REPEAT_EACH || 1 }}
 
-          - name: Upload screenshots
-            if: always()
-            uses: actions/upload-artifact@v4
-            with:
-              name: test-screenshots-${{ strategy.job-index }}
-              path: tests/screenshots/
-              retention-days: 2
+            - name: Upload failure trace
+              if: failure()
+              uses: actions/upload-artifact@v4
+              with:
+                  name: test-failure-results-${{ strategy.job-index }}
+                  path: test-results/
+
+            - name: Upload screenshots
+              if: always()
+              uses: actions/upload-artifact@v4
+              with:
+                  name: test-screenshots-${{ strategy.job-index }}
+                  path: tests/screenshots/
+                  retention-days: 2

@@ -1,5 +1,5 @@
-import { expect } from "@playwright/test";
-import { positioningTests, SvgPositioningTest } from "../test.positioning";
+import { expect } from '@playwright/test';
+import { positioningTests, SvgPositioningTest } from '../test.positioning';
 
 const TESTS: SvgPositioningTest[] = [
     {
@@ -15,7 +15,7 @@ const TESTS: SvgPositioningTest[] = [
                 expect(positions[key].y).toStrictEqual(0);
                 expect(positions[key].top).toStrictEqual(0);
             }
-        }
+        },
     },
     {
         name: `Check positioning of "Preview README.md" container / fluid filler image`,
@@ -30,7 +30,7 @@ const TESTS: SvgPositioningTest[] = [
                 expect(positions[key].y).toStrictEqual(0);
                 expect(positions[key].top).toStrictEqual(0);
             }
-        }
+        },
     },
     {
         name: `Check positioning of "Preview README.md" editor actions image`,
@@ -45,8 +45,8 @@ const TESTS: SvgPositioningTest[] = [
                 expect(positions[key].y).toStrictEqual(0);
                 expect(positions[key].top).toStrictEqual(0);
             }
-        }
-    }
+        },
+    },
 ];
 
-positioningTests(testInfo => testInfo.project.metadata.DOCUMENTS_PATHS.HTML_README_PATH, "Check positioning of SVG elements", TESTS);
+positioningTests((testInfo) => testInfo.project.metadata.DOCUMENTS_PATHS.HTML_README_PATH, 'Check positioning of SVG elements', TESTS);

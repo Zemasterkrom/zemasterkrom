@@ -1,33 +1,33 @@
-import { getAverageColor } from "fast-average-color-node";
-import { ColorSchemeTest, colorSchemeTests } from "../test.colors";
-import { expect, Locator, Page } from "@playwright/test";
-import { intToRGBA, Jimp } from "jimp";
-import { imageSizeFromFile } from 'image-size/fromFile'
+import { getAverageColor } from 'fast-average-color-node';
+import { ColorSchemeTest, colorSchemeTests } from '../test.colors';
+import { expect, Locator, Page } from '@playwright/test';
+import { intToRGBA, Jimp } from 'jimp';
+import { imageSizeFromFile } from 'image-size/fromFile';
 
 const TESTS: ColorSchemeTest[] = [
     {
-        name: "Switches to color theme correctly",
+        name: 'Switches to color theme correctly',
         selector: '[alt~="theme"][alt~="dark-mode[dark-bg]"][alt~="light-mode[light-bg]"]',
         screenshot: true,
         test: {
             dark: async (_page: Page, _locator: Locator, screenshotPath: string) => {
-                const dominantColor = (await getAverageColor(screenshotPath, {
-                    algorithm: 'dominant'
-                }));
+                const dominantColor = await getAverageColor(screenshotPath, {
+                    algorithm: 'dominant',
+                });
 
                 expect(dominantColor.isDark).toBeTruthy();
             },
             light: async (_page: Page, _locator: Locator, screenshotPath: string) => {
-                const dominantColor = (await getAverageColor(screenshotPath, {
-                    algorithm: 'dominant'
-                }));
+                const dominantColor = await getAverageColor(screenshotPath, {
+                    algorithm: 'dominant',
+                });
 
                 expect(dominantColor.isLight).toBeTruthy();
-            }
-        }
+            },
+        },
     },
     {
-        name: "SVG and HTML - Builds and shows the rounded rectangle shape correctly",
+        name: 'SVG and HTML - Builds and shows the rounded rectangle shape correctly',
         selector: '[alt~="svg-styling"][alt~="html"]',
         screenshot: true,
         test: {
@@ -42,16 +42,22 @@ const TESTS: ColorSchemeTest[] = [
                 expect(g).toStrictEqual(255);
                 expect(b).toStrictEqual(255);
                 expect(a).toStrictEqual(255);
-            }
-        }
+            },
+        },
     },
 ];
 
-colorSchemeTests(testInfo => testInfo.project.metadata.DOCUMENTS_PATHS.HTML_RESPONSIVE_PATH, 'Color scheme testing', 'responsive', TESTS, async (page) => {
-    const summaries = page.locator('summary');
-    const count = await summaries.count();
+colorSchemeTests(
+    (testInfo) => testInfo.project.metadata.DOCUMENTS_PATHS.HTML_RESPONSIVE_PATH,
+    'Color scheme testing',
+    'responsive',
+    TESTS,
+    async (page) => {
+        const summaries = page.locator('summary');
+        const count = await summaries.count();
 
-    for (let i = 0; i < count; i++) {
-        await summaries.nth(i).click();
+        for (let i = 0; i < count; i++) {
+            await summaries.nth(i).click();
+        }
     }
-});
+);

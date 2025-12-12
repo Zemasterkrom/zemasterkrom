@@ -1,8 +1,8 @@
-import { Browser, Page, TestInfo } from "@playwright/test";
-import fetchSvgContent from "../../utils/fetch-svg-content";
-import { RenderingProperties, renderingTest, Size } from "../test.rendering";
+import { Browser, Page, TestInfo } from '@playwright/test';
+import fetchSvgContent from '../../utils/fetch-svg-content';
+import { RenderingProperties, renderingTest, Size } from '../test.rendering';
 
-renderingTest(testInfo => testInfo.project.metadata.DOCUMENTS_PATHS.HTML_README_PATH, 'README.md - Rendering test', 'readme', {
+renderingTest((testInfo) => testInfo.project.metadata.DOCUMENTS_PATHS.HTML_README_PATH, 'README.md - Rendering test', 'readme', {
     startWidth: 1200,
     minWidth: 256,
     widthStep: 128,
@@ -55,9 +55,12 @@ renderingTest(testInfo => testInfo.project.metadata.DOCUMENTS_PATHS.HTML_README_
                 });
 
                 let requestUrl = request.url().replace(/[^a-zA-Z0-9]/g, '-');
-                requestUrl = requestUrl.length <= 60 ? requestUrl : requestUrl.slice(0, 30) + "..." + requestUrl.slice(-30);
+                requestUrl = requestUrl.length <= 60 ? requestUrl : requestUrl.slice(0, 30) + '...' + requestUrl.slice(-30);
 
-                const screenshotBuffer = await svgLocator.screenshot({ path: `tests/screenshots/readme/rendering/${browserName}/${browserName}-${browserVersion}-w${currentSize.width}-${requestUrl}.png`, scale: 'css' });
+                const screenshotBuffer = await svgLocator.screenshot({
+                    path: `tests/screenshots/readme/rendering/${browserName}/${browserName}-${browserVersion}-w${currentSize.width}-${requestUrl}.png`,
+                    scale: 'css',
+                });
 
                 await route.fulfill({
                     status: 200,
@@ -69,14 +72,14 @@ renderingTest(testInfo => testInfo.project.metadata.DOCUMENTS_PATHS.HTML_README_
                 await route.continue();
             } finally {
                 if (tempPage && !tempPage.isClosed()) {
-                    await tempPage.close().catch(() => { });
+                    await tempPage.close().catch(() => {});
                 }
             }
         });
     },
     afterTestHook: async (page: Page) => {
         if (!page.isClosed()) {
-            await page.unroute('**/*').catch(() => { });
+            await page.unroute('**/*').catch(() => {});
         }
-    }
+    },
 });

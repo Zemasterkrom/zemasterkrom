@@ -1,5 +1,5 @@
-import { TestInfo } from "@playwright/test";
-import { crossContainsFont, SvgFontTest, fontTests } from "../test.fonts";
+import { TestInfo } from '@playwright/test';
+import { crossContainsFont, SvgFontTest, fontTests } from '../test.fonts';
 
 const TESTS: SvgFontTest[] = [
     {
@@ -13,13 +13,13 @@ const TESTS: SvgFontTest[] = [
 
             const base64Data = href.replace(/^data:image\/svg\+xml;base64,/, '');
             const decodedSvg = atob(base64Data);
-            const previewElement = (new DOMParser()).parseFromString(decodedSvg, 'image/svg+xml');
+            const previewElement = new DOMParser().parseFromString(decodedSvg, 'image/svg+xml');
 
             document.body.innerHTML = previewElement.documentElement.outerHTML || '';
 
             return getComputedStyle(document.querySelector('tspan[style]') || document.createElement('tspan')).fontFamily || null;
         },
-        test: async (_ignored: TestInfo, fontFamilies: string[][], availableFonts: string[]) => crossContainsFont(fontFamilies, availableFonts)
+        test: async (_ignored: TestInfo, fontFamilies: string[][], availableFonts: string[]) => crossContainsFont(fontFamilies, availableFonts),
     },
     {
         name: 'number of installs',
@@ -27,7 +27,7 @@ const TESTS: SvgFontTest[] = [
         innerTextSelector: 'p',
         fontStack: (testInfo: TestInfo) => testInfo.project.metadata.FONT_STACK,
         fontExtractor: (element: Element) => getComputedStyle(element).fontFamily,
-        test: async (_ignored: TestInfo, fontFamilies: string[][], availableFonts: string[]) => crossContainsFont(fontFamilies, availableFonts)
+        test: async (_ignored: TestInfo, fontFamilies: string[][], availableFonts: string[]) => crossContainsFont(fontFamilies, availableFonts),
     },
     {
         name: 'view all projects button',
@@ -35,8 +35,8 @@ const TESTS: SvgFontTest[] = [
         innerTextSelector: 'text',
         fontStack: (testInfo: TestInfo) => testInfo.project.metadata.FONT_STACK,
         fontExtractor: (element: Element) => getComputedStyle(element).fontFamily,
-        test: async (_ignored: TestInfo, fontFamilies: string[][], availableFonts: string[]) => crossContainsFont(fontFamilies, availableFonts)
-    }
+        test: async (_ignored: TestInfo, fontFamilies: string[][], availableFonts: string[]) => crossContainsFont(fontFamilies, availableFonts),
+    },
 ];
 
-fontTests(testInfo => testInfo.project.metadata.DOCUMENTS_PATHS.HTML_README_PATH, "Font loading testing", TESTS);
+fontTests((testInfo) => testInfo.project.metadata.DOCUMENTS_PATHS.HTML_README_PATH, 'Font loading testing', TESTS);

@@ -1,8 +1,8 @@
-import { Page } from "@playwright/test";
-import { renderingTest } from "../test.rendering";
+import { Page } from '@playwright/test';
+import { renderingTest } from '../test.rendering';
 
-renderingTest(testInfo => testInfo.project.metadata.DOCUMENTS_PATHS.HTML_RESPONSIVE_PATH, 'RESPONSIVE.md - Rendering test', 'responsive', {
-    startWidth: 1200,
+renderingTest((testInfo) => testInfo.project.metadata.DOCUMENTS_PATHS.HTML_RESPONSIVE_PATH, 'RESPONSIVE.md - Rendering test', 'responsive', {
+    startWidth: 1024,
     minWidth: 256,
     widthStep: 128,
     height: 18224,
@@ -13,5 +13,5 @@ renderingTest(testInfo => testInfo.project.metadata.DOCUMENTS_PATHS.HTML_RESPONS
         for (let i = 0; i < count; i++) {
             await summaries.nth(i).click();
         }
-    }
+    },
 });

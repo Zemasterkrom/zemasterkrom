@@ -1,8 +1,7 @@
-import { expect, Locator, Page, TestInfo } from "@playwright/test";
-import { htmlMediaInfo, test, testStepDescription } from "./test";
+import { expect, Locator, Page, TestInfo } from '@playwright/test';
+import { htmlMediaInfo, test, testStepDescription } from './test';
 
-type ThemeTestFn<T extends boolean> =
-    T extends true
+type ThemeTestFn<T extends boolean> = T extends true
     ? (page: Page, locator: Locator, screenshotPath: string) => Promise<void>
     : (page: Page, locator: Locator, screenshotPath: string | null) => Promise<void>;
 
@@ -14,7 +13,7 @@ interface ColorSchemeTestBase<T extends boolean> {
     test: {
         dark?: ThemeTestFn<T>;
         light?: ThemeTestFn<T>;
-    }
+    };
 }
 
 export type ColorSchemeTest = ColorSchemeTestBase<true> | ColorSchemeTestBase<false>;
@@ -24,15 +23,20 @@ export function isDark(rgb: number[]) {
         throw new Error('Color array must contains 3 numbers for the RGB color code');
     }
 
-    return (0.2126 * rgb[0] + 0.7152 * rgb[1] + 0.0722 * rgb[2]) <= 127.5;
+    return 0.2126 * rgb[0] + 0.7152 * rgb[1] + 0.0722 * rgb[2] <= 127.5;
 }
 
 export function isLight(rgb: number[]) {
     return !isDark(rgb);
 }
 
-
-export async function colorSchemeTests(urlProvider: (testInfo: TestInfo) => string | Promise<string>, describeName: string, screenshotFolderSeparator: string, colorSchemeTests: ColorSchemeTest[], initHook?: (page: Page) => Promise<void>): Promise<void> {
+export async function colorSchemeTests(
+    urlProvider: (testInfo: TestInfo) => string | Promise<string>,
+    describeName: string,
+    screenshotFolderSeparator: string,
+    colorSchemeTests: ColorSchemeTest[],
+    initHook?: (page: Page) => Promise<void>
+): Promise<void> {
     for (const theme of ['dark', 'light'] as const) {
         test.describe(`${describeName} - ${theme} theme`, () => {
             test.use({ colorScheme: theme });
@@ -67,7 +71,10 @@ export async function colorSchemeTests(urlProvider: (testInfo: TestInfo) => stri
                                 await elementLocator.waitFor({ state: 'visible', timeout: 10000 });
 
                                 if (colorSchemeTest.screenshot) {
-                                    const screenshotPath = `tests/screenshots/${screenshotFolderSeparator}/colors/${browserName}-${browserVersion}-${colorSchemeTest.name.replace(/[^a-zA-Z0-9]/g, '-')}-${theme}-${mediaInfo?.alt?.replace(/[^a-zA-Z0-9]/g, '-')}.png`;
+                                    const safeName = colorSchemeTest.name.replace(/[^a-zA-Z0-9]/g, '-');
+                                    const safeAlt = mediaInfo?.alt?.replace(/[^a-zA-Z0-9]/g, '-');
+                                    const screenshotPath = `tests/screenshots/${screenshotFolderSeparator}/colors/${browserName}-${browserVersion}-${safeName}-${theme}-${safeAlt}.png`;
+
                                     await elementLocator.screenshot({ path: screenshotPath, scale: 'css' });
                                     await colorSchemeTest.test[theme]!(page, globalLocator, screenshotPath);
                                 } else {
@@ -79,5 +86,5 @@ export async function colorSchemeTests(urlProvider: (testInfo: TestInfo) => stri
                 }
             });
         });
-    };
+    }
 }

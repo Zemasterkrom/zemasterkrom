@@ -22,17 +22,16 @@ export default class PlaywrightFontStackDetector {
             await page.waitForLoadState('load');
 
             await page.addScriptTag({
-                path: path.resolve(__dirname, 'detect-available-fonts.js')
+                path: path.resolve(__dirname, 'detect-available-fonts.js'),
             });
 
             await page.addScriptTag({
-                path: path.resolve(__dirname, 'detect-available-font-stack.js')
+                path: path.resolve(__dirname, 'detect-available-font-stack.js'),
             });
 
             return await page.evaluate((fontStack) => {
                 return new window.FontStackDetector().detect(fontStack);
             }, expectedFontStack);
-
         } finally {
             await page.close();
         }

@@ -1,15 +1,19 @@
-import { expect, Page, TestInfo } from "@playwright/test";
-import fetchSvgContent from "../utils/fetch-svg-content";
-import { test, testStepDescription } from "./test";
+import { expect, Page, TestInfo } from '@playwright/test';
+import fetchSvgContent from '../utils/fetch-svg-content';
+import { test, testStepDescription } from './test';
 
 export type SvgPositioningTest = {
     name: string;
     svgSelector: string;
     innerSvgSelector: string;
     test: (positions: Record<string, DOMRect>) => Promise<void> | void;
-}
+};
 
-export async function positioningTests(urlProvider: (testInfo: TestInfo) => string, describeName: string, positioningTests: SvgPositioningTest[]): Promise<void> {
+export async function positioningTests(
+    urlProvider: (testInfo: TestInfo) => string,
+    describeName: string,
+    positioningTests: SvgPositioningTest[]
+): Promise<void> {
     test.describe(describeName, () => {
         async function getPositions(page: Page, svgSelector: string): Promise<Record<string, DOMRect>> {
             const svgLocator = page.locator('svg').nth(0);
@@ -36,7 +40,7 @@ export async function positioningTests(urlProvider: (testInfo: TestInfo) => stri
                 await page.setViewportSize({ width: 1024, height: page.viewportSize()?.height || 1024 });
 
                 const svgImgLocator = page.locator(positioningTest.svgSelector);
-                const svgContent = await fetchSvgContent(await svgImgLocator.getAttribute('src') || '');
+                const svgContent = await fetchSvgContent((await svgImgLocator.getAttribute('src')) || '');
 
                 await page.evaluate((svgContent) => {
                     const domParser = new DOMParser();
@@ -54,12 +58,15 @@ export async function positioningTests(urlProvider: (testInfo: TestInfo) => stri
                 for (let elementId in positions) {
                     index++;
 
-                    await test.step(await testStepDescription({
-                        index: index,
-                        id: elementId
-                    }), async () => {
-                        await positioningTest.test(positions);
-                    });
+                    await test.step(
+                        await testStepDescription({
+                            index: index,
+                            id: elementId,
+                        }),
+                        async () => {
+                            await positioningTest.test(positions);
+                        }
+                    );
                 }
             });
         });

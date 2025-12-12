@@ -6,9 +6,8 @@
   </picture>
 </a>
 
-
 [![Netlify Status](https://api.netlify.com/api/v1/badges/43e04bd2-4dae-45c4-b501-ca425aaa5a34/deploy-status)](https://app.netlify.com/projects/zemasterkrom-typingsvg/deploys)
-[![Netlify Status](https://api.netlify.com/api/v1/badges/f24ca610-2cba-4cc4-adde-76a9b188d61b/deploy-status)](https://app.netlify.com/projects/zemasterkrom-badgen/deploys)  
+[![Netlify Status](https://api.netlify.com/api/v1/badges/f24ca610-2cba-4cc4-adde-76a9b188d61b/deploy-status)](https://app.netlify.com/projects/zemasterkrom-badgen/deploys)
 
 <h1>
   <a href="https://github.com/whiteSHADOW1234/TypingSVG">
@@ -29,20 +28,21 @@
   </a>
 </p>
 
-
 ## 🤔 About Me
 
-⚙️ I build **web apps**, **APIs**, and **package-based components**.  
+⚙️ I build **web apps**, **APIs**, and **package-based components**.
 
-🚀 I enjoy converting **useful ideas** into **real projects**, no matter what kind of project it is. 
+🚀 I enjoy converting **useful ideas** into **real projects**, no matter what kind of project it is.
 
-🧠 I am constantly learning appropriate **new tools**, **languages**, or **frameworks**.  
+🧠 I am constantly learning appropriate **new tools**, **languages**, or **frameworks**.
 
-🤝 [**#OpenSource**](https://github.com/topics/open-source) — I love **contributing** to the community, **sharing technical knowledge**, **helping my fellows** and **teammates**.  
+🤝 [**#OpenSource**](https://github.com/topics/open-source) — I love **contributing** to the community, **sharing technical knowledge**,
+**helping my fellows** and **teammates**.
 
-🏔️ When not working, I like **hiking** and **exploring** new things.  
+🏔️ When not working, I like **hiking** and **exploring** new things.
 
-⚔️ By the way, I'm also a **competitive Fortnite player**. I enjoy the associated **eSports scene**, so I **follow** it and continuously look for **improvements**... Just like developers do.  
+⚔️ By the way, I'm also a **competitive Fortnite player**. I enjoy the associated **eSports scene**, so I **follow** it and continuously look
+for **improvements**... Just like developers do.
 
 <p align="center">
     <img src="https://zemasterkrom-badgen.netlify.app/badge/icon/PHP?icon=php&scale=1.4&labelColor=777BB3&color=777BB3&label=&uuid=9f1b2c3d-4e5f-6a7b-8c9d-0e1f2a3b4c5d&cache=1200" alt="PHP" />
@@ -62,7 +62,6 @@
     <img src="https://zemasterkrom-badgen.netlify.app/badge/icon/GitHub%20Actions?icon=github&scale=1.4&labelColor=171515&color=171515&label=&uuid=4be2f3a4-b5c6-7d8e-9f0a-1b2c3d4e5f6a&cache=1200" alt="GitHub Actions" />
     <img src="https://zemasterkrom-badgen.netlify.app/badge/icon/Docker?icon=docker&scale=1.4&labelColor=1D63ED&color=1D63ED&label=&uuid=5cf3a4b5-c6d7-8e9f-0a1b-2c3d4e5f6a7b&cache=1200" alt="Docker" />
 </p>
-
 
 ## 🚀 Projects
 

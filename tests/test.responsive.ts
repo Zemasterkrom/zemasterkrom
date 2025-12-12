@@ -1,26 +1,44 @@
-import { Browser, expect, Locator, Page, TestInfo } from "@playwright/test";
-import { htmlMediaInfo, test, testStepDescription } from "./test";
+import { Browser, expect, Locator, Page, TestInfo } from '@playwright/test';
+import { htmlMediaInfo, test, testStepDescription } from './test';
 
-export type Size = {
-    width: number,
-    height: number
+export type BoundingBox = {
+    x: number;
+    y: number;
+    width: number;
+    height: number;
 };
 
 export type ImageResponsiveTest = {
     name: string;
     imgSelector: string;
-    viewportSizes: (imgLocator: Locator) => Size[];
-    waiter: (previousSrc: string, page: Page, imgLocator: Locator) => Promise<void>;
-    initHook?: (page: Page) => Promise<void>;
-    test: (previousSrc: string, currentSrc: string, previousSize: Size, currentSize: Size, viewPortSize: Size, imgLocator: Locator, browser: Browser) => Promise<void>;
-}
+    viewportWidths: (imgLocator: Locator) => number[];
+    waiter?: (previousSrc: string, page: Page, imgLocator: Locator) => Promise<void>;
+    prePreviousBoundingBoxHook?: (page: Page, imgLocator: Locator) => Promise<void>;
+    preCurrentBoundingBoxHook?: (page: Page, imgLocator: Locator) => Promise<void>;
+    initHook?: (page: Page, imgLocator: Locator) => Promise<void>;
+    test: (
+        previousSrc: string,
+        currentSrc: string,
+        previousBoundingBox: BoundingBox,
+        currentBoundingBox: BoundingBox,
+        viewportWidth: number,
+        imgLocator: Locator,
+        page: Page,
+        browser: Browser,
+        testInfo: TestInfo
+    ) => Promise<void>;
+};
 
-export async function responsiveTests(urlProvider: (testInfo: TestInfo) => string, describeName: string, responsiveTests: ImageResponsiveTest[], initHook?: (page: Page) => Promise<void>): Promise<void> {
+export async function responsiveTests(
+    urlProvider: (testInfo: TestInfo) => string,
+    describeName: string,
+    responsiveTests: ImageResponsiveTest[],
+    initHook?: (page: Page) => Promise<void>
+): Promise<void> {
     test.describe(describeName, () => {
         test.beforeEach(async ({ page }, testInfo) => {
             await page.goto(urlProvider(testInfo));
             await page.addStyleTag({ content: 'html,body{height:100%;overflow:hidden;margin:0;padding:0;}' });
-            await page.setViewportSize({ width: 2048, height: page.viewportSize()?.height || 1024 });
             await page.evaluate(() => {
                 document.body.style.margin = '0';
             });
@@ -28,7 +46,7 @@ export async function responsiveTests(urlProvider: (testInfo: TestInfo) => strin
         });
 
         responsiveTests.forEach((responsiveTest) => {
-            test(responsiveTest.name, async ({ page, browser }) => {
+            test(responsiveTest.name, async ({ page, browser }, testInfo) => {
                 const getNewSrc = async (loc: Locator) => await loc.evaluate((img: HTMLImageElement) => img.currentSrc || img.src);
 
                 const imgsLocator = page.locator(responsiveTest.imgSelector);
@@ -38,34 +56,54 @@ export async function responsiveTests(urlProvider: (testInfo: TestInfo) => strin
                 for (let i = 0; i < count; i++) {
                     let imgLocator = imgsLocator.nth(i);
                     await expect(imgLocator).toBeVisible();
+                    await page.setViewportSize({ width: 2048, height: page.viewportSize()!.height });
+                    let previousBoundingBox = (await imgLocator.boundingBox())!;
+                    let currentBoundingBox = (await imgLocator.boundingBox())!;
 
-                    const viewportSizes = responsiveTest.viewportSizes(imgLocator);
+                    const viewportWidths = responsiveTest.viewportWidths(imgLocator);
                     const mediaInfo = await htmlMediaInfo(imgLocator, i);
 
                     await test.step(await testStepDescription(mediaInfo), async () => {
-                        for (const viewportSize of viewportSizes) {
+                        for (const viewportWidth of viewportWidths) {
                             let previousSrc = await getNewSrc(imgLocator);
                             expect(previousSrc).toBeTruthy();
 
-                            let previousSize = await imgLocator.evaluate((img: HTMLImageElement) => {
-                                return {
-                                    width: img.offsetWidth,
-                                    height: img.offsetHeight
+                            if (responsiveTest.prePreviousBoundingBoxHook) {
+                                await responsiveTest.prePreviousBoundingBoxHook(page, imgLocator);
+                            }
+
+                            previousBoundingBox = (await imgLocator.boundingBox())!;
+
+                            await page.setViewportSize({ width: viewportWidth, height: page.viewportSize()!.height });
+
+                            if (!responsiveTest.waiter) {
+                                const count = await imgLocator.count();
+
+                                for (let i = 0; i < count; i++) {
+                                    await expect(imgLocator.nth(i)).toBeVisible();
                                 }
-                            });
+                            } else {
+                                await responsiveTest.waiter(previousSrc, page, imgLocator);
+                            }
 
-                            await page.setViewportSize(viewportSize);
-                            await responsiveTest.waiter(previousSrc, page, imgLocator);
+                            if (responsiveTest.preCurrentBoundingBoxHook) {
+                                await responsiveTest.preCurrentBoundingBoxHook(page, imgLocator);
+                            }
 
-                            let currentSize = await imgLocator.evaluate((img: HTMLImageElement) => {
-                                return {
-                                    width: img.offsetWidth,
-                                    height: img.offsetHeight
-                                };
-                            });
+                            currentBoundingBox = (await imgLocator.boundingBox())!;
 
                             const currentSrc = await getNewSrc(imgLocator);
-                            await responsiveTest.test(previousSrc, currentSrc, previousSize, currentSize, viewportSize, imgLocator, browser);
+                            await responsiveTest.test(
+                                previousSrc,
+                                currentSrc,
+                                previousBoundingBox,
+                                currentBoundingBox,
+                                viewportWidth,
+                                imgLocator,
+                                page,
+                                browser,
+                                testInfo
+                            );
                             previousSrc = currentSrc;
                         }
                     });
@@ -74,5 +112,3 @@ export async function responsiveTests(urlProvider: (testInfo: TestInfo) => strin
         });
     });
 }
-
-

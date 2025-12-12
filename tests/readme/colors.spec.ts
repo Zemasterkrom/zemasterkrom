@@ -1,4 +1,3 @@
-
 import { expect, Locator, Page } from '@playwright/test';
 import { intToRGBA, Jimp } from 'jimp';
 import { getAverageColor } from 'fast-average-color-node';
@@ -6,28 +5,28 @@ import { ColorSchemeTest, colorSchemeTests } from '../test.colors';
 
 const TESTS: ColorSchemeTest[] = [
     {
-        name: "Preview README.md - Switches to color theme correctly",
+        name: 'Preview README.md - Switches to color theme correctly',
         selector: '[alt="Preview README.md"]',
         screenshot: true,
         test: {
             dark: async (_page: Page, _locator: Locator, screenshotPath: string) => {
-                const dominantColor = (await getAverageColor(screenshotPath, {
-                    algorithm: 'dominant'
-                }));
+                const dominantColor = await getAverageColor(screenshotPath, {
+                    algorithm: 'dominant',
+                });
 
                 expect(dominantColor.isDark).toBeTruthy();
             },
             light: async (_ignored: Page, _locator: Locator, screenshotPath: string) => {
-                const dominantColor = (await getAverageColor(screenshotPath, {
-                    algorithm: 'dominant'
-                }));
+                const dominantColor = await getAverageColor(screenshotPath, {
+                    algorithm: 'dominant',
+                });
 
                 expect(dominantColor.isLight).toBeTruthy();
-            }
-        }
+            },
+        },
     },
     {
-        name: "Preview README.md - Correctly shows the pattern element",
+        name: 'Preview README.md - Correctly shows the pattern element',
         selector: '[alt="Preview README.md"]',
         screenshot: true,
         test: {
@@ -50,52 +49,52 @@ const TESTS: ColorSchemeTest[] = [
                 expect(g).not.toBeGreaterThanOrEqual(250);
                 expect(b).not.toBeGreaterThanOrEqual(250);
                 expect(a).toStrictEqual(255);
-            }
-        }
+            },
+        },
     },
     {
-        name: "Number of installs of zmkr-cloudflare-turnstile-bundle - Switches to color correctly",
+        name: 'Number of installs of zmkr-cloudflare-turnstile-bundle - Switches to color correctly',
         selector: '[alt*="Number of zmkr-cloudflare-turnstile-bundle installs"]',
         screenshot: true,
         test: {
             dark: async (_ignored: Page, _locator: Locator, screenshotPath: string) => {
-                const dominantColor = (await getAverageColor(screenshotPath, {
-                    algorithm: 'dominant'
-                }));
+                const dominantColor = await getAverageColor(screenshotPath, {
+                    algorithm: 'dominant',
+                });
 
                 expect(dominantColor.isLight).toBeTruthy();
             },
             light: async (_ignored: Page, _locator: Locator, screenshotPath: string) => {
-                const dominantColor = (await getAverageColor(screenshotPath, {
+                const dominantColor = await getAverageColor(screenshotPath, {
                     ignoredColor: [255, 255, 255, 255, 25],
-                    algorithm: 'simple'
-                }));
+                    algorithm: 'simple',
+                });
 
                 expect(dominantColor.isDark).toBeTruthy();
-            }
-        }
+            },
+        },
     },
     {
-        name: "View all projects - Switches to color correctly",
+        name: 'View all projects - Switches to color correctly',
         selector: '[alt="View all projects"]',
         screenshot: true,
         test: {
             dark: async (_ignored: Page, _locator: Locator, screenshotPath: string) => {
-                const dominantColor = (await getAverageColor(screenshotPath, {
-                    algorithm: 'dominant'
-                }));
+                const dominantColor = await getAverageColor(screenshotPath, {
+                    algorithm: 'dominant',
+                });
 
                 expect(dominantColor.isDark).toBeTruthy();
             },
             light: async (_ignored: Page, _locator: Locator, screenshotPath: string) => {
-                const dominantColor = (await getAverageColor(screenshotPath, {
-                    algorithm: 'dominant'
-                }));
+                const dominantColor = await getAverageColor(screenshotPath, {
+                    algorithm: 'dominant',
+                });
 
                 expect(dominantColor.isLight).toBeTruthy();
-            }
-        }
-    }
+            },
+        },
+    },
 ];
 
-colorSchemeTests(testInfo => testInfo.project.metadata.DOCUMENTS_PATHS.HTML_README_PATH, 'Color scheme testing', 'readme', TESTS);
+colorSchemeTests((testInfo) => testInfo.project.metadata.DOCUMENTS_PATHS.HTML_README_PATH, 'Color scheme testing', 'readme', TESTS);

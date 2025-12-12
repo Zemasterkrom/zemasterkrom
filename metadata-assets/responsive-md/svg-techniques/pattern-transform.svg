@@ -1,11 +1,11 @@
 <!-- Example with circle pattern tiling on the rectangle and a right-aligned element on top of it -->
 <svg xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 400 82">
-  <defs>
-    <pattern fill="#0078D4" id="dots" width="10" height="10" patternUnits="userSpaceOnUse">
-      <circle cx="2" cy="2" r="1.5" />
-    </pattern>
-  </defs>
+    <defs>
+        <pattern fill="#0078D4" id="dots" width="10" height="10" patternUnits="userSpaceOnUse">
+            <circle cx="2" cy="2" r="1.5" />
+        </pattern>
+    </defs>
 
-  <rect width="100%" height="80" fill="url(#dots)" transform="rotate(1)"  />
-  <rect width="8" height="74" fill="#0078D4" x="100%" transform="rotate(1) translate(-8,0)"  />
+    <rect width="100%" height="80" fill="url(#dots)" transform="rotate(1)" />
+    <rect width="8" height="74" fill="#0078D4" x="100%" transform="rotate(1) translate(-8,0)" />
 </svg>

@@ -1,7 +1,7 @@
 import { expect, Page } from '@playwright/test';
 import { test } from '../test';
 import { existsSync, readFileSync, rmSync } from 'fs';
-import { JSDOM } from "jsdom";
+import { JSDOM } from 'jsdom';
 
 async function browserFetchWithRetries(page: Page, src: string, retries: number, retryDelayMs: number) {
     try {
@@ -11,7 +11,7 @@ async function browserFetchWithRetries(page: Page, src: string, retries: number,
             if (!res.ok) {
                 throw {
                     message: `HTTP ${res.status}`,
-                    retryAfter: res.headers.get('Retry-After')
+                    retryAfter: res.headers.get('Retry-After'),
                 };
             }
         }, src);
@@ -29,15 +29,17 @@ async function browserFetchWithRetries(page: Page, src: string, retries: number,
         }
 
         console.error(`GET failed. Remaining retries : ${retries - 1}:`, src);
-        await new Promise(resolve => setTimeout(resolve, retryDelayMs));
+        await new Promise((resolve) => setTimeout(resolve, retryDelayMs));
         await browserFetchWithRetries(page, src, retries - 1, retryDelayMs);
     }
 }
 
 test('Warm up the HTTP cache [avoids concurrent workers caching bug]', async ({ page, cacheRoute }, testInfo) => {
-    let document: Document, imgElements: (HTMLImageElement | HTMLSourceElement | SVGImageElement)[] = [], imgSrcs: string[] = [];
+    let document: Document,
+        imgElements: (HTMLImageElement | HTMLSourceElement | SVGImageElement)[] = [],
+        imgSrcs: string[] = [];
 
-    if (process.env.CACHE_WARMUP !== "true") test.skip();
+    if (process.env.CACHE_WARMUP !== 'true') test.skip();
 
     if (existsSync(cacheRoute.options.baseDir)) rmSync(cacheRoute.options.baseDir, { recursive: true });
 
@@ -45,7 +47,7 @@ test('Warm up the HTTP cache [avoids concurrent workers caching bug]', async ({ 
 
     for (const filePath of filePaths) {
         await test.step(`Loading and parsing ${filePath}`, async () => {
-            document = (new JSDOM(readFileSync(filePath.replace('file:///', ''), 'utf-8')).window.document);
+            document = new JSDOM(readFileSync(filePath.replace('file:///', ''), 'utf-8')).window.document;
         });
 
         await test.step(`Collecting image elements references`, async () => {
@@ -53,16 +55,23 @@ test('Warm up the HTTP cache [avoids concurrent workers caching bug]', async ({ 
             imgSrcs = [
                 ...new Set(
                     imgElements
-                        .map((asset) => asset.getAttribute('src') || asset.getAttribute('srcset') || asset.getAttribute('xlink:href') || asset.getAttribute('href'))
-                        .filter(src => src !== null)
-                        .filter(src => src.startsWith('http://') || src.startsWith('https://'))
-                )];
+                        .map(
+                            (asset) =>
+                                asset.getAttribute('src') ||
+                                asset.getAttribute('srcset') ||
+                                asset.getAttribute('xlink:href') ||
+                                asset.getAttribute('href')
+                        )
+                        .filter((src) => src !== null)
+                        .filter((src) => src.startsWith('http://') || src.startsWith('https://'))
+                ),
+            ];
         });
 
         for (const imgSrc of imgSrcs) {
             await test.step(`Executing GET request on ${imgSrc}`, async () => {
                 await browserFetchWithRetries(page, imgSrc, testInfo.project.retries, testInfo.project.metadata.CACHE_WARMER_RETRY_DELAY_MS);
-                await new Promise(resolve => setTimeout(resolve, testInfo.project.metadata.CACHE_WARMER_DELAY_MS));
+                await new Promise((resolve) => setTimeout(resolve, testInfo.project.metadata.CACHE_WARMER_DELAY_MS));
             });
         }
     }
