@@ -28,22 +28,14 @@ issues, there are still a lot of **tricks** that can be used to achieve such des
 
 ```html
 <!-- This will stretch the provided image according to the fixed "width" and "height" attributes -->
-<img
-  width="64"
-  height="32"
-  src="metadata-assets/responsive-md/placeholders/32x32-0078D4-notext.svg"
-  alt="fixed-size | fixed-width | fixed-height | responsive-sizing" />
+<img width="64" height="32" src="metadata-assets/responsive-md/placeholders/32x32-0078D4-notext.svg" alt="fixed-size | fixed-width | fixed-height | responsive-sizing" />
 ```
 
 <img width="64" height="32" src="metadata-assets/responsive-md/placeholders/32x32-0078D4-notext.svg" alt="fixed-size | fixed-width | fixed-height | responsive-sizing" />
 
 ```html
 <!-- This will stretch the provided image to the full parent container width with a fixed and defined height -->
-<img
-  width="100%"
-  height="32"
-  src="metadata-assets/responsive-md/placeholders/32x32-0078D4-notext.svg"
-  alt="full-width | fixed-height | responsive-sizing" />
+<img width="100%" height="32" src="metadata-assets/responsive-md/placeholders/32x32-0078D4-notext.svg" alt="full-width | fixed-height | responsive-sizing" />
 ```
 
 <img width="100%" height="32" src="metadata-assets/responsive-md/placeholders/32x32-0078D4-notext.svg" alt="full-width | fixed-height | responsive-sizing" />
@@ -76,20 +68,18 @@ issues, there are still a lot of **tricks** that can be used to achieve such des
 ```html
 <!-- Change shown image based on device screen width with media queries -->
 <picture>
-  <source media="(max-width: 352px)" srcset="metadata-assets/responsive-md/placeholders/128x128-0078D4-FFFFFF.svg" />
-  <source media="(max-width: 608px)" srcset="metadata-assets/responsive-md/placeholders/256x128-0078D4-FFFFFF.svg" />
-  <source media="(min-width: 609px)" srcset="metadata-assets/responsive-md/placeholders/512x128-0078D4-FFFFFF.svg" />
-  <img
-    src="metadata-assets/responsive-md/placeholders/128x128-0078D4-FFFFFF.svg"
-    alt="picture | responsive[max-width: 352px, max-width: 608px, min-width: 609px]" />
+  <source media="(max-width: 416px)" srcset="metadata-assets/responsive-md/placeholders/128x128-0078D4-FFFFFF.svg" />
+  <source media="(max-width: 672px)" srcset="metadata-assets/responsive-md/placeholders/256x128-0078D4-FFFFFF.svg" />
+  <source media="(min-width: 673px)" srcset="metadata-assets/responsive-md/placeholders/512x128-0078D4-FFFFFF.svg" />
+  <img src="metadata-assets/responsive-md/placeholders/128x128-0078D4-FFFFFF.svg" alt="picture | responsive[max-width: 416px, max-width: 672px, min-width: 673px]" />
 </picture>
 ```
 
 <picture>
-  <source media="(max-width: 352px)" srcset="metadata-assets/responsive-md/placeholders/128x128-0078D4-FFFFFF.svg">
-  <source media="(max-width: 608px)" srcset="metadata-assets/responsive-md/placeholders/256x128-0078D4-FFFFFF.svg">
-  <source media="(min-width: 609px)" srcset="metadata-assets/responsive-md/placeholders/512x128-0078D4-FFFFFF.svg">
-  <img src="metadata-assets/responsive-md/placeholders/128x128-0078D4-FFFFFF.svg" alt="picture | responsive[max-width: 352px, max-width: 608px, min-width: 609px]" />
+  <source media="(max-width: 416px)" srcset="metadata-assets/responsive-md/placeholders/128x128-0078D4-FFFFFF.svg" />
+  <source media="(max-width: 672px)" srcset="metadata-assets/responsive-md/placeholders/256x128-0078D4-FFFFFF.svg" />
+  <source media="(min-width: 673px)" srcset="metadata-assets/responsive-md/placeholders/512x128-0078D4-FFFFFF.svg" />
+  <img src="metadata-assets/responsive-md/placeholders/128x128-0078D4-FFFFFF.svg" alt="picture | responsive[max-width: 416px, max-width: 672px, min-width: 673px]" />
 </picture>
 
 ```html
@@ -97,9 +87,7 @@ issues, there are still a lot of **tricks** that can be used to achieve such des
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="metadata-assets/responsive-md/placeholders/128x128-000000-FFFFFF.svg" />
   <source media="(prefers-color-scheme: light)" srcset="metadata-assets/responsive-md/placeholders/128x128-FFFFFF-000000.svg" />
-  <img
-    src="metadata-assets/responsive-md/placeholders/128x128-000000-FFFFFF.svg"
-    alt="picture | theme | fixed-height | dark-mode[dark-bg] | light-mode[light-bg]" />
+  <img src="metadata-assets/responsive-md/placeholders/128x128-000000-FFFFFF.svg" alt="picture | theme | fixed-height | dark-mode[dark-bg] | light-mode[light-bg]" />
 </picture>
 ```
 
@@ -166,9 +154,7 @@ Right alignment
 </p>
 
 <p align="center">
-  <img
-    src="metadata-assets/responsive-md/placeholders/128x128-0078D4-FFFFFF.svg"
-    alt="align-center | fixed-size | fixed-width | fixed-height" />
+  <img src="metadata-assets/responsive-md/placeholders/128x128-0078D4-FFFFFF.svg" alt="align-center | fixed-size | fixed-width | fixed-height" />
 </p>
 
 <p align="right">
