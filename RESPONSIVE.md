@@ -312,8 +312,11 @@ Because of their **vector** nature, SVG images allow for **very advanced, HTML-l
 
 #### Styling (`<style>` inside SVG)
 
-> [!WARNING] Due to a [**WebKit long-lasting issue**](https://bugs.webkit.org/show_bug.cgi?id=199134), the **prefers-color-scheme** media query **doesn't work when embedded inside a SVG in Safari**.  
-> The `<style>` element work, but the **prefers-color-scheme** media query does not.  
+> [!WARNING]
+>
+> Due to a [**WebKit long-lasting issue**](https://bugs.webkit.org/show_bug.cgi?id=199134), the **prefers-color-scheme** media query **doesn't work when embedded inside a SVG in Safari**.  
+> The `<style>` element work, but the **prefers-color-scheme** media query does not.
+>
 > **A workaround exists in the GFM syntax for maximum cross-browser interoperability**.  
 > Please refer to the [**Responsive & adaptive theming with `<picture>`**](#responsive--adaptive-theming-with-picture) section.
 
@@ -502,14 +505,14 @@ This **3-slice workflow** allows the SVG and its elements to **naturally adapt t
 Although there are several solutions to achieve this layout, **many of them either don't work on GitHub or simply produce distortions**, because:
 
 - **We can't use the `style` attribute** on Markdown-embedded HTML elements
-- **We can't use `script`** elements in our Markdown document and in our SVG
+- **We can't use `<script>`** elements in our Markdown document and in our SVG
 - Only a **very limited subset of HTML attributes** is allowed
 
 A straightforward idea would be to create a **composite SVG** that **embeds three `<svg>` components as slices**:
 
 - The **first slice** expands from **`x="0"`** to **`x="100%"`**
 - The **second slice** is placed at **`x="0"`**
-- The **third slice** is placed at **`x="calc(100% - <third-image-width>)"`**
+- The **third slice** is placed at **`x="calc(100% - <third-component-width>)"`**
 
 The composed SVG image would then be referenced in a `<img>` element with `width="100%"` to make it responsive.
 
@@ -530,7 +533,7 @@ This makes the approach incompatible with **Firefox (Gecko)**, and therefore **u
 > The GFM syntax allows the **`width`** and **`height`** attributes on **`<img>`** elements.  
 > **`<svg>`** elements can contain inner **`<svg>`** element with **dedicated `viewBox` coordinates**.
 
-The solution is to **embed three inner `<svg>` elements inside the root `<svg>`**.
+The solution is to **embed three nested `<svg>` elements inside the root `<svg>`**.
 
 **All intrinsic sizing attributes on the root `<svg>` must be omitted**:
 
@@ -557,7 +560,8 @@ This workflow has been **cross-browser tested** on **GitHub Markdown renderer (G
 1. **Create two SVG images (one per theme)**  
    Each SVG assembles **three slices** into a **horizontally scalable composite image**.
 
-   Create the SVG image that defines a root `<svg>` without coordinate attributes (no `width`, `height`, or `viewBox`).  
+   Create the SVG image that defines a root `<svg>` without coordinate attributes (no `width`, `height`, or `viewBox`).
+
    The `viewBox` attributes will be defined inside the nested `<svg>` layers, allowing the internal layers to **position themselves relative to the available width** rather than being forced to stretch within fixed dimensions.
 
    Inside the root `<svg>`, create **three nested `<svg>` elements**, each with its own **`viewBox`** and **positioning rules**:
@@ -578,8 +582,10 @@ This workflow has been **cross-browser tested** on **GitHub Markdown renderer (G
      → **viewBox="0 0 <image-width> <image-height>"** defines **fixed dimensions** for this slice, allowing it to **scale independently** of the overall SVG width
    - Position it using **`preserveAspectRatio="xMinYMid meet"`**  
      → **xMin meet** locks the component to the **left** while preserving its aspect ratio and **avoiding distortion**
-   - Inside the nested `<svg>`, add a `<foreignObject>` element that reproduces the **Visual Studio Code "Preview tab"** design.  
+   - Inside the nested `<svg>`, add a `<foreignObject>` element that reproduces the **Visual Studio Code "Preview tab"** design.
+
      HTML / CSS is needed to required because the component is **dynamic in width**:
+
      - The **width depends on the "Preview README.md" text width** and the selected font
      - Font **metrics vary by OS**
      - The **container must adapt** to the text width
@@ -592,8 +598,10 @@ This workflow has been **cross-browser tested** on **GitHub Markdown renderer (G
      → **viewBox="0 0 <image-width> <image-height>"** combined to the nested `<svg>` allows the component to **scale and position without constraints**
    - Position it using **`preserveAspectRatio="xMaxYMid meet"`** and **`width="100%"`**, **`height="100%"`**  
      → **xMax meet** locks the component to the **right** while preserving its aspect ratio and **avoiding distortion**
-   - Inside the nested `<svg>`, add a `<foreignObject>` element that reproduces the **Visual Studio Code "Editor Actions"** icons container.  
+   - Inside the nested `<svg>`, add a `<foreignObject>` element that reproduces the **Visual Studio Code "Editor Actions"** icons container.
+
      HTML / CSS is needed to keep consistency with the previous elements and to accurately match:
+
      - **Icon spacing**
      - **Padding**
      - **Margins**  
@@ -622,8 +630,10 @@ Through annotated comments, the concrete SVG implementation demonstrates how the
 
 > [!NOTE]
 >
-> Since the created SVG images do not define the `width`, `height` and `viewBox` coordinates, **the rendering size of the SVG images are controlled by the `width` and `height` attributes of the `<img>` element**.  
-> Because of the usage of **inner `<svg>` elements** with **dedicated `viewBox` coordinates** and the **`preserveAspectRatio` attribute**, you can choose **any `height`** you want.  
+> Since the created SVG images do not define the `width`, `height` and `viewBox` coordinates, **the rendering size of the SVG images are controlled by the `width` and `height` attributes of the `<img>` element**.
+>
+> Because of the usage of **inner `<svg>` elements** with **dedicated `viewBox` coordinates** and the **`preserveAspectRatio` attribute**, you can choose **any `height`** you want.
+>
 > The left/second and right/third slices will **retain their aspect ratio** while **stretching correctly to fit the defined `height`**, while the middle/first slice **will stretch in width along the responsive x-axis**.
 
 ### SVG
