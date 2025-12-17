@@ -1,4 +1,3 @@
 {
-    "editor.defaultFormatter": "esbenp.prettier-vscode",
-    "prettier.documentSelectors": ["**/*.svg"]
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
 }

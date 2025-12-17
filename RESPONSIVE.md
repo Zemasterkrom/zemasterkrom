@@ -2,8 +2,7 @@
 
 ## ⚠️ Issue
 
-**GitHub Flavored Markdown (GFM)** has a syntax that limits the possibilities for designing advanced Markdown layouts due to significant
-security concerns :
+**GitHub Flavored Markdown (GFM)** has a syntax that limits the possibilities for designing advanced Markdown layouts due to significant security concerns :
 
 - **CSS spreadsheets and `<style>` elements are not allowed.**
 - **JavaScript code and `<script>` elements are not allowed.**
@@ -12,16 +11,14 @@ Indeed, that would cause obvious **XSS** or **clickjacking** security issues.
 
 ## ✅ Solutions
 
-While the first idea is that it isn't possible to create a responsive and advanced Markdown design in GFM because of the related security
-issues, there are still a lot of **tricks** that can be used to achieve such design. Here are the tricks that you use:
+While the first idea is that it isn't possible to create a responsive and advanced Markdown design in GFM because of the related security issues, there are still a lot of **tricks** that can be used to achieve such design. Here are the tricks that you use:
 
 ### Responsive sizing, positioning and theming
 
 #### Responsive sizing with `<img>`
 
 - `<img>` supports `width` and `height` attributes.
-  - Example: `<img src="foo.svg" width="100%" alt="...">` **stretches the image to the parent container width**. In GitHub, using `width="100%"`
-    will make the image fill the preview container width.
+  - Example: `<img src="foo.svg" width="100%" alt="...">` **stretches the image to the parent container width**. In GitHub, using `width="100%"` will make the image fill the preview container width.
 
 <details>
 <summary>Examples (expand)</summary>
@@ -311,18 +308,16 @@ Right alignment
 
 ### SVG-based techniques
 
-Because of their **vector** nature, SVG files allow for **very advanced, HTML-like layouts**. Keep the markup inside the `.svg` file and
-reference it from Markdown using an `<img>` element.
+Because of their **vector** nature, SVG images allow for **very advanced, HTML-like layouts**. Keep the markup inside the `.svg` file and reference it from Markdown using an `<img>` element.
 
 #### Styling (`<style>` inside SVG)
 
-> [!WARNING] Due to a [**WebKit long-lasting issue**](https://bugs.webkit.org/show_bug.cgi?id=199134), the **prefers-color-scheme** media query
-> **doesn't work when embedded inside a SVG in Safari**.  
+> [!WARNING] Due to a [**WebKit long-lasting issue**](https://bugs.webkit.org/show_bug.cgi?id=199134), the **prefers-color-scheme** media query **doesn't work when embedded inside a SVG in Safari**.  
 > The `<style>` element work, but the **prefers-color-scheme** media query does not.  
 > **A workaround exists in the GFM syntax for maximum cross-browser interoperability**.  
 > Please refer to the [**Responsive & adaptive theming with `<picture>`**](#responsive--adaptive-theming-with-picture) section.
 
-- **Styling** inside the SVG (`<style>`) applies only within the SVG. Consequence ? It is not stripped out by GFM processor.
+- GitHub allows `<style>` elements inside SVG images because **SVG images in GitHub Markdown documents are embedded via the `<img>`** element. The styles **apply only within the SVG** and **aren't removed by the GFM processor**, since they **don't affect the rest of the page**.
 
 <details>
 <summary>Example (expand)</summary>
@@ -350,7 +345,6 @@ reference it from Markdown using an `<img>` element.
 
     <text class="title" x="10" y="55">Styled inside SVG</text>
 </svg>
-
 ```
 
 ```html
@@ -358,7 +352,6 @@ reference it from Markdown using an `<img>` element.
 ```
 
 <img src="metadata-assets/responsive-md/svg-techniques/style.svg" alt="svg-styling | font | fixed-size | fixed-width | fixed-height" />
-
 </details>
 
 #### HTML inside SVG (`<foreignObject>`)
@@ -401,7 +394,6 @@ reference it from Markdown using an `<img>` element.
 ```
 
 <img width="100%" src="metadata-assets/responsive-md/svg-techniques/html.svg" alt="svg-styling | html | font | full-width | full-height" />
-
 </details>
 
 #### Patterns, transforms & positioned elements
@@ -430,14 +422,13 @@ reference it from Markdown using an `<img>` element.
 ```
 
 <img src="metadata-assets/responsive-md/svg-techniques/pattern-transform.svg" alt="pattern | transform | full-width | full-height" />
-
 </details>
 
 ---
 
 ### Anchors & navigation
 
-- Use HTML or Markdown anchors and link with `#<anchor-name>`.
+- Use HTML or Markdown **anchors** and link with `#<anchor-name>`.
 
 <details>
 <summary>Examples (expand)</summary>
@@ -473,58 +464,48 @@ reference it from Markdown using an `<img>` element.
 </details>
 
 If you combine all of these tricks, you can create quite an advanced GFM layout.  
-If you want an even more responsive Markdown document, check out the above
-[3-slice scaling · Replicating the design of the Visual Studio Code workspace bar](#%EF%B8%8F-3-slice-scaling--replicating-the-design-of-the-visual-studio-code-workspace-bar)
-section, which explains how the responsive design of the VS Code workspace bar [README.md](README.md) works.
+If you want an even more responsive Markdown document, check out the above [**3-slice scaling · Replicating the design of the Visual Studio Code workspace bar**](#%EF%B8%8F-3-slice-scaling--replicating-the-design-of-the-visual-studio-code-workspace-bar) section, which explains how the responsive design of the **Visual Studio Code workspace Bar** [README.md](README.md) works.
 
-## 🟦↔️🟦 3-slice scaling · Replicating the design of the Visual Studio Code workspace bar
+## 🟦↔️🟦 3-slice scaling · Replicating the design of the Visual Studio Code Workspace Bar
 
 ### 💡Idea
 
-We're trying to replicate the style of the Visual Studio Code workspace bar, divided into three parts:
+We're trying to replicate the style of the **Visual Studio Code Workspace Bar**, divided into three parts:
 
 - A **preview tab** representing the active file, anchored at the start of the view
 - A **fluid filler container** spanning the full width of the view
 - An **action buttons container**, anchored at the end of the view
 
 What we're trying to achieve is inspired by the [**9-slice scaling**](https://en.wikipedia.org/wiki/9-slice_scaling)[^1].  
-In our case, since our Visual Studio Code workspace bar is divided into three parts, we are doing horizontal
-[**3-slice scaling**](https://stackoverflow.com/questions/21763823/possible-to-build-an-svg-that-has-fluid-horizontal-scaling-similar-to-old-table)[^2].
+In our case, since our Visual Studio Code workspace bar is divided into three parts, we are doing horizontal [**3-slice scaling**](https://stackoverflow.com/questions/21763823/possible-to-build-an-svg-that-has-fluid-horizontal-scaling-similar-to-old-table)[^2].
 
 Our **3-slice scaling** works as follows:
 
 - **Slice 1**  
-  Positioned on the left of the view.  
-  This element is the only one that can expand to cover the entire width, from the beginning to the end of the view.
+  Positioned on the **left** of the view.  
+  This element is the only one that can **expand to cover the entire width**, from the beginning to the end of the view.
 - **Slice 2**  
-  Positioned above the first slice and on the left side of the view. Remains fixed in this position, with fixed dimensions.
+  Positioned **above the first slice** and on the **left** side of the view. Remains fixed in this position, with **fixed dimensions**.
 - **Slice 3**  
   Positioned above the **first and second slices** at the **end/right** of the view, **with fixed dimensions**.  
   Therefore, **the position of this element changes** depending on the width of the parent container.
 
-That **3-slice workflow** allows the SVG and its elements to **naturally adapt to the size of the parent container without distortion**, with
-**HTML-like layout behavior**.
+This **3-slice workflow** allows the SVG and its elements to **naturally adapt to the size of the parent container without distortion**, with **HTML-like layout behavior**.
 
-[^1]:
-    9-slice scaling SVG implementation: https://blog.bguiz.com/2015/01/22/svg-9-slice-scaling/,
-    https://w3.eleqtriq.com/2014/03/the-holy-grail-of-image-scaling/
-
-[^2]:
-    3-slice scaling SVG implementation:
-    https://stackoverflow.com/questions/21763823/possible-to-build-an-svg-that-has-fluid-horizontal-scaling-similar-to-old-table
+[^1]: 9-slice scaling SVG implementation: https://blog.bguiz.com/2015/01/22/svg-9-slice-scaling/, https://w3.eleqtriq.com/2014/03/the-holy-grail-of-image-scaling/
+[^2]: 3-slice scaling SVG implementation: https://stackoverflow.com/questions/21763823/possible-to-build-an-svg-that-has-fluid-horizontal-scaling-similar-to-old-table
 
 ### ⚠️ Issue
 
 **It's a real challenge to make this work in GitHub Markdown documents, because we're limited by the security filters of the GFM syntax.**
 
-Although there are several solutions to achieve this layout, **many of them either don't work on GitHub or simply produce distortions**, because
-:
+Although there are several solutions to achieve this layout, **many of them either don't work on GitHub or simply produce distortions**, because:
 
 - **We can't use the `style` attribute** on Markdown-embedded HTML elements
 - **We can't use `script`** elements in our Markdown document and in our SVG
 - Only a **very limited subset of HTML attributes** is allowed
 
-A straightforward idea would be to create a **composed SVG** that **embeds three `<image>` components as slices**:
+A straightforward idea would be to create a **composite SVG** that **embeds three `<svg>` components as slices**:
 
 - The **first slice** expands from **`x="0"`** to **`x="100%"`**
 - The **second slice** is placed at **`x="0"`**
@@ -534,19 +515,13 @@ The composed SVG image would then be referenced in a `<img>` element with `width
 
 **Theoretically, this is the correct workflow.**
 
-However, this approach requires omitting the `viewBox` attribute on the root `<svg>`, because **defining a `viewBox` forces the entire graphic
-to scale proportionally** in width and height relative to its parent container — but our goal is to **allow the slices to position naturally
-along the responsive x-axis**.
+However, this approach requires omitting the `viewBox` attribute on the root `<svg>`, because **defining a root `viewBox` forces the entire graphic to scale proportionally** in width and height relative to its parent container — but our goal is to **allow the slices to position naturally along the responsive x-axis**.
 
-While some browsers such as Chromium (Blink) and Safari (WebKit) handle this **"no viewBox scenario"** correctly, **Firefox (Gecko) is
-stricter**.
+While some browsers such as Chromium (Blink) and Safari (WebKit) handle this **"no viewBox scenario"** correctly, **Firefox (Gecko) is stricter**.
 
-Implementing this workflow in **Firefox** causes the intrinsic coordinate system to become **confused about the actual size of the composed
-SVG**, since there is no `viewBox`. As a result, **Firefox miscalculates how the composed SVG should be rendered** and **stretches or distorts
-the entire SVG image instead of applying the 3-slice scaling**.
+Implementing this workflow in **Firefox** causes the intrinsic coordinate system to become **confused about the actual size of the composed SVG**, since there is no `viewBox`. As a result, **Firefox miscalculates how the composite SVG should be rendered** and **stretches or distorts the entire SVG image instead of applying the 3-slice scaling**.
 
-This makes the approach incompatible with **Firefox (Gecko)**, and therefore **unsuitable for GitHub**, which must render consistently across
-all major browser engines.
+This makes the approach incompatible with **Firefox (Gecko)**, and therefore **unsuitable for GitHub**, which must render consistently across all major browser engines.
 
 ### ✅ Solution
 
@@ -555,7 +530,7 @@ all major browser engines.
 > The GFM syntax allows the **`width`** and **`height`** attributes on **`<img>`** elements.  
 > **`<svg>`** elements can contain inner **`<svg>`** element with **dedicated `viewBox` coordinates**.
 
-The solution is to **embed three inner `<svg>` elements inside the root `<svg>`**, each one containing its associated `<image>` component slice.
+The solution is to **embed three inner `<svg>` elements inside the root `<svg>`**.
 
 **All intrinsic sizing attributes on the root `<svg>` must be omitted**:
 
@@ -563,13 +538,13 @@ The solution is to **embed three inner `<svg>` elements inside the root `<svg>`*
 - `height`
 - `viewBox`
 
-→ Instead of defining the SVG `height` and `width` attributes directly in the root `<svg>`, **they will be defined externally** by the `<img>`
-element that references it.
+→ Instead of defining the SVG `height` and `width` attributes directly in the root `<svg>`, **they will be defined externally** by the `<img>` element that references it.
 
-Each inner `<svg>` must define their intrinsic size (defined by the natural dimensions of its associated `<image>` element) via **its own**
-`viewBox` attribute. This **isolates the coordinate system of each slice** from the root `<svg>`, ensuring that every `<image>` component scales
-according to its dedicated inner `<svg>`. By combining each **inner `viewBox`** with the **`preserveAspectRatio`** attribute and the **xMin
-(left)** and **xMax (right)** values, we obtain the desired **3-slice scaling without distortion**.
+Each nested `<svg>` must define its intrinsic size (defined by the real dimensions of the `<svg>`) using the `viewBox` attribute.
+
+This **isolates the coordinate system of each slice** from the root `<svg>`, ensuring that **every component scales independently** according to its dedicated `<svg>` `viewBox`.
+
+By combining each **nested `viewBox`** with the **`preserveAspectRatio`** attribute and the **xMin (left)** and **xMax (right)** values, we obtain the desired **3-slice scaling without distortion**.
 
 This workflow has been **cross-browser tested** on **GitHub Markdown renderer (GFM)**, and works with the three major browser engines:
 
@@ -579,49 +554,53 @@ This workflow has been **cross-browser tested** on **GitHub Markdown renderer (G
 
 ### 🚀 Implementation
 
-1. **Create six SVG component images (three per theme)"**  
-   Prepare three standalone SVG assets per theme (dark / light):
+1. **Create two SVG images (one per theme)**  
+   Each SVG assembles **three slices** into a **horizontally scalable composite image**.
 
-   - `vscode-preview-tab.svg`  
-     The active "preview" tab.  
-     This image would be anchored at the left.
-   - `vscode-fluid-filler.svg`  
-     A 1-px-wide tile pattern used as a stretchable pattern that will extend from the start of the view to the end of the view.
-   - `vscode-editor-actions.svg`  
-      The editor action buttons container.  
-      This image would be anchored to the right. You should end up with 3 components per theme (6 in total).
+   Create the SVG image that defines a root `<svg>` without coordinate attributes (no `width`, `height`, or `viewBox`).  
+   The `viewBox` attributes will be defined inside the nested `<svg>` layers, allowing the internal layers to **position themselves relative to the available width** rather than being forced to stretch within fixed dimensions.
 
-2. **Create two composite SVG images (one per theme)**  
-   Each created composite SVG will assemble the three components into a free width-scalable image.
-
-   Create the composite SVG image that defines a root `<svg>` without coordinates attributes (no `width`, `height`, or `viewBox`) so the inner
-   elements can move freely without being constrained by a fixed size.
-
-   Next, create three inner `<svg>` layers, each implemented as a nested `<svg>` with its own independent `viewBox`:
+   Inside the root `<svg>`, create **three nested `<svg>` elements**, each with its own **`viewBox`** and **positioning rules**:
 
    **Layer 1: Fluid filler (middle, stretchable)**
 
-   > To **avoid overlapping** with other elements, this layer **must be placed first**
+   > To **avoid overlapping** with other elements, this slice **must be declared first**
 
-   - Wrap the `vscode-fluid-filler.svg` inside the nested `<svg>` using **`width="100%"`** and **`height="100%"`**  
-     → **width="100%"** allows the `<image>` element to expand to fit the entire width
-   - Reference it with `<image>` using **`preserveAspectRatio="none"`**, along with **`width="100%"`** and **`height="100%"`**  
-     → **none** allows the `<image>` element to expand as needed in width
+   - Create a nested `<svg>` with **`width="100%"`** and **`height="100%"`**  
+     → **width="100%"** allows the element to **expand to fit the entire width**
+   - Attach the **`preserveAspectRatio="none"`**, **`width="100%"`** and **`height="100%"`** attributes to the nested `<svg>`  
+     → **preserveAspectRatio="none"** allows the element to expand as needed in width **without preserving aspect ratio**, which is required for the filler slice
+   - Inside the nested `<svg>`, draw the `<line>` and `<rect>` shapes that span from the start of the view to the end of the view, ensuring borders and the filler extend across the full width
 
    **Layer 2: Preview tab (left, fixed)**
 
-   - Wrap the component inside a nested `<svg>` with its own **`viewBox="0 0 <image-width> <image-height>"`**
-   - Reference it with `<image>` using **`preserveAspectRatio="xMinYMid meet"`**  
-     → **xMin meet** locks the component to the **left** while preserving its aspect ratio
+   - Create a nested `<svg>` with its own **`viewBox="0 0 <component-width> <component-height>"`**  
+     → **viewBox="0 0 <image-width> <image-height>"** defines **fixed dimensions** for this slice, allowing it to **scale independently** of the overall SVG width
+   - Position it using **`preserveAspectRatio="xMinYMid meet"`**  
+     → **xMin meet** locks the component to the **left** while preserving its aspect ratio and **avoiding distortion**
+   - Inside the nested `<svg>`, add a `<foreignObject>` element that reproduces the **Visual Studio Code "Preview tab"** design.  
+     HTML / CSS is needed to required because the component is **dynamic in width**:
+     - The **width depends on the "Preview README.md" text width** and the selected font
+     - Font **metrics vary by OS**
+     - The **container must adapt** to the text width
+     - The real component embeds specific **margins** and **padding**  
+       This behavior cannot be reliably achieved using pure SVG shapes alone.
 
    **Layer 3: Editor tab (right, fixed)**
 
-   - Wrap the component inside a nested `<svg>` with its own **`viewBox="0 0 <image-width> <image-height>"`**
-   - Reference it with `<image>` using **`preserveAspectRatio="xMaxYMid meet"`** and **`width="100%"`**, **`height="100%"`**  
-     → **xMax meet** locks the component to the **right** while preserving its aspect ratio
+   - Create a nested `<svg>` with its own **`viewBox="0 0 <component-width> <component-height>"`**  
+     → **viewBox="0 0 <image-width> <image-height>"** combined to the nested `<svg>` allows the component to **scale and position without constraints**
+   - Position it using **`preserveAspectRatio="xMaxYMid meet"`** and **`width="100%"`**, **`height="100%"`**  
+     → **xMax meet** locks the component to the **right** while preserving its aspect ratio and **avoiding distortion**
+   - Inside the nested `<svg>`, add a `<foreignObject>` element that reproduces the **Visual Studio Code "Editor Actions"** icons container.  
+     HTML / CSS is needed to keep consistency with the previous elements and to accurately match:
+     - **Icon spacing**
+     - **Padding**
+     - **Margins**  
+       As defined in the real UI.
 
-3. **Embedding in README**  
-   Use the `<picture>` element to switch composite images between dark and light color themes:
+2. **Embedding in README**  
+   Use the `<picture>` element to automatically **switch between dark and light theme**:
 
    ```html
    <picture>
@@ -631,78 +610,265 @@ This workflow has been **cross-browser tested** on **GitHub Markdown renderer (G
    </picture>
    ```
 
+For concrete and full implementation details, refer to the [SVG](#svg) section.
+
+Through annotated comments, the concrete SVG implementation demonstrates how the "**3-slice**" layout was achieved using **SVG-based shapes** combined with **HTML / CSS**, and how the following **cross-browser layout and rendering issues** were mitigated through **reverse engineering**:
+
+- **Graphics:** pixel-rounding errors causing **border blurring artifacts**
+- **Cross-browser limitations**: Safari has known **limitations with HTML layout inside nested `<svg>`**; for example, using **`position: relative` cause layout breakage**, which is a significant limitation for border design
+- **Fonts:** Visual Studio Code switches fonts based on the current running OS, but JavaScript is stripped out from the GitHub GFM sanitizer, **preventing pure runtime OS-based font selection**
+- **Dynamic components**: the "Preview README.md" container must **resize based on text width**, despite `viewBox` constraints
+- **Positioning**: avoiding **stretching and distortion** caused by a single global `viewBox` while **keeping slices responsively aligned**
+
 > [!NOTE]
 >
-> Since the created SVG images do not define the `width`, `height` and `viewBox` coordinates, **the rendering size of the SVG images are
-> controlled by the `width` and `height` attributes of the `<img>` element**.  
-> Because of the usage of **inner `<svg>` elements** with **dedicated `viewBox` coordinates** and the **`preserveAspectRatio` attribute**, you
-> can choose **any `height`** you want.  
-> The left/second and right/third slices will **retain their aspect ratio** while **stretching correctly to fit the defined `height`**, while
-> the middle/first slice **will stretch in width along the responsive x-axis**.
+> Since the created SVG images do not define the `width`, `height` and `viewBox` coordinates, **the rendering size of the SVG images are controlled by the `width` and `height` attributes of the `<img>` element**.  
+> Because of the usage of **inner `<svg>` elements** with **dedicated `viewBox` coordinates** and the **`preserveAspectRatio` attribute**, you can choose **any `height`** you want.  
+> The left/second and right/third slices will **retain their aspect ratio** while **stretching correctly to fit the defined `height`**, while the middle/first slice **will stretch in width along the responsive x-axis**.
 
 ### SVG
-
-> [!IMPORTANT]
->
-> **Many CDNs prohibit** (via their **Content Security Policy \[CSP\]**) the **loading of external resources and images** from an SVG for
-> **security reasons**, so we use **base64-encoded images**, which are **inline and local** representations of the designed images.
 
 #### Dark-theme composed SVG
 
 ```xml
-<!-- VS Code workspace bar : responsive 3-slice scaling (dark theme) -->
-<svg xmlns="http://www.w3.org/2000/svg"
-  xmlns:xlink="http://www.w3.org/1999/xlink"
-  version="1.1">
+<!-- VS Code Workspace Bar : responsive 3-slice scaling (dark theme) -->
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" class="vscode-workspace-bar dark">
+    <!-- To match the UI layout of the real VS Code Workspace bar, we use <foreignObject> elements
+    to embed HTML with CSS inside the SVG. -->
 
-  <!-- To avoid distortions or "stretching", each <image> is placed inside its own <svg> container.
-  This allows each <svg> to have a distinct viewport separate from the root <svg> and to clearly
-  define intrinsic dimensions of the individual images, which would not be possible with the root
-  <svg>. -->
+    <!--
+        To prevent distortions or stretching, each <foreignObject> is placed inside its own <svg>
+        container.
 
-  <!-- Each <image> scales to fill its enclosing <svg> viewport by using width="100%" and
-  height="100%". -->
+        This gives each <svg> a separate viewport and intrinsic dimensions for its HTML content,
+        which the root <svg> cannot provide, avoiding browser-related sizing quirks.
 
-  <!-- Fluid filler (middle, stretchable): first layer / slice -->
-  <!-- Expands horizontally to fill available width (100% = full width of the SVG image) -->
-  <!-- vscode-fluid-filler.svg -->
-  <svg xmlns="http://www.w3.org/2000/svg" id="fluid-filler-dark" class="fluid-filler"
-    height="100%" width="100%">
-    <image width="100%" height="100%" preserveAspectRatio="none"
-      xlink:href="data:image/svg+xml;base64,..." />
-  </svg>
+        It also allows the SVG to position HTML components along the x-axis freely without stretching
+        the entire image proportionally, allowing 3-slice scaling.
+    -->
 
-  <!-- Preview tab (left, fixed): second layer / slice -->
-  <!-- Aligned to the left (x=0) using an inner SVG with a dedicated viewport (separated from the
-  root viewport) and xMin[minimum = left]YMid -->
-  <!-- vscode-preview-tab.svg -->
-  <svg xmlns="http://www.w3.org/2000/svg" id="preview-tab-dark" class="preview-tab"
-    viewBox="0 0 164 36" preserveAspectRatio="xMinYMid meet">
-    <image width="100%" height="100%"
-      xlink:href="data:image/svg+xml;base64,..." />
-  </svg>
+    <!-- Each <foreignObject> scales to fill its enclosing <svg> viewport by using width="100%" and
+    height="100%", avoiding content overflow. -->
+    <style type="text/css">
+        .vscode-workspace-bar {
+            --border-color: rgb(43, 43, 43);
+            --preview-tab-top-border-color: #0078d4;
+            --preview-tab-bottom-border-color: #1f1f1f;
 
-  <!-- Editor actions (right, fixed): third layer / slice -->
-  <!-- Aligned to the right (x=100%) without overflow using an inner SVG with a dedicated viewport
-  (separated from the root viewport) and xMax[maximum = right]YMid -->
-  <!-- vscode-editor-actions.svg -->
-  <svg xmlns="http://www.w3.org/2000/svg" id="editor-actions-dark" class="editor-actions"
-    viewBox="0 0 90 36" preserveAspectRatio="xMaxYMid meet">
-    <image width="100%" height="100%"
-      xlink:href="data:image/svg+xml;base64,..." />
-  </svg>
+            --bg: rgb(24, 24, 24);
+            --soft-bg: #1f1f1f;
+
+            --icon-color: #cccccc;
+            --preview-icon-color: #c5c5c5;
+
+            --tab-text-color: #ffffff;
+        }
+
+        .vscode-workspace-bar .border-box {
+            /* To avoid aliasing and rendering imprecisions when scaling with a viewBox, we use border-box so borders are included in the element size calculation. */
+            box-sizing: border-box;
+        }
+
+        .vscode-workspace-bar .bg {
+            background: var(--bg);
+        }
+
+        .vscode-workspace-bar .soft-bg {
+            background: var(--soft-bg);
+        }
+
+        .vscode-workspace-bar.shape-bg {
+            fill: var(--bg);
+        }
+
+        .vscode-workspace-bar.stroke-border {
+            stroke: var(--border-color);
+            stroke-width: 1;
+            shape-rendering: crispEdges;
+        }
+    </style>
+
+    <!--
+        For elements with undetermined width, such as extendable containers and global top / bottom
+        borders, we use SVG-based shapes instead of a <foreignObject>.
+
+        <foreignObject> content is laid out by the CSS engine and then mapped into SVG space, which can
+        introduce sub-pixel rounding and scaling artifacts when the SVG is stretched.
+
+        Using native SVG-based shapes with shape-rendering="crispEdges" keeps all rendering in SVG space
+        and ensures the best pixel-accuracy.
+    -->
+    <defs>
+        <rect id="bg-def" x="0" y="0" width="100%" height="100%" class="vscode-workspace-bar shape-bg" />
+        <line id="border-top-def" x1="0" y1="0.5" x2="100%" y2="0.5" class="vscode-workspace-bar stroke-border" />
+        <line id="border-bottom-def" x1="0" y1="35.5" x2="100%" y2="35.5" class="vscode-workspace-bar stroke-border" />
+
+        <g id="borders-def">
+            <use xlink:href="#border-top-def" />
+            <use xlink:href="#border-bottom-def" />
+        </g>
+
+        <g id="bg-with-borders-def">
+            <use xlink:href="#bg-def" />
+            <use xlink:href="#borders-def" />
+        </g>
+    </defs>
+
+    <!-- Fluid filler (middle, stretchable): first layer / slice -->
+    <!-- Expands horizontally to fill the entire image in width (100% = full width of the SVG image) -->
+    <svg
+        xmlns="http://www.w3.org/2000/svg"
+        class="fluid-filler border-box"
+        width="100%"
+        height="100%"
+        viewBox="0 0 1 36"
+        preserveAspectRatio="none">
+        <use xlink:href="#bg-with-borders-def" />
+    </svg>
+
+    <!-- Preview tab (left, fixed): second layer / slice -->
+    <!-- Aligned to the left (x=0) using an inner SVG with a dedicated viewport (separated from the
+    root viewport) and xMin[minimum = left]YMid -->
+    <svg xmlns="http://www.w3.org/2000/svg" class="preview-tab" viewBox="0 0 194 36" preserveAspectRatio="xMinYMid meet">
+        <style type="text/css">
+            .vscode-workspace-bar .preview-tab-root {
+                display: block;
+
+                width: max-content;
+                height: 36px;
+
+                /*
+                    Pixel-rounding issues can occur at the bottom of the "preview-tab" element
+                    due to SVG rasterization, viewBox scaling, and specific zoom levels
+                    (e.g., 110% zoom can render a 36px height as 35.95px, causing clipping).
+
+                    Traditional CSS borders on nested SVG or dynamically-sized elements may
+                    get clipped or increase element space, and Safari has additional issues
+                    with viewBox scaling when using "position: relative".
+
+                    To avoid these problems, we can use box-shadow. Although it is mainly
+                    used to create "blur" effects, box-shadow can also be used to create
+                    1-pixel borders without blurring.
+
+                    Unlike traditional borders, box-shadow don't increase the element used
+                    space, which further reduces pixel-rounding issues.
+                */
+                box-shadow: inset 1px 0 0 var(--border-color), inset -1px 0 0 var(--border-color), inset 0 1px 0 var(--border-color),
+                    inset 0 2px 0 var(--preview-tab-top-border-color), inset 0 -1.3px 0 var(--preview-tab-bottom-border-color); /* We use -1.3px to correct pixel-rounding errors */
+
+                /* As we can't rely on JavaScript to detect the current OS, we order the fonts by OS-specific ones first, followed by generic fallbacks at the end. */
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Segoe WPC', system-ui, Ubuntu, 'Droid Sans', sans-serif;
+                font-size: 13px;
+                color: var(--tab-text-color);
+                background: var(--soft-bg);
+            }
+
+            .vscode-workspace-bar .preview-tab-root .content {
+                display: flex;
+                align-items: center;
+
+                padding-left: 11px;
+                padding-right: 10px;
+                line-height: 36px;
+            }
+
+            .vscode-workspace-bar .preview-tab-root svg {
+                fill: var(--preview-icon-color);
+
+                margin-top: 1px;
+                margin-right: 6px;
+            }
+        </style>
+
+        <!--
+            Original width: ~162px.
+            VS Code switches the displayed font based on the running OS (Linux, macOS, Windows).
+            Since the width of the "Preview README.md" text may vary with the font, we use a
+            "tolerance" viewBox width of 194px (162 + 32) to allow the container to expand freely from 162px to
+            194px and avoid text overflow.
+        -->
+        <foreignObject width="100%" height="100%">
+            <div xmlns="http://www.w3.org/1999/xhtml" class="preview-tab-root border-box">
+                <div class="content">
+                    <svg width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" fill="#C5C5C5">
+                        <path
+                            fill-rule="evenodd"
+                            clip-rule="evenodd"
+                            d="<path-data>" />
+                    </svg>
+                    <span>Preview README.md</span>
+                </div>
+            </div>
+        </foreignObject>
+    </svg>
+
+    <!-- Editor actions (right, fixed): third layer / slice -->
+    <!-- Aligned to the right (x=100%) without overflow using an inner SVG with a dedicated viewport
+    (separated from the root viewport) and xMax[maximum = right]YMid -->
+    <svg xmlns="http://www.w3.org/2000/svg" class="editor-actions border-box" viewBox="0 0 90 36" preserveAspectRatio="xMaxYMid meet">
+        <style type="text/css">
+            .vscode-workspace-bar .editor-actions-root {
+                display: flex;
+
+                padding-top: 1px;
+                padding-left: 4px;
+                padding-right: 8px;
+                height: 35px;
+            }
+
+            .vscode-workspace-bar .editor-actions-root .icon {
+                display: flex;
+                align-items: center;
+
+                margin-right: 4px;
+                width: 100%;
+                height: 100%;
+            }
+
+            .vscode-workspace-bar .editor-actions-root .icon svg {
+                padding: 3px;
+                fill: var(--icon-color);
+            }
+        </style>
+
+        <use xlink:href="#bg-with-borders-def" />
+
+        <foreignObject width="100%" height="100%">
+            <div xmlns="http://www.w3.org/1999/xhtml" class="editor-actions-root border-box">
+                <div class="icon">
+                    <svg width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            fill-rule="evenodd"
+                            clip-rule="evenodd"
+                            d="<path-data>" />
+                        <path
+                            d="<path-data>" />
+                    </svg>
+                </div>
+                <div class="icon">
+                    <svg width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="<path-data>" />
+                    </svg>
+                </div>
+                <div class="icon">
+                    <svg width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="<path-data>" />
+                    </svg>
+                </div>
+            </div>
+        </foreignObject>
+    </svg>
 </svg>
 ```
 
 #### Light-theme composed SVG
 
 ```xml
-<!-- VS Code workspace bar : responsive 3-slice scaling (dark theme) -->
-<svg xmlns="http://www.w3.org/2000/svg"
-  xmlns:xlink="http://www.w3.org/1999/xlink"
-  version="1.1">
-
-  <!-- Same implementation using light-variant, base64-encoded <image> elements -->
+<!-- VS Code Workspace Bar : responsive 3-slice scaling (light theme) -->
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" class="vscode-workspace-bar light">
+    <!-- Same implementation using light-variant components -->
 </svg>
 ```
 
@@ -717,7 +883,7 @@ This workflow has been **cross-browser tested** on **GitHub Markdown renderer (G
 ```
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://cdn.jsdelivr.net/gh/Zemasterkrom/zemasterkrom-assets@rev7-fix-firefox-distorted-header-scaling/header/dark-mode/composed/optimized/vscode-workspace-bar.svg" />
-  <source media="(prefers-color-scheme: light)" srcset="https://cdn.jsdelivr.net/gh/Zemasterkrom/zemasterkrom-assets@rev7-fix-firefox-distorted-header-scaling/header/light-mode/composed/optimized/vscode-workspace-bar.svg" />
-  <img src="https://cdn.jsdelivr.net/gh/Zemasterkrom/zemasterkrom-assets@rev7-fix-firefox-distorted-header-scaling/header/dark-mode/composed/optimized/vscode-workspace-bar.svg" alt="Preview README.md" width="100%" height="36" />
+  <source media="(prefers-color-scheme: dark)" srcset="https://cdn.jsdelivr.net/gh/Zemasterkrom/zemasterkrom-assets@rev8-fix-text-overflow-pixel-rounding/header/dark-mode/optimized/vscode-workspace-bar.svg" />
+  <source media="(prefers-color-scheme: light)" srcset="https://cdn.jsdelivr.net/gh/Zemasterkrom/zemasterkrom-assets@rev8-fix-text-overflow-pixel-rounding/header/light-mode/optimized/vscode-workspace-bar.svg" />
+  <img src="https://cdn.jsdelivr.net/gh/Zemasterkrom/zemasterkrom-assets@rev8-fix-text-overflow-pixel-rounding/header/dark-mode/optimized/vscode-workspace-bar.svg" alt="Preview README.md" width="100%" height="36" />
 </picture>

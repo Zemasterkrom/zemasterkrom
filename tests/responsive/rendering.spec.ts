@@ -5,7 +5,7 @@ renderingTest((testInfo) => testInfo.project.metadata.DOCUMENTS_PATHS.HTML_RESPO
     startWidth: 1024,
     minWidth: 256,
     widthStep: 128,
-    height: 18224,
+    height: 25576,
     afterInitHook: async (page: Page) => {
         const summaries = page.locator('summary');
         const count = await summaries.count();

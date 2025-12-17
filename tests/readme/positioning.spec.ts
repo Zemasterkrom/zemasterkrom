@@ -5,7 +5,7 @@ const TESTS: SvgPositioningTest[] = [
     {
         name: `Check positioning of "Preview README.md" preview tab image`,
         svgSelector: '[alt="Preview README.md"]',
-        innerSvgSelector: '.preview-tab image',
+        innerSvgSelector: '.preview-tab-root',
         test: (positions) => {
             expect(Object.keys(positions).length).toBeGreaterThan(0);
 
@@ -20,7 +20,7 @@ const TESTS: SvgPositioningTest[] = [
     {
         name: `Check positioning of "Preview README.md" container / fluid filler image`,
         svgSelector: '[alt="Preview README.md"]',
-        innerSvgSelector: '.fluid-filler image',
+        innerSvgSelector: '.fluid-filler',
         test: (positions) => {
             expect(Object.keys(positions).length).toBeGreaterThan(0);
 
@@ -35,7 +35,7 @@ const TESTS: SvgPositioningTest[] = [
     {
         name: `Check positioning of "Preview README.md" editor actions image`,
         svgSelector: '[alt="Preview README.md"]',
-        innerSvgSelector: '.editor-actions image',
+        innerSvgSelector: '.editor-actions-root',
         test: (positions) => {
             expect(Object.keys(positions).length).toBeGreaterThan(0);
 
