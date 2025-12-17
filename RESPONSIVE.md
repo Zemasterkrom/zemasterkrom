@@ -777,16 +777,18 @@ Through annotated comments, the concrete SVG implementation demonstrates how the
                 display: flex;
                 align-items: center;
 
+                height: 36px;
                 padding-left: 11px;
                 padding-right: 10px;
-                line-height: 36px;
+                gap: 6px;
             }
 
-            .vscode-workspace-bar .preview-tab-root svg {
-                fill: var(--preview-icon-color);
+            .vscode-workspace-bar .preview-tab-root .content svg {
+                width: 16px;
+                height: 16px;
+                margin-top: -1px;
 
-                margin-top: 1px;
-                margin-right: 6px;
+                fill: var(--preview-icon-color);
             }
         </style>
 
@@ -893,7 +895,7 @@ Through annotated comments, the concrete SVG implementation demonstrates how the
 ```
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://cdn.jsdelivr.net/gh/Zemasterkrom/zemasterkrom-assets@rev8-fix-text-overflow-pixel-rounding/header/dark-mode/optimized/vscode-workspace-bar.svg" />
-  <source media="(prefers-color-scheme: light)" srcset="https://cdn.jsdelivr.net/gh/Zemasterkrom/zemasterkrom-assets@rev8-fix-text-overflow-pixel-rounding/header/light-mode/optimized/vscode-workspace-bar.svg" />
-  <img src="https://cdn.jsdelivr.net/gh/Zemasterkrom/zemasterkrom-assets@rev8-fix-text-overflow-pixel-rounding/header/dark-mode/optimized/vscode-workspace-bar.svg" alt="Preview README.md" width="100%" height="36" />
+  <source media="(prefers-color-scheme: dark)" srcset="https://cdn.jsdelivr.net/gh/Zemasterkrom/zemasterkrom-assets@rev9-vscode-tab-offset-adjustment/header/dark-mode/optimized/vscode-workspace-bar.svg" />
+  <source media="(prefers-color-scheme: light)" srcset="https://cdn.jsdelivr.net/gh/Zemasterkrom/zemasterkrom-assets@rev9-vscode-tab-offset-adjustment/header/light-mode/optimized/vscode-workspace-bar.svg" />
+  <img src="https://cdn.jsdelivr.net/gh/Zemasterkrom/zemasterkrom-assets@rev9-vscode-tab-offset-adjustment/header/dark-mode/optimized/vscode-workspace-bar.svg" alt="Preview README.md" width="100%" height="36" />
 </picture>
