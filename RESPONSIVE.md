@@ -464,7 +464,7 @@ Because of their **vector** nature, SVG images allow for **very advanced, HTML-l
 </details>
 
 If you combine all of these tricks, you can create quite an advanced GFM layout.  
-If you want an even more responsive Markdown document, check out the above [**3-slice scaling · Replicating the design of the Visual Studio Code workspace bar**](#%EF%B8%8F-3-slice-scaling--replicating-the-design-of-the-visual-studio-code-workspace-bar) section, which explains how the responsive design of the **Visual Studio Code workspace Bar** [README.md](README.md) works.
+If you want an even more responsive Markdown document, check out the above [**3-slice scaling · Replicating the design of the Visual Studio Code Workspace Bar**](#%EF%B8%8F-3-slice-scaling--replicating-the-design-of-the-visual-studio-code-workspace-bar) section, which explains how the responsive design of the **Visual Studio Code Workspace Bar** [README.md](README.md) works.
 
 ## 🟦↔️🟦 3-slice scaling · Replicating the design of the Visual Studio Code Workspace Bar
 
